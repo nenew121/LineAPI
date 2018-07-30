@@ -21,6 +21,8 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 //------------test template------------------------------//
 use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
 
 class BOT_API extends LINEBot
 {
@@ -104,22 +106,23 @@ class BOT_API extends LINEBot
 
     public function replyMessageNewregis($replyToken = null, $message = null)
     {
-        $actions = array(
+        /*$actions = array(
             New MessageTemplateActionBuilder("ย้อนกลับ", "ย้อนกลับ"),
             New MessageTemplateActionBuilder("ยกเลิก", "ยกเลิก")
           );
         $button  = new ConfirmTemplateBuilder("เมนู" , $actions);
         $outputText = new TemplateMessageBuilder("confim message", $button);
-
+        */
         $messageBuilder = new TextMessageBuilder($message);
 
-        $multiMessage = new MultiMessageBuilder;
+        /*$multiMessage = new MultiMessageBuilder;
         $multiMessage->add($messageBuilder);
         $multiMessage->add($outputText);
         $reply = $multiMessage;
+        */
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $reply->buildMessage(),
+            'messages'   => $messageBuilder->buildMessage(),
         ]);
     }
 
@@ -204,13 +207,12 @@ class BOT_API extends LINEBot
   public function SendLanguage($replyToken = null)
     {
         $actions = array(
-        new MessageTemplateActionBuilder("ภาษาไทย", "ภาษาไทย"),
-        new MessageTemplateActionBuilder("English", "English"),
-        new MessageTemplateActionBuilder("ยกเลิก", "ยกเลิก")
+        new MessageTemplateActionBuilder("Thai", "Thai"),
+        new MessageTemplateActionBuilder("English", "English")
     
     );
         $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
-        $button = new ButtonTemplateBuilder("Language", "กรุณาเลือกภาษาที่ใช้แสดง\nPlease select a display language.", $img_url, $actions);
+        $button = new ButtonTemplateBuilder("Setting", "กรุณาเลือกภาษาที่จะใช้\nPlease select a display language.", $img_url, $actions);
         $outputText = new TemplateMessageBuilder("Setting Language", $button);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
           'replyToken' => $replyToken,
@@ -898,5 +900,180 @@ public function levelist($replyToken = null, $resu = null)
             'messages'   => $reply->buildMessage(),
         ]);
     }
+
+    public function pho($replyToken = null, $url)
+    {
+    $outputText = new ImageMessageBuilder($link, $url);
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $outputText->buildMessage(),
+    ]);
+    //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
+    }
+
+    public function ApproveCenter($replyToken = null, $url)
+    {
+        $actions = array(
+            New UriTemplateActionBuilder("Leave", $url),
+            New MessageTemplateActionBuilder("Approve", "Approve"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test")
+             );
+
+        $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
+        $button  = new ButtonTemplateBuilder("Approve Center", "รายการ", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Approve Center", $button);
+
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+
+    public function TimeAttendance($replyToken = null, $LineID)
+    {
+        $url = "http://thanapathcm.prosoft.co.th/LineAPI/Leave?LineID=".$LineID;
+        $actions = array(
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test")
+             );
+
+        $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
+        $button  = new ButtonTemplateBuilder("Time Attendence", "รายการ", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Time Attendence", $button);
+
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+
+    public function Payroll($replyToken = null, $url)
+    {
+        $actions = array(
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test")
+             );
+
+        $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
+        $button  = new ButtonTemplateBuilder("Payroll", "รายการ", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Payroll", $button);
+
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+
+    public function Organization($replyToken = null, $url)
+    {
+        $actions = array(
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test")
+             );
+
+        $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
+        $button  = new ButtonTemplateBuilder("Organization", "รายการ", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Organization", $button);
+
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+
+    public function Setting($replyToken = null, $url)
+    {
+        $actions = array(
+            New MessageTemplateActionBuilder("เปลี่ยนภาษา", "เปลี่ยนภาษา"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test")
+             );
+
+        $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
+        $button  = new ButtonTemplateBuilder("Setting", "รายการ", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Setting", $button);
+
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+
+    public function AboutUs($replyToken = null, $url)
+    {
+        $actions = array(
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test"),
+            New MessageTemplateActionBuilder("Test", "Test")
+             );
+
+        $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
+        $button  = new ButtonTemplateBuilder("About Us", "รายการ", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("About Us", $button);
+
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+
+    public function SetLanguage($replyToken = null,$LineID)
+    {
+        $url = "http://thanapathcm.prosoft.co.th/LineAPI/LineSetting/".$LineID;
+        $actions = array(
+        new UriTemplateActionBuilder("Thai", $url.","."th-TH"),
+        new UriTemplateActionBuilder("English", $url.","."eu-US")
+    
+    );
+        $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
+        $button = new ButtonTemplateBuilder("Setting", "กรุณาเลือกภาษาที่จะใช้\nPlease select a display language.", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Setting Language", $button);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+          'replyToken' => $replyToken,
+          'messages'   => $outputText->buildMessage(),
+      ]);
+    }
+
+    public function SendLanguageTH($replyToken = null)
+    {
+        $actions = array(
+        new MessageTemplateActionBuilder("ไทย", "ไทย"),
+        new MessageTemplateActionBuilder("อังกฤษ", "อังกฤษ")
+    
+    );
+        $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
+        $button = new ButtonTemplateBuilder("ตั้งค่า", "กรุณาเลือกภาษาที่จะใช้", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("ตั้งค่าภาษา", $button);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+          'replyToken' => $replyToken,
+          'messages'   => $outputText->buildMessage(),
+      ]);
+    }
+
+    public function SendLanguageENG($replyToken = null)
+    {
+        $actions = array(
+        new MessageTemplateActionBuilder("Thai", "Thai"),
+        new MessageTemplateActionBuilder("English", "English")
+    
+    );
+        $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
+        $button = new ButtonTemplateBuilder("Setting", "Please select a display language.", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Setting Language", $button);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+          'replyToken' => $replyToken,
+          'messages'   => $outputText->buildMessage(),
+      ]);
+    }
+
 
 }

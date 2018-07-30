@@ -74,9 +74,9 @@ function CheckID($userID)
         else
         {
         return 0;
+        }
     }
-}
-$link->close();
+    $link->close();
 }
 
 function Singup($userID) // เพิ่มมมมมมมมมมม
@@ -154,13 +154,13 @@ function AddLanguageline($Language, $userID)
     {
         $sql1 = "UPDATE emLineuserconnect SET ThisMenu = '4' WHERE UserID = '".$userID."' ";
         $link->query($sql1);
-        return "Please Enter Your Employee ID";
+        return "Please enter your employee code.";
     }
     else if ($Language == "TH")
     {
         $sql1 = "UPDATE emLineuserconnect SET ThisMenu = '2' WHERE UserID = '".$userID."' ";
         $link->query($sql1);
-        return "กรุณาพิมพ์รหัสพนักงาน";
+        return "กรุณาระบุรหัสพนักงานที่ต้องการใช้งาน";
     }
     else
     {
@@ -182,25 +182,32 @@ function AddIDTH($emcode,$userID)
         FROM emEmployee,emLineuserconnect
         WHERE emEmployee.EmpID =  emLineuserconnect.EmpID AND emEmployee.EmpCode = '".$emcode."'";
         $resultt = mysqli_query($link, $qusql);
-        while ($roww = mysqli_fetch_assoc($resultt)){
-        if ($roww['UserID'] == ".$userID.")
+        if (mysqli_num_rows($resultt) > 0)
         {
-            return "รหัสพนักงานนี้ ได้มีการลงทะเบียนไว้แล้ว\nกรุณาพิมพ์รหัสพนักงานใหม่";
-        }
-        else
-        {
+            while ($roww = mysqli_fetch_assoc($resultt))
+            {
+                if ($roww['EmpID'] != ".$emcode.")
+                {
+                    return "รหัสพนักงานนี้ ได้มีการลงทะเบียนไว้แล้ว\nกรุณาพิมพ์รหัสพนักงานใหม่";
+                }
+                else
+                {
+                    return 'รหัสพนักงานนี้ยังไม่ได้ลงทะเบียน';
+                }
+            }
+        }else{
             $sql = "SELECT EmpID FROM emEmployee WHERE EmpCode = '".$emcode."'";
             $result = mysqli_query($link, $sql);
             while ($row = mysqli_fetch_assoc($result))
             {
                 $sql1 = "UPDATE emLineuserconnect SET ThisMenu = '3' , EmpID = '".$row['EmpID']."' WHERE UserID = '".$userID."' ";
                 $link->query($sql1);
-                return "กรุณาพิมพ์เลข 4 ตัวท้ายของบัตรประชาชน";
+                return "กรุณาระบุรหัสประจำตัวประชาชน 4 หลักสุดท้าย";
             }
-        }
-        }
-        return "กรุณาพิมพ์เลข 4 ตัวท้ายของบัตรประชาชนf";
-    }else{
+        } 
+    }
+    else
+    {
         return "ไม่มีรหัสพนักงานนี้อยู่ในสารระบบ กรุณาพิมพ์รหัสพนักงานใหม่";
     }
 $link->close();
@@ -1864,29 +1871,78 @@ function historyleave($userID, $leavename){
 $link->close();
 }
 
-$localhost = 'thanapathcm.prosoft.co.th';
 
-function TestAPI($text){
-
-    /*$url = 'http://'".$localhost."'/employees?OrgID=3F3BF3AD-B4C9-4D44-A56F-AB55C4E4FB01&EmpID=56425c58-4030-45a5-b9a9-44f5d82025a7';
-    $data = file_get_contents($url); // put the contents of the file into a variable
-    $characters = json_decode($data); // decode the JSON feed
-    foreach($characters as $value) {
-          return "OK";
-    }*/
-
-    $url = 'http://thanapathcm.prosoft.co.th/LineAPI/SelectDB/Select/214778f2-79a2-429f-bb84-bd08f41e2266';
-    $arr = json_decode(file_get_contents($url), true);
-    if($arr === false || $arr == null){
-        return "Get URL error";
+function CheckLanguage($LineID,$Language){
+    if($Language == "ภาษาไทย" || $Language == "Thai" || $Language == "อังกฤษ" || $Language == "English"){
+        if($Language == "ภาษาไทย" || $Language == "Thai"){
+            $ReLang = "th-TH";
+        }elseif($Language == "อังกฤษ" || $Language == "English"){
+            $ReLang = "eu-US";
+        }
+        $_str = $LineID.",".$ReLang;
+        $url = "http://thanapathcm.prosoft.co.th/api/SetLanguage/".$_str;
+        //$url = "http://localhost:4040/LineAPI/LineSetting/".$_str;
+        //header('location:' .$url);
+        $open = json_decode(file_get_contents($url), true);
+        return $open;
+        //exit();
     }
     else
     {
-        foreach ($arr as $value) {
-            return $value['LeaveTypeName'];
-        }
+        return "เลือกภาษาไม่ถูกต้อง";
     }
 }
+
+function CheckLineID($LineID,$Token){
+
+    $url = "http://thanapathcm.prosoft.co.th/LineAPI/CheckLineID/".$LineID.",".$Token;
+    //$url = "http://localhost:4040/LineAPI/CheckLineID/".$LineID.",".$Token;
+    //header('location:' .$url);
+    file_get_contents($url);
+    //return $url;
+    //exit();
+}
+
+//===========================  TEST
+
+function UrlLeave($LineID){
+        $url = "http://thanapathcm.prosoft.co.th/LineAPI/Leave?LineID=".$LineID;
+        //$url = "http://thanapathcm.prosoft.co.th/api/Leave?LeaveType=".$text."&LineID=".$LineID;
+        //$open = json_decode(file_get_contents($url), true);
+        //header('location:' .$url);
+        //exit();
+        return $url;
+}
+function UrlLanguage($LineID,$text){
+    $url = "http://thanapathcm.prosoft.co.th/LineAPI/Language";
+    //$url = "http://thanapathcm.prosoft.co.th/api/Leave?LeaveType=".$text."&LineID=".$LineID;
+    //$open = json_decode(file_get_contents($url), true);
+    //header('location:' .$url);
+    //exit();
+    return $url;
+}
+function TestHi(){
+    
+        $url = "http://thanapathcm.prosoft.co.th/api/TestHi/U7fb3dc484426fb164c424df09b7a42ba";
+        $open = json_decode(file_get_contents($url), true);
+
+        return $open;
+}
+function TestSetLanguage(){
+    
+        $url = "http://thanapathcm.prosoft.co.th/api/SetLanguage/U7fb3dc484426fb164c424df09b7a42ba,th-TH";
+        $open = json_decode(file_get_contents($url), true);
+
+        return $open;
+}
+function ShowLanguage($LineID){
+
+        $url = "http://thanapathcm.prosoft.co.th/api/SelectLanguage/".$LineID;
+        $open = json_decode(file_get_contents($url), true);
+
+        return $open;
+}
+
 
 
 ?>
