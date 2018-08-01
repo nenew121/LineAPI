@@ -38,6 +38,25 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->TimeAttendance($bot->replyToken,$bot->userId);
             }
+            elseif($bot->text == "Leave Information")
+            {
+                $bot->Leaveinformation($bot->replyToken);
+            }
+            elseif($bot->text == "Wait Approve")
+            {
+                $Text = Leaveinformation($bot->userId,"W");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Approved")
+            {
+                $Text = Leaveinformation($bot->replyToken,"Y");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Not Approve")
+            {
+                $Text = Leaveinformation($bot->replyToken,"N");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
             elseif($bot->text == "Payroll")
             {
                 $bot->Payroll($bot->replyToken);

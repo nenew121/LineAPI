@@ -164,7 +164,7 @@ public function TimeAttendance($replyToken = null, $LineID)
     $actions = array(
         New UriTemplateActionBuilder("Time Stamp", "http://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
         New UriTemplateActionBuilder("Leave Information", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
-        New MessageTemplateActionBuilder("Leave Permission", "Leave Permission"),
+        New MessageTemplateActionBuilder("Leave Information", "Leave Information"),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 
@@ -270,6 +270,24 @@ public function SendLeaveType($replyToken = null)
       'replyToken' => $replyToken,
       'messages'   => $outputText->buildMessage(),
   ]);
+}
+
+public function Leaveinformation($replyToken = null)
+{
+    $actions = array(
+        New MessageTemplateActionBuilder("Wait Approve", "Wait Approve"),
+        New MessageTemplateActionBuilder("Approved", "Approved"),
+        New MessageTemplateActionBuilder("Not Approve", "Not Approve")
+         );
+
+    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
+    $button  = new ButtonTemplateBuilder("Leaveinformation", "รายการ", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("Leaveinformation", $button);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $outputText->buildMessage(),
+    ]);
 }
 
 }
