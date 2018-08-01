@@ -45,7 +45,7 @@ if (!empty($bot->isEvents)) {
             elseif($bot->text == "Wait Approve")
             {
                 $Text = Leaveinformation($bot->userId,"W");
-                $bot->replyMessageNew($bot->replyToken,$Text);
+                $bot->replyMessageNew($bot->replyToken,$Text[0]);
             }
             elseif($bot->text == "Approved")
             {
