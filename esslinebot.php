@@ -49,12 +49,12 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Approved")
             {
-                $Text = Leaveinformation($bot->replyToken,"Y");
+                $Text = Leaveinformation($bot->userId,"Y");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "Not Approve")
             {
-                $Text = Leaveinformation($bot->replyToken,"N");
+                $Text = Leaveinformation($bot->userId,"N");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "Payroll")
