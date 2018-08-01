@@ -45,17 +45,17 @@ if (!empty($bot->isEvents)) {
             elseif($bot->text == "Wait Approve")
             {
                 $Text = Leaveinformation($bot->userId,"W");
-                $bot->replyMessageNew($bot->replyToken,$Text[0]);
+                $bot->replyMessageNew($bot->replyToken,$Text[0].$Text[1]);
             }
             elseif($bot->text == "Approved")
             {
                 $Text = Leaveinformation($bot->userId,"Y");
-                $bot->replyMessageNew($bot->replyToken,$Text);
+                $bot->replyMessageNew($bot->replyToken,$Text[0].$Text[1]);
             }
             elseif($bot->text == "Not Approve")
             {
                 $Text = Leaveinformation($bot->userId,"N");
-                $bot->replyMessageNew($bot->replyToken,$Text);
+                $bot->replyMessageNew($bot->replyToken,$Text[0].$Text[1]);
             }
             elseif($bot->text == "Payroll")
             {
