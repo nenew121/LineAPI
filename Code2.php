@@ -30,8 +30,8 @@ function Leaveinformation($LineID,$Status){
     $arr = [];
     
     foreach($open as $text){
-        array_push($arr,("วันที่ลา :".$text['DocuDate']."/n ประเภทการลา :".$text['LeaveTypeName']."/n จำนวนวันลา : 1"."/n สาเหตุการลา :".$text['LeaveRemark']));
-        array_push($arr,"--------------");
+        array_push($arr,("วันที่ลา :".$text['DocuDate']."\n ประเภทการลา :".$text['LeaveTypeName']."\n จำนวนวันลา : 1"."\n สาเหตุการลา :".$text['LeaveRemark']));
+        array_push($arr,"\n--------------");
     }
     return $arr;
 }
