@@ -239,7 +239,7 @@ public function AboutUs($replyToken = null)
 {
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/"),
-        New MessageTemplateActionBuilder("Test", "Test"),
+        New UriTemplateActionBuilder("Getlocation", "https://lineservice.prosofthcm.com/Upload/Getlocation.html"),
         New MessageTemplateActionBuilder("Test", "Test"),
         New MessageTemplateActionBuilder("Test", "Test")
          );
