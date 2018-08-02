@@ -7,9 +7,9 @@ function CheckLineID($LineID){
     return $open;
 }
 
-function SelectLanguage($LineID){
+function GetLanguage($LineID){
     
-    $url = "http://thanapathcm.prosoft.co.th/api/SelectLanguage/".$LineID;
+    $url = "http://lineservice.prosofthcm.com/api/LanguageAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;

@@ -26,10 +26,10 @@ if(!empty($idnews)){
 if (!empty($bot->isEvents)) {
 
     /*if(CheckLineID($bot->userId))
-    {
-        $Language = SelectLanguage($bot->userId);
-        if(CheckActive($bot->userId))
-        {*/
+    {*/
+        $Language = GetLanguage($bot->userId);
+        if($Language != null)
+        {
             if($bot->text == "ApproveCenter")
             {
                 $bot->ApproveCenter($bot->replyToken,$bot->userId);
@@ -104,12 +104,12 @@ if (!empty($bot->isEvents)) {
             {
             $bot->replyMessageNew($bot->replyToken,"ไม่มีรายการที่เลือก");
             }
-        /*}
+        }
         else
         {
-            $bot->Register($bot->replyToken,$bot->userId);
+            $bot->SendLanguage($bot->replyToken,$bot->userId);
         }
-    }
+    /*}
     else
     {
         $bot->SendLanguage($bot->replyToken,$bot->userId);
