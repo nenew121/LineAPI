@@ -164,8 +164,9 @@ public function TimeAttendance($replyToken = null, $LineID)
     $actions = array(
         New UriTemplateActionBuilder("Time Stamp", "http://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
         New UriTemplateActionBuilder("Leave Information", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
-        New MessageTemplateActionBuilder("Leave Information", "Leave Information"),
-        New MessageTemplateActionBuilder("Test", "Test")
+        New MessageTemplateActionBuilder("LeaveNum", "LeaveNum"),
+        New MessageTemplateActionBuilder("Leave Information", "Leave Information")
+        
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
@@ -281,8 +282,26 @@ public function Leaveinformation($replyToken = null)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
-    $button  = new ButtonTemplateBuilder("Leaveinformation", "รายการ", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("Leaveinformation", $button);
+    $button  = new ButtonTemplateBuilder("Leave information", "รายการ", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("Leave information", $button);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $outputText->buildMessage(),
+    ]);
+}
+
+public function LeaveNum($replyToken = null)
+{
+    $actions = array(
+        New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),
+        New MessageTemplateActionBuilder("ลาป่วย", "ลาป่วย"),
+        New MessageTemplateActionBuilder("ลาพักร้อน", "ลาพักร้อน")
+         );
+
+    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
+    $button  = new ButtonTemplateBuilder("LeaveDayNum", "รายการ", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
