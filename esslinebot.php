@@ -102,7 +102,7 @@ if (!empty($bot->isEvents)) {
             }
             else
             {
-            $bot->replyMessageNew($bot->replyToken,"ไม่มีรายการที่เลือก");
+            $bot->testt($bot->replyToken,"ไม่มีรายการที่เลือก");
             }
         /*}
         else

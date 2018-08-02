@@ -309,5 +309,19 @@ public function LeaveNum($replyToken = null)
     ]);
 }
 
+public function testt($replyToken = null, $mess)
+{
+    $messageBuilder = new TextMessageBuilder($message);
+
+    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
+    $button  = new ButtonTemplateBuilder("LeaveDayNum", "รายการ", $img_url, $messageBuilder);
+    $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $outputText->buildMessage(),
+    ]);
+}
+
 }
 ?>
