@@ -50,9 +50,9 @@ function Leaveinformation($LineID,$Status){
     return $sum;
 }
 
-function Leavenum($LineID,$Leavetype){
+function LeaveDayNum($LineID,$LeavetypeCode){
     
-    $url = "http://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$Leavetype;
+    $url = "http://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$LeavetypeCode;
     $open = json_decode(file_get_contents($url), true);
     $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n----------------------------------------------\n";
         foreach($open as $text){
