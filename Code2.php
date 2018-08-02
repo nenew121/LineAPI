@@ -50,18 +50,20 @@ function Leaveinformation($LineID,$Status){
     return $sum;
 }
 
-function LeaveDayNum($LineID,$LeavetypeCode){
+function LeaveDayNum($LineID,$Leavetype){
     
-    $url = "http://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$LeavetypeCode;
+    $url = "http://localhost:4040/api/LeaveNumAPI/".$LineID."/".$Leavetype;
     $open = json_decode(file_get_contents($url), true);
     $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n----------------------------------------------\n";
     if($open != null){
         foreach($open as $text){
+            $day = $text['LeaveTypeDayNum']-$text['Days'];
+            $hours = $text['Hours'];
+
             $sum = $sum."ประเภทการลา : ".$text['LeaveTypeName']."\n";
             $sum = $sum."จำนวนวันอนุญาต: ".$text['LeaveTypeDayNum']."\n";
-            $sum = $sum."จำนวนวันลา : ".$text['Days']."\n";
-            $day = $text['LeaveTypeDayNum']-$text['Days'];
-            $sum = $sum."วันลาคงเหลือ : ".$day."\n";
+            $sum = $sum."จำนวนวันลา : ".$text['Days']."-".$text['Hours']."\n";
+            $sum = $sum."วันลาคงเหลือ : ".$day."-".$hours."\n";
             $sum = $sum."----------------------------------------------\n";
         }
     }else{
