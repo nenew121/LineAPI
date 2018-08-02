@@ -164,7 +164,7 @@ public function TimeAttendance($replyToken = null, $LineID)
     $actions = array(
         New UriTemplateActionBuilder("Time Stamp", "http://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
         New UriTemplateActionBuilder("Leave Information", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
-        New MessageTemplateActionBuilder("LeaveNum", "LeaveNum"),
+        New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
         New MessageTemplateActionBuilder("Leave Information", "Leave Information")
         
          );
@@ -291,7 +291,7 @@ public function Leaveinformation($replyToken = null)
     ]);
 }
 
-public function LeaveNum($replyToken = null)
+public function LeaveRemain($replyToken = null)
 {
     $actions = array(
         New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),

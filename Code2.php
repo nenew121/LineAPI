@@ -50,7 +50,7 @@ function Leaveinformation($LineID,$Status){
     return $sum;
 }
 
-function LeaveDayNum($LineID,$Leavetype){
+function LeaveRemainNum($LineID,$Leavetype){
     
     $url = "http://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$Leavetype;
     $open = json_decode(file_get_contents($url), true);

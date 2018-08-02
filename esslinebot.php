@@ -57,23 +57,23 @@ if (!empty($bot->isEvents)) {
                 $Text = Leaveinformation($bot->userId,"N");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
-            elseif($bot->text == "LeaveNum")
+            elseif($bot->text == "Leave Remain")
             {
-                $bot->LeaveNum($bot->replyToken);
+                $bot->LeaveRemain($bot->replyToken);
             }
             elseif($bot->text == "ลากิจ")
             {
-                $Text = LeaveDayNum($bot->userId,"L-001");
+                $Text = LeaveRemainNum($bot->userId,"L-001");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "ลาป่วย")
             {
-                $Text = LeaveDayNum($bot->userId,"L-002");
+                $Text = LeaveRemainNum($bot->userId,"L-002");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "ลาพักร้อน")
             {
-                $Text = LeaveDayNum($bot->userId,"L-003");
+                $Text = LeaveRemainNum($bot->userId,"L-003");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "Payroll")
