@@ -41,11 +41,8 @@ function Leaveinformation($LineID,$Status){
             $sum = $sum.$arr[$i];
         }
     }else{
-        $arr[0] = "ไม่มีพบข้อมูล";
-        return $arr;
+        return "ไม่มีพบข้อมูล";
     }
-
-    
     return $sum;
 }
 
