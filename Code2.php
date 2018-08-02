@@ -27,7 +27,7 @@ function Leaveinformation($LineID,$Status){
     
     $url = "http://lineservice.prosofthcm.com/api/LeaveinformationAPI/".$LineID."/".$Status;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "";
+    $sum = "ข้อมูลการ".$t."ลาล่าสุด 10 รายการ\n----------------------------------------------\n";
     $t =  "";
     if($open != null){
         if($Status = "W"){
@@ -37,7 +37,6 @@ function Leaveinformation($LineID,$Status){
         }elseif($Status = "N"){
             $t = "ไม่อนุมัติ";
         }
-        $sum = "ข้อมูลการ".$t."ลาล่าสุด 10 รายการ\n----------------------------------------------\n";
         foreach($open as $text){
             $sum = $sum."วันที่ลา : ".$text['DocuDate']."\n";
             $sum = $sum."ประเภทการลา : ".$text['LeaveTypeName']."\n";
@@ -55,7 +54,7 @@ function Leavenum($LineID,$Leavetype){
     
     $url = "http://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$Leavetype;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "";
+    $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n----------------------------------------------\n";
         foreach($open as $text){
             $sum = $sum."ประเภทการลา : ".$text['LeaveTypeName']."\n";
             $sum = $sum."จำนวนวันอนุญาต: ".$text['LeaveTypeDayNum']."\n";
