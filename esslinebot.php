@@ -63,18 +63,18 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "ลากิจ")
             {
-                $Text = Leavenum($bot->userId,"L-001");
-                $bot->LeaveNum($bot->replyToken,$Text);
+                $Text = LeaveDayNum($bot->userId,"L-001");
+                $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "ลาป่วย")
             {
-                $Text = Leavenum($bot->userId,"L-002");
-                $bot->LeaveNum($bot->replyToken,$Text);
+                $Text = LeaveDayNum($bot->userId,"L-002");
+                $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "ลาพักร้อน")
             {
-                $Text = Leavenum($bot->userId,"L-003");
-                $bot->LeaveNum($bot->replyToken,$Text);
+                $Text = LeaveDayNum($bot->userId,"L-003");
+                $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "Payroll")
             {
