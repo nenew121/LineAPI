@@ -182,7 +182,7 @@ public function TimeAttendance($replyToken = null, $LineID)
 public function Payroll($replyToken = null)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("Test", "Test"),
+        New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip"),
         New UriTemplateActionBuilder("Tax Calculator", "https://www.prosofthcm.com/Article/Detail/65472"),
         New MessageTemplateActionBuilder("Test", "Test"),
         New MessageTemplateActionBuilder("Test", "Test")
