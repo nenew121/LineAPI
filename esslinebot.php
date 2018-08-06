@@ -18,7 +18,7 @@ if(!empty($idnews)){
     $arr = SendUserID();
     $iCount = count($arr);
     for ($i = 0; $i<$iCount; $i++) {
-        $bot->sendMessageNew($arr[$i],$str);
+        $bot->SendMessageTo($arr[$i],$str);
     }
 
 // return echo "success";
