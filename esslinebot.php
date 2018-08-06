@@ -20,6 +20,7 @@ if(!empty($idnews)){
     for ($i = 0; $i<$iCount; $i++) {
         $bot->sendMessageNew($arr[$i],$str);
     }
+
 // return echo "success";
 }
 
