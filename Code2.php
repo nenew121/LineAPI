@@ -72,7 +72,7 @@ function LeaveRemainNum($LineID,$Leavetype){
 
 function EPaySlip($LineID){
     
-    $url = "http://lineservice.prosofthcm.com/api/EPaySlip/png";
+    $url = "http://lineservice.prosofthcm.com/api/EPaySlipAPI/png";
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
