@@ -70,4 +70,12 @@ function LeaveRemainNum($LineID,$Leavetype){
     return $sum;
 }
 
+function E-PaySlip($LineID){
+    
+    $url = "http://lineservice.prosofthcm.com/api/EPaySlip/png";
+    $open = json_decode(file_get_contents($url), true);
+    
+    return $open;
+}
+
 ?>

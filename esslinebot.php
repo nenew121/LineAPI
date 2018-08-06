@@ -80,6 +80,10 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->Payroll($bot->replyToken);
             }
+            elseif($bot->text == "E-Pay Slip")
+            {
+                E-PaySlip($bot->userId);
+            }
             elseif($bot->text == "Organization")
             {
                 $bot->Organization($bot->replyToken);
