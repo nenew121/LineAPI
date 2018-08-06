@@ -82,11 +82,11 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "E-Pay Slip")
             {
-                E-PaySlip($bot->userId);
+                EPaySlip($bot->userId);
             }
             elseif($bot->text == "E-Pay SlipWeb")
             {
-                E-PaySlipWeb($bot->userId);
+                EPaySlipWeb($bot->userId);
             }
             elseif($bot->text == "Organization")
             {
