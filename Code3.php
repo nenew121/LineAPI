@@ -311,7 +311,7 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png", "https://lineservice.prosofthcm.com/upload/Resource/img.png");
+$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgz.zip", "https://lineservice.prosofthcm.com/upload/Resource/imgz.zip");
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
     'messages'   => $outputText->buildMessage(),
