@@ -104,7 +104,7 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->SendLeaveType($bot->replyToken);
             }
-            elseif($bot->text == "pho")
+            elseif($bot->text == "Pho")
             {
                 $bot->pho($bot->replyToken);
             }
