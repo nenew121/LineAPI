@@ -97,7 +97,7 @@ function SendMS(id){
 
 function MSSuccess(id){
     $.ajax({
-        url: "https://ess-linebot.herokuapp.com/esslinebot.php",
+        url: "https://cherry-pie-82107.herokuapp.com/esslinebot.php",
         data: {
             txtNews: id
         },
