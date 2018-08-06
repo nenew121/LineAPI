@@ -184,7 +184,7 @@ public function Payroll($replyToken = null)
     $actions = array(
         New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip"),
         New UriTemplateActionBuilder("Tax Calculator", "https://www.prosofthcm.com/Article/Detail/65472"),
-        New MessageTemplateActionBuilder("Test", "Test"),
+        New MessageTemplateActionBuilder("E-Pay SlipWeb", "E-Pay SlipWeb"),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 

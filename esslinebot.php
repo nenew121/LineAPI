@@ -84,6 +84,10 @@ if (!empty($bot->isEvents)) {
             {
                 E-PaySlip($bot->userId);
             }
+            elseif($bot->text == "E-Pay SlipWeb")
+            {
+                E-PaySlipWeb($bot->userId);
+            }
             elseif($bot->text == "Organization")
             {
                 $bot->Organization($bot->replyToken);
