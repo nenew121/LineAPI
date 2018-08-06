@@ -179,12 +179,12 @@ public function TimeAttendance($replyToken = null, $LineID)
     ]);
 }
 
-public function Payroll($replyToken = null)
+public function Payroll($replyToken = null,$LineID)
 {
     $actions = array(
         New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip"),
         New UriTemplateActionBuilder("Tax Calculator", "https://www.prosofthcm.com/Article/Detail/65472"),
-        New MessageTemplateActionBuilder("E-Pay SlipWeb", "E-Pay SlipWeb"),
+        New UriTemplateActionBuilder("E-Pay SlipWeb", "http://lineservice.prosofthcm.com/LineService/EPaySlip/EPaySlip/".$LineID),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 

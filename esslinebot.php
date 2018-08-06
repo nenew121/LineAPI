@@ -78,15 +78,11 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Payroll")
             {
-                $bot->Payroll($bot->replyToken);
+                $bot->Payroll($bot->replyToken,$bot->userId);
             }
             elseif($bot->text == "E-Pay Slip")
             {
                 EPaySlip($bot->userId);
-            }
-            elseif($bot->text == "E-Pay SlipWeb")
-            {
-                EPaySlipWeb($bot->userId);
             }
             elseif($bot->text == "Organization")
             {

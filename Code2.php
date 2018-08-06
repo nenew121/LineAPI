@@ -78,12 +78,4 @@ function EPaySlip($LineID){
     return $open;
 }
 
-function EPaySlipWeb($LineID){
-    
-    $url = "http://lineservice.prosofthcm.com/LineService/EPaySlip/EPaySlip/".$LineID;
-    $open = json_decode(file_get_contents($url), true);
-    
-    return $open;
-}
-
 ?>
