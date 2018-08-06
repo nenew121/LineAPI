@@ -184,7 +184,7 @@ public function Payroll($replyToken = null,$LineID)
     $actions = array(
         New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip"),
         New UriTemplateActionBuilder("Tax Calculator", "https://www.prosofthcm.com/Article/Detail/65472"),
-        New UriTemplateActionBuilder("E-Pay SlipWeb", "http://lineservice.prosofthcm.com/api/EPaySlipAPI/png"),
+        New UriTemplateActionBuilder("E-Pay SlipWeb", "http://lineservice.prosofthcm.com/LineService/EPaySlip/EPaySlip/".$LineID),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 
@@ -307,6 +307,16 @@ public function LeaveRemain($replyToken = null)
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
     ]);
+}
+
+public function pho($replyToken = null, $url)
+{
+$outputText = new ImageMessageBuilder("https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg", "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg");
+$this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+    'replyToken' => $replyToken,
+    'messages'   => $outputText->buildMessage(),
+]);
+//$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
 
 }
