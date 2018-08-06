@@ -309,7 +309,7 @@ public function LeaveRemain($replyToken = null)
     ]);
 }
 
-public function pho($replyToken = null, $url)
+public function pho($replyToken = null)
 {
 $outputText = new ImageMessageBuilder("https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg", "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg");
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [

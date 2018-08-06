@@ -104,6 +104,10 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->SendLeaveType($bot->replyToken);
             }
+            elseif($bot->text == "pho")
+            {
+                $bot->pho($bot->replyToken);
+            }
             else
             {
             $bot->replyMessageNew($bot->replyToken,"ไม่มีรายการที่เลือก");
