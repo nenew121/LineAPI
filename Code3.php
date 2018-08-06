@@ -241,7 +241,7 @@ public function AboutUs($replyToken = null)
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/"),
         New UriTemplateActionBuilder("Getlocation", "https://lineservice.prosofthcm.com/Upload/Getlocation.html"),
-        New MessageTemplateActionBuilder("Test", "Test"),
+        New UriTemplateActionBuilder("HR News", "https://cherry-pie-82107.herokuapp.com/HR.php"),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 
