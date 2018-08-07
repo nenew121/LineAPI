@@ -83,7 +83,8 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "E-Pay Slip")
             {
-                EPaySlip($bot->userId);
+                $Text = EPaySlip($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "Organization")
             {
