@@ -145,7 +145,7 @@ public function ApproveCenter($replyToken = null,$LineID)
     $actions = array(
         New UriTemplateActionBuilder("Leave Record", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
         New UriTemplateActionBuilder("Approve Request", "http://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
-        New UriTemplateActionBuilder("Approve Request Abstain", "http://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID),
+        New UriTemplateActionBuilder("Approve Abstain", "http://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 
