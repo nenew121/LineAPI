@@ -145,7 +145,7 @@ public function ApproveCenter($replyToken = null,$LineID)
     $actions = array(
         New UriTemplateActionBuilder("Leave Record", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
         New UriTemplateActionBuilder("Approve Request", "http://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
-        New MessageTemplateActionBuilder("Test", "Test"),
+        New UriTemplateActionBuilder("Approve Request Abstain", "http://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 
@@ -162,11 +162,10 @@ public function ApproveCenter($replyToken = null,$LineID)
 public function TimeAttendance($replyToken = null, $LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Time Stamp", "http://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
+        New UriTemplateActionBuilder("Abstain Time Stamp", "http://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
         New UriTemplateActionBuilder("Leave Information", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
         New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
-        New MessageTemplateActionBuilder("Leave Information", "Leave Information")
-        
+        New UriTemplateActionBuilder("Time Stamp", "http://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
@@ -202,7 +201,7 @@ public function Organization($replyToken = null)
 {
     $actions = array(
         New MessageTemplateActionBuilder("Calendar", "Calendar"),
-        New MessageTemplateActionBuilder("News", "News"),
+        New UriTemplateActionBuilder("HR News", "https://cherry-pie-82107.herokuapp.com/HR.php"),
         New MessageTemplateActionBuilder("Address", "Address"),
         New MessageTemplateActionBuilder("Phone No.", "Phone No.")
          );
@@ -241,7 +240,7 @@ public function AboutUs($replyToken = null)
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/"),
         New UriTemplateActionBuilder("Getlocation", "https://lineservice.prosofthcm.com/Upload/Getlocation.html"),
-        New UriTemplateActionBuilder("HR News", "https://cherry-pie-82107.herokuapp.com/HR.php"),
+        New MessageTemplateActionBuilder("Test", "Test"),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 

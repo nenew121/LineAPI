@@ -40,33 +40,9 @@ function NEWS($news)
   $link->close();
 }
 
-function SendUserID()
-{
-    $url = "http://lineservice.prosofthcm.com/api/CountLineID";
-    $open = json_decode(file_get_contents($url), true);
-    
-    return $open;
-}
-
-function CheckLineID($LineID){
-    
-    $url = "http://thanapathcm.prosoft.co.th/api/CheckID/".$LineID;
-    $open = json_decode(file_get_contents($url), true);
-    
-    return $open;
-}
-
 function GetLanguage($LineID){
     
     $url = "http://lineservice.prosofthcm.com/api/LanguageAPI/".$LineID;
-    $open = json_decode(file_get_contents($url), true);
-    
-    return $open;
-}
-
-function CheckActive($LineID){
-    
-    $url = "http://thanapathcm.prosoft.co.th/api/CheckActive/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
