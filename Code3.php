@@ -384,10 +384,19 @@ public function pho1234($replyToken = null)
     //                          'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
         ),      
     );
+    $imageUrl = 'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png';
+    $replyData = new TemplateMessageBuilder('Button Template',
+    new ButtonTemplateBuilder(
+            'button template builder', // กำหนดหัวเรื่อง
+            'Please select', // กำหนดรายละเอียด
+            $imageUrl, // กำหนด url รุปภาพ
+            $actionBuilder  // กำหนด action object
+    )
+);  
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $actionBuilder->buildMessage(),
+        'messages'   => $replyData->buildMessage(),
     ]);
 }
 
