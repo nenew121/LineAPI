@@ -331,7 +331,7 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 
 public function pho123($replyToken = null)
 {
-    $imageMapUrl = 'https://www.mywebsite.com/imgsrc/photos/w/sampleimagemap';
+    $imageMapUrl = 'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png';
     $replyData = new ImagemapMessageBuilder(
         $imageMapUrl,
         'This is Title',
