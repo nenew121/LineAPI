@@ -24,6 +24,8 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
 
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
+
 class BOT_API extends LINEBot
 {
 /* ====================================================================================
@@ -103,18 +105,11 @@ public function SendMessageTo($ToLineID = null, $message = null){
     ]);
 }
 
-public function replyMessageNewa($replyToken = null, $message = null){
+public function replyMessageNew($replyToken = null, $message = null){
     $messageBuilder = new TextMessageBuilder($message);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $messageBuilder->buildMessage(),
-    ]);
-}
-public function replyMessageNew($replyToken, MessageBuilder $messageBuilder)
-{
-    return $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages' => $messageBuilder->buildMessage(),
     ]);
 }
 
@@ -324,6 +319,22 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
     'messages'   => $outputText->buildMessage(),
 ]);
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
+}
+
+public function pho12($replyToken = null)
+{
+    $actions = array(
+        New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),
+        New MessageTemplateActionBuilder("ลาป่วย", "ลาป่วย")
+         );
+
+    $button  = new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png",$actions);
+    $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $outputText->buildMessage(),
+    ]);
 }
 
 }
