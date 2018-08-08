@@ -1,7 +1,6 @@
 <?php
 
 require('Code3.php');
-require('line-bot.php');
 include('Code2.php');
 
 $channelSecret = '592e8df851742b42aa264f7e9e5fb26c';
@@ -109,7 +108,7 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Q")
             {
-                $bot->imgmap($bot->replyToken);
+                $bot->pho($bot->replyToken);
             }
             else
             {
