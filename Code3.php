@@ -23,6 +23,8 @@ use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 
 class BOT_API extends LINEBot
 {
@@ -315,10 +317,12 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+$asdf = new AreaBuilder("0","0","1040","700");
+
+$asdfasd = new ImagemapActionBuilder("test",$asdf);
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
-    'messages'   => $outputText->buildMessage(),
+    'messages'   => $asdfasd->buildImagemapAction(),
 ]);
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }

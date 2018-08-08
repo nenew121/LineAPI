@@ -1,48 +1,138 @@
 <?php
 
-$strAccessToken = "8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUFFUvhFT8A7JOD0AOTUsYDWqXRGXa5Z1Ta3Qzb38JNSzpmB6CQmllEiHJh0SZSBkgI+EYnR0DSwWJuvwBTXe4PkMeQdB04t89/1O/w1cDnyilFU=";
+require('Code3.php');
+include('Code2.php');
 
-$content = file_get_contents('php://input');
-$arrJson = json_decode($content, true);
+$channelSecret = '592e8df851742b42aa264f7e9e5fb26c';
+$access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUFFUvhFT8A7JOD0AOTUsYDWqXRGXa5Z1Ta3Qzb38JNSzpmB6CQmllEiHJh0SZSBkgI+EYnR0DSwWJuvwBTXe4PkMeQdB04t89/1O/w1cDnyilFU=';
 
-$strUrl = "https://api.line.me/v2/bot/message/reply";
 
-$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
+$bot = new BOT_API($channelSecret, $access_token);
+$idnews = $_POST['txtNews'];
 
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
-}else{
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+
+if(!empty($idnews)){
+
+    $str = NEWS($idnews);
+    
+    $arr = SendUserID();
+    $iCount = count($arr);
+    for ($i = 0; $i<$iCount; $i++) {
+        $bot->SendMessageTo($arr[$i],$str);
+    }
+
+// return echo "success";
 }
 
+if (!empty($bot->isEvents)) {
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$strUrl);
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$result = curl_exec($ch);
-curl_close ($ch);
+    /*if(CheckLineID($bot->userId))
+    {*/
+        $Language = GetLanguage($bot->userId);
+        if($Language != null)
+        {
+            if($bot->text == "ApproveCenter")
+            {
+                $bot->ApproveCenter($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "TimeAttendance")
+            {
+                $bot->TimeAttendance($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Leave Information")
+            {
+                $bot->Leaveinformation($bot->replyToken);
+            }
+            elseif($bot->text == "Wait Approve")
+            {
+                $Text = Leaveinformation($bot->userId,"W");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Approved")
+            {
+                $Text = Leaveinformation($bot->userId,"Y");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Not Approve")
+            {
+                $Text = Leaveinformation($bot->userId,"N");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Leave Remain")
+            {
+                $bot->LeaveRemain($bot->replyToken);
+            }
+            elseif($bot->text == "ลากิจ")
+            {
+                $Text = LeaveRemainNum($bot->userId,"L-001");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "ลาป่วย")
+            {
+                $Text = LeaveRemainNum($bot->userId,"L-002");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "ลาพักร้อน")
+            {
+                $Text = LeaveRemainNum($bot->userId,"L-003");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Payroll")
+            {
+                $bot->Payroll($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "E-Pay Slip")
+            {
+                $Text = EPaySlip($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Organization")
+            {
+                $bot->Organization($bot->replyToken);
+            }
+            elseif($bot->text == "Setting")
+            {
+                $bot->Setting($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Language")
+            {
+                $bot->SendLanguage($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "AboutUs")
+            {
+                $bot->AboutUs($bot->replyToken);
+            }
+            elseif($bot->text == "Leave")
+            {
+                $bot->SendLeaveType($bot->replyToken);
+            }
+            elseif($bot->text == "Q")
+            {
+                $bot->pho($bot->replyToken);
+            }
+            else
+            {
+            $bot->replyMessageNew($bot->replyToken,"ไม่มีรายการที่เลือก");
+            }
+        }
+        else
+        {
+            $bot->SendLanguage($bot->replyToken,$bot->userId);
+        }
+    /*}
+    else
+    {
+        $bot->SendLanguage($bot->replyToken,$bot->userId);
+    }*/
+}
 
+if ($bot->isSuccess()) 
+{
+  echo 'Succeeded!';
+  exit();
+}
+
+// Failed
+echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody();
+exit();
 ?>
