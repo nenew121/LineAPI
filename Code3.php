@@ -15,7 +15,6 @@ use \LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
 // use \LINE\LINEBot\MessageBuilder\ButtonTemplateBuilder;
 //------------------------con-------------------//
 use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use \LINE\LINEBot\MessageBuilder\UriTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 
