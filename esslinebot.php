@@ -108,7 +108,7 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Q")
             {
-                $bot->pho($bot->replyToken);
+                $bot->pho123($bot->replyToken);
             }
             else
             {

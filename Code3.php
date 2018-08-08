@@ -329,33 +329,28 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
 
-public function pho12($replyToken = null)
-{
-    $actions = New MessageTemplateActionBuilder("ลากิจ", "ลากิจ");
-
-    $button  = new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png",$actions);
-    $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
-
-    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
-    ]);
-}
-
 public function pho123($replyToken = null)
 {
-    $img = "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png";
-    $BaseSizeBuilder = new BaseSizeBuilder(500,900);
-    $actions = array(
-        new ImagemapMessageActionBuilder("ttttt", new AreaBuilder(0,0,520,699)),
-        new ImagemapMessageActionBuilder("sssss", new AreaBuilder(520,0,520,699))
-        );
-    $buil = new ImagemapMessageBuilder($img, "TEST", $BaseSizeBuilder, $actions);
+    $imageMapUrl = 'https://www.mywebsite.com/imgsrc/photos/w/sampleimagemap';
+    $replyData = new ImagemapMessageBuilder(
+        $imageMapUrl,
+        'This is Title',
+        new BaseSizeBuilder(699,1040),
+        array(
+            new ImagemapMessageActionBuilder(
+                'test image map',
+                new AreaBuilder(0,0,520,699)
+                ),
+            new ImagemapUriActionBuilder(
+                'http://www.ninenik.com',
+                new AreaBuilder(520,0,520,699)
+                )
+        ));
 
-    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $buil->buildMessage(),
-    ]);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
+        ]);
 }
 
 }
