@@ -382,17 +382,12 @@ public function pho1234($replyToken = null)
                 'item'=>100
             )) // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
     //                          'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),      
+        )     
     );
     $imageUrl = 'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png';
-    $replyData = new TemplateMessageBuilder('Button Template',
-    new ButtonTemplateBuilder(
-            'button template builder', // กำหนดหัวเรื่อง
-            'Please select', // กำหนดรายละเอียด
-            $imageUrl, // กำหนด url รุปภาพ
-            $actionBuilder  // กำหนด action object
-    )
-);  
+    $Buttom = new ButtonTemplateBuilder('button template builder','Please select', $imageUrl ,$actionBuilder);
+    $replyData = new TemplateMessageBuilder('Button Template', $Buttom);  
+    
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
