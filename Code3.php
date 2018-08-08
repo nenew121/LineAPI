@@ -355,20 +355,11 @@ public function pho123($replyToken = null)
 
 public function pho1234($replyToken = null)
 {
-    $arr = array(new ImageCarouselColumnTemplateBuilder('https://lineservice.prosofthcm.com/upload/Resource/Linebot.png',
-    new UriTemplateActionBuilder(
-        'Uri Template', // ข้อความแสดงในปุ่ม
-        'https://www.google.co.th'
-    )
-),
-new ImageCarouselColumnTemplateBuilder(
-    'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png',
-    new UriTemplateActionBuilder(
-        'Uri Template', // ข้อความแสดงในปุ่ม
-        'https://www.google.co.th'
-    )
-)                                       
+    $arr = array(
+        new ImageCarouselColumnTemplateBuilder('https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',new UriTemplateActionBuilder('Uri Template','https://www.google.co.th')),
+        new ImageCarouselColumnTemplateBuilder('https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',new UriTemplateActionBuilder('Uri Template','https://www.google.co.th'))                                       
     );
+
     $su = new ImageCarouselTemplateBuilder($arr);
     $replyData = new TemplateMessageBuilder('Image Carousel', $su);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
