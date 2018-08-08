@@ -323,10 +323,7 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 
 public function pho12($replyToken = null)
 {
-    $actions = array(
-        New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),
-        New MessageTemplateActionBuilder("ลาป่วย", "ลาป่วย")
-         );
+    $actions = New MessageTemplateActionBuilder("ลากิจ", "ลากิจ");
 
     $button  = new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png",$actions);
     $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
