@@ -106,7 +106,7 @@ public function replyMessageNew($replyToken = null, $message = null){
 
     $asdfsadf = array(
         'type' => 'text',
-        'text' => 'Hello',
+        'text' => 'Hello'
     );
     $messageBuilder = new TextMessageBuilder($asdfsadf);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
