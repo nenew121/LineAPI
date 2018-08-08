@@ -28,6 +28,8 @@ use \LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 use \LINE\LINEBot\ImagemapActionBuilder;
 use \LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
 use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
+use \LINE\LINEBot\MessageBuilder\Imagemap;
 
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 
