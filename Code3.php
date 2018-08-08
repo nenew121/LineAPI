@@ -104,7 +104,7 @@ public function SendMessageTo($ToLineID = null, $message = null){
 
 public function replyMessageNew($replyToken = null, $message = null){
 
-    $asdfsadf = array (
+    $asdfsadf = array(
         'type' => 'text',
         'text' => 'Hello',
     );
