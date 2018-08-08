@@ -336,13 +336,20 @@ public function pho12($replyToken = null)
 
 public function pho123($replyToken = null)
 {
-    $actions = new MessageTemplateActionBuilder("ลากิจ", "ลากิจ");
+    $img = "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png";
+    $BaseSizeBuilder = new BaseSizeBuilder(500,900);
+    $actions = array(
+        new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png"),
+        new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+        );
+    $buil = new ImagemapMessageBuilder($img, "TEST", $BaseSizeBuilder, $actions);
+
 
     $button = new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png",$actions);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $button->buildTemplate(),
+        'messages'   => $buil->buildMessage(),
     ]);
 }
 
