@@ -103,7 +103,12 @@ public function SendMessageTo($ToLineID = null, $message = null){
 }
 
 public function replyMessageNew($replyToken = null, $message = null){
-    $messageBuilder = new TextMessageBuilder($message);
+
+    $asdfsadf = array (
+        'type' => 'text',
+        'text' => 'Hello',
+    );
+    $messageBuilder = new TextMessageBuilder($asdfsadf);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $messageBuilder->buildMessage(),
@@ -310,20 +315,13 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-    $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
-    
-            $actions = array(
-                new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png"),
-                new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png")
-            );
-            $outputText = new ButtonTemplateBuilder("Setting","กรุณาเลือกภาษาที่จะใช้\nPlease select a display language.", $img_url, $actions);
-    
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-          'replyToken' => $replyToken,
-          'messages'   => $outputText->buildMessage(),
-      ]);
+$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+$this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+    'replyToken' => $replyToken,
+    'messages'   => $outputText->buildMessage(),
+]);
+//$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
-
 
 }
 ?>
