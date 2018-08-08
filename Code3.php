@@ -310,7 +310,7 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-    $outputText = New UriTemplateActionBuilder("Google", "https://www.Google.co.th"),
+    $outputText = New UriTemplateActionBuilder("Google", "https://www.Google.co.th");
     
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
