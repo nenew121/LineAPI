@@ -23,7 +23,10 @@ use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
-use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
+
+use LINE\LINEBot\Constant\MessageType;
+use LINE\LINEBot\ImagemapActionBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
 
 class BOT_API extends LINEBot
 {
