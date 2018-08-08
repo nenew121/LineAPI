@@ -310,7 +310,7 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-$button  = new ButtonTemplateBuilder("LeaveDayNum", "รายการ", ,);
+$button  = new ButtonTemplateBuilder("LeaveDayNum", "รายการ", "","");
 //$button = new ImageMessageBuilder("https://www.google.co.th", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
 $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
