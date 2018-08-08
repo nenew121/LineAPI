@@ -310,20 +310,20 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-    $actions = array(
-        New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),
-        New MessageTemplateActionBuilder("ลาป่วย", "ลาป่วย"),
-        New MessageTemplateActionBuilder("ลาพักร้อน", "ลาพักร้อน")
-         );
-$outputText = new TemplateMessageBuilder("asd", $actions);
-
-
-$this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-    'replyToken' => $replyToken,
-    'messages'   => $outputText->buildMessage(),
-]);
-//$response = $bot->replyMessage($event->getReplyToken(), $outputText);
+    $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
+    
+            $actions = array(
+                new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png"),
+                new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png")
+            );
+            $outputText = new ButtonTemplateBuilder("Setting","กรุณาเลือกภาษาที่จะใช้\nPlease select a display language.", $img_url, $actions);
+    
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+          'replyToken' => $replyToken,
+          'messages'   => $outputText->buildMessage(),
+      ]);
 }
+
 
 }
 ?>
