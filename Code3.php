@@ -1,5 +1,6 @@
 <?php 
 include('vendor/autoload.php');
+namespace LINE;
 use \LINE\LINEBot;
 use \LINE\LINEBot\HTTPClient;
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
@@ -102,11 +103,11 @@ public function SendMessageTo($ToLineID = null, $message = null){
     ]);
 }
 
-public function replyMessageNew($replyToken = null, MessageBuilder $message = null){
+public function replyMessageNew($replyToken, MessageBuilder $messageBuilder){
     //$messageBuilder = new TextMessageBuilder($message);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $message->buildMessage(),
+        'messages'   => $messageBuilder->buildMessage(),
     ]);
 }
 
