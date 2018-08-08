@@ -311,9 +311,8 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-    $ar = New UriTemplateActionBuilder("Google", "https://www.Google.co.th"),
+    $outputText = New UriTemplateActionBuilder("Google", "https://www.Google.co.th"),
     
-    $outputText = new MessageBuilder($ar, "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
     'messages'   => $outputText->buildMessage(),
