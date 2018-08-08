@@ -15,6 +15,7 @@ use \LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
 // use \LINE\LINEBot\MessageBuilder\ButtonTemplateBuilder;
 //------------------------con-------------------//
 use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use \LINE\LINEBot\MessageBuilder\UriTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 
@@ -312,7 +313,7 @@ public function pho($replyToken = null)
 {
     $ar = New UriTemplateActionBuilder("Google", "https://www.Google.co.th"),
     
-    $outputText = new ImageMessageBuilder($ar, "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+    $outputText = new MessageBuilder($ar, "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
     'messages'   => $outputText->buildMessage(),
