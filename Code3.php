@@ -355,23 +355,29 @@ public function pho123($replyToken = null)
 
 public function pho1234($replyToken = null)
 {
-    $actions = array(
-        new UriTemplateActionBuilder('Uri Template','https://www.google.co.th'),
-        new MessageTemplateActionBuilder('Message Template','This is Text'),
-        new PostbackTemplateActionBuilder('Postback', http_build_query(array('action'=>'buy','item'=>100))),
-        new DatetimePickerTemplateActionBuilder('Datetime Picker',http_build_query(array('action'=>'reservation','person'=>5)),'datetime',
-            substr_replace(date("Y-m-d H:i"),'T',10,1),
-            substr_replace(date("Y-m-d H:i",strtotime("+5 day")),'T',10,1),
-            substr_replace(date("Y-m-d H:i"),'T',10,1))
-        );
-
-    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
-    $button  = new ButtonTemplateBuilder("LeaveDayNum", "รายการ", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
-
+    $replyData = new TemplateMessageBuilder('Image Carousel',
+    new ImageCarouselTemplateBuilder(
+        array(
+            new ImageCarouselColumnTemplateBuilder(
+                'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png',
+                new UriTemplateActionBuilder(
+                    'Uri Template', // ข้อความแสดงในปุ่ม
+                    'https://www.google.co.th'
+                )
+            ),
+            new ImageCarouselColumnTemplateBuilder(
+                'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png',
+                new UriTemplateActionBuilder(
+                    'Uri Template', // ข้อความแสดงในปุ่ม
+                    'https://www.google.co.th'
+                )
+            )                                       
+        )
+    )
+);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
+        'messages'   => $replyData->buildMessage(),
     ]);
 }
 
