@@ -55,6 +55,7 @@ class BOT_API extends LINEBot
     /* ====================================================================================
      * Custom
      * ==================================================================================== */
+    const DEFAULT_ENDPOINT_BASE = 'https://api.line.me';
 
     public function __construct($channelSecret, $access_token)
     {
@@ -102,11 +103,18 @@ public function SendMessageTo($ToLineID = null, $message = null){
     ]);
 }
 
-public function replyMessageNew($replyToken = null, $message = null){
+public function replyMessageNewa($replyToken = null, $message = null){
     $messageBuilder = new TextMessageBuilder($message);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $messageBuilder->buildMessage(),
+    ]);
+}
+public function replyMessageNew($replyToken, MessageBuilder $messageBuilder)
+{
+    return $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages' => $messageBuilder->buildMessage(),
     ]);
 }
 
