@@ -102,11 +102,11 @@ public function SendMessageTo($ToLineID = null, $message = null){
     ]);
 }
 
-public function replyMessageNew($replyToken = null, $message = null){
-    $messageBuilder = new TextMessageBuilder($message);
+public function replyMessageNew($replyToken = null, MessageBuilder $message = null){
+    //$messageBuilder = new TextMessageBuilder($message);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $messageBuilder->buildMessage(),
+        'messages'   => $message->buildMessage(),
     ]);
 }
 
