@@ -23,8 +23,7 @@ use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
-use \LINE\LINEBot\ImagemapActionBuilder;
-use \LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
+use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
 
 class BOT_API extends LINEBot
 {
@@ -105,12 +104,7 @@ public function SendMessageTo($ToLineID = null, $message = null){
 }
 
 public function replyMessageNew($replyToken = null, $message = null){
-
-    $asdfsadf = array(
-        'type' => 'text',
-        'text' => 'Hello'
-    );
-    $messageBuilder = new TextMessageBuilder($asdfsadf);
+    $messageBuilder = new TextMessageBuilder($message);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $messageBuilder->buildMessage(),
@@ -317,15 +311,37 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-$asdf = new AreaBuilder(0,0,1040,700);
-
-$asdfasd = new ImagemapActionBuilder("test",$asdf);
+$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
-    'messages'   => $asdfasd->buildImagemapAction(),
+    'messages'   => $outputText->buildMessage(),
 ]);
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
+
+public function imgmap($replyToken = null)
+{
+    $buil = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "test" , array(
+        'width' => 1040,
+        'height' => 700,
+      ) , array(
+        'type' => 'message',
+        'area' => 
+        array(
+          'x' => 0,
+          'y' => 0,
+          'width' => 1037,
+          'height' => 700,
+        ),
+        'text' => 'Action 1',
+      ));
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $buil->buildMessage(),
+        ]);
+}
+    
 
 }
 ?>
