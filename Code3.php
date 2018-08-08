@@ -24,10 +24,6 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
 
-use \LINE\LINEBot\Constant\MessageType;
-use \LINE\LINEBot\ImagemapActionBuilder;
-use \LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
-
 class BOT_API extends LINEBot
 {
 /* ====================================================================================
@@ -321,30 +317,6 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 ]);
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
-
-public function imgmap($replyToken = null)
-{
-    $buil = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "test" , array(
-        'width' => 1040,
-        'height' => 700,
-      ) , array(
-        'type' => 'message',
-        'area' => 
-        array(
-          'x' => 0,
-          'y' => 0,
-          'width' => 1037,
-          'height' => 700,
-        ),
-        'text' => 'Action 1',
-      ));
-
-    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $buil->buildMessage(),
-        ]);
-}
-    
 
 }
 ?>
