@@ -21,7 +21,7 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 //------------test template------------------------------//
 use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
-use \LINE\LINEBot\TemplateActionBuilder\ImageMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
 
 class BOT_API extends LINEBot
@@ -310,10 +310,17 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+    $actions = array(
+        New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),
+        New MessageTemplateActionBuilder("ลาป่วย", "ลาป่วย"),
+        New MessageTemplateActionBuilder("ลาพักร้อน", "ลาพักร้อน")
+         );
+$outputText = new TemplateMessageBuilder("asd", $actions);
+
+
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
     'replyToken' => $replyToken,
-    'messages'   => $outputText->buildTemplateAction(),
+    'messages'   => $outputText->buildMessage(),
 ]);
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
