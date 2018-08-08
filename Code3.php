@@ -317,7 +317,7 @@ public function LeaveRemain($replyToken = null)
 
 public function pho($replyToken = null)
 {
-$asdf = new AreaBuilder("0","0","1040","700");
+$asdf = new AreaBuilder(0,0,1040,700);
 
 $asdfasd = new ImagemapActionBuilder("test",$asdf);
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
