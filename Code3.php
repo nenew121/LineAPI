@@ -358,7 +358,11 @@ public function pho1234($replyToken = null)
     $actions = array(
         new UriTemplateActionBuilder('Uri Template','https://www.google.co.th'),
         new MessageTemplateActionBuilder('Message Template','This is Text'),
-        new PostbackTemplateActionBuilder('Postback', http_build_query(array('action'=>'buy','item'=>100)))
+        new PostbackTemplateActionBuilder('Postback', http_build_query(array('action'=>'buy','item'=>100))),
+        new DatetimePickerTemplateActionBuilder('Datetime Picker',http_build_query(array('action'=>'reservation','person'=>5)),'datetime',
+            substr_replace(date("Y-m-d H:i"),'T',10,1),
+            substr_replace(date("Y-m-d H:i",strtotime("+5 day")),'T',10,1),
+            substr_replace(date("Y-m-d H:i"),'T',10,1))
         );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
