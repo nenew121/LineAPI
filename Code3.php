@@ -334,5 +334,17 @@ public function pho12($replyToken = null)
     ]);
 }
 
+public function pho123($replyToken = null)
+{
+    $actions = new MessageTemplateActionBuilder("ลากิจ", "ลากิจ");
+
+    $button = new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png",$actions);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $button->buildTemplate(),
+    ]);
+}
+
 }
 ?>
