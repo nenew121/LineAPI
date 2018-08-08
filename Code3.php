@@ -24,6 +24,11 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\LinkMessageBuilder;
 
+use \LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
+use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
+
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 
 class BOT_API extends LINEBot
@@ -339,8 +344,8 @@ public function pho123($replyToken = null)
     $img = "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png";
     $BaseSizeBuilder = new BaseSizeBuilder(500,900);
     $actions = array(
-        new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png"),
-        new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+        new ImagemapMessageActionBuilder("ttttt", new AreaBuilder(0,0,520,699)),
+        new ImagemapMessageActionBuilder("sssss", new AreaBuilder(520,0,520,699));
         );
     $buil = new ImagemapMessageBuilder($img, "TEST", $BaseSizeBuilder, $actions);
 
