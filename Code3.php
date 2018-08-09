@@ -331,21 +331,13 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 
 public function pho123($replyToken = null)
 {
-    $imageMapUrl = 'https://lineservice.prosofthcm.com/upload/Resource/Linebot.png';
-    $replyData = new ImagemapMessageBuilder(
-        $imageMapUrl,
-        'This is Title',
-        new BaseSizeBuilder(1040,700),
-        array(
-            new ImagemapMessageActionBuilder(
-                'test image map',
-                new AreaBuilder(0,0,347,699)
-                ),
-            new ImagemapUriActionBuilder(
-                'http://www.ninenik.com',
-                new AreaBuilder(693,0,347,699)
-                )
-        ));
+    $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";
+    $base = new BaseSizeBuilder(699,1040);
+    $imgmap = array(
+        new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,355,699)),
+        new ImagemapMessageActionBuilder("Test", new AreaBuilder(686,0,354,699))
+    );
+    $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
@@ -365,7 +357,7 @@ public function pho1234($replyToken = null)
     $outputText = new TemplateMessageBuilder("ImageCarousel", $button);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
+        'messages'   => $replyData->buildMessage(),
     ]);
 }
 
