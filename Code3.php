@@ -355,29 +355,17 @@ public function pho123($replyToken = null)
 
 public function pho1234($replyToken = null)
 {
-    $replyData = new TemplateMessageBuilder('ImageCarousel',
-    new ImageCarouselTemplateBuilder(
-        array(
-            new ImageCarouselColumnTemplateBuilder(
-                'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
-                new UriTemplateActionBuilder(
-                    'Uri Template',
-                    'https://www.google.co.th'
-                )
-            ),
-            new ImageCarouselColumnTemplateBuilder(
-                'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
-                new UriTemplateActionBuilder(
-                    'Uri Template',
-                    'https://www.google.co.th'
-                )
-            )                                       
-        )
-    )
-);
+
+    $temp = new UriTemplateActionBuilder("Uri","https://www.google.co.th");
+    $actions = array(
+        new ImageCarouselColumnTemplateBuilder("https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg",$temp),
+        new ImageCarouselColumnTemplateBuilder("https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg",$temp)
+    );
+    $button = new ImageCarouselTemplateBuilder($actions);
+    $outputText = new TemplateMessageBuilder("ImageCarousel", $button);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
+        'messages'   => $outputText->buildMessage(),
     ]);
 }
 
