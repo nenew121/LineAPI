@@ -376,9 +376,11 @@ public function pho123($replyToken = null)
 
     $sti = new StickerMessageBuilder("1","2563");
 
+    $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png", "https://lineservice.prosofthcm.com/upload/Resource/img.png");
+
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $replyData->buildMessage(),
+            'messages'   => $outputText->buildMessage(),
         ]);
 }
 
