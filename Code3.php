@@ -51,6 +51,8 @@ class BOT_API extends LINEBot
     public $isText          = false;
     public $isImage         = false;
     public $isSticker       = false;
+    public $isSticker       = false;
+    public $isImagemap       = false;
 
     public $text            = null;
     public $replyToken      = null;
@@ -97,6 +99,10 @@ class BOT_API extends LINEBot
 
                 if ($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
                     $this->isSticker = true;
+                }
+
+                if ($event['type'] == 'message' && $event['message']['type'] == 'imagemap') {
+                    $this->isImagemap = true;
                 }
             }
         }
@@ -368,7 +374,7 @@ public function pho123($replyToken = null)
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $sti->buildMessage(),
+            'messages'   => $replyData->buildMessage(),
         ]);
 }
 
