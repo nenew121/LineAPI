@@ -52,8 +52,9 @@ class BOT_API extends LINEBot
     public $isImage         = false;
     public $isSticker       = false;
     public $isSticker       = false;
-    public $isImagemap       = false;
-
+    public $isImagemap      = false;
+    public $isMessage       = false;
+    
     public $text            = null;
     public $replyToken      = null;
     public $source          = null;
@@ -103,6 +104,10 @@ class BOT_API extends LINEBot
 
                 if ($event['type'] == 'message' && $event['message']['type'] == 'imagemap') {
                     $this->isImagemap = true;
+                }
+
+                if ($event['type'] == 'message' && $event['message']['type'] == 'message') {
+                    $this->isMessage = true;
                 }
             }
         }
