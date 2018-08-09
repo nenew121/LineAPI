@@ -329,6 +329,26 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
 
+public function LocationMessage($replyToken = null, $text)
+{
+    $split = split(",", $text); 
+    if($split[0] != null){
+        $outputText = new LocationMessageBuilder("GetLocation","Location",$split[0],$split[1]);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+        ]);
+    }
+    else
+    {
+        $messageBuilder = new TextMessageBuilder($text);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $messageBuilder->buildMessage(),
+        ]);
+    }
+}
+
 public function pho123($replyToken = null)
 {
     $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";

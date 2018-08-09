@@ -110,9 +110,13 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->pho123($bot->replyToken);
             }
+            elseif($bot->text == "Q")
+            {
+                $bot->pho123($bot->replyToken);
+            }
             else
             {
-            $bot->replyMessageNew($bot->replyToken,"ไม่มีรายการที่เลือก");
+            $bot->LocationMessage($bot->replyToken,$bot->text);
             }
         }
         else
