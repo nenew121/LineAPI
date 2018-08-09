@@ -362,16 +362,16 @@ public function LocationMessage($replyToken = null, $text)
 public function pho123($replyToken = null)
 {
     $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";
-    $base = new BaseSizeBuilder("354","349");
+    $base = new BaseSizeBuilder(699,1040);
     $imgmap = array(
-        new ImagemapMessageActionBuilder("Test", new AreaBuilder("0","0","355","699")),
-        new ImagemapMessageActionBuilder("Test", new AreaBuilder("686","0","354","699"))
+        new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,355,699)),
+        new ImagemapMessageActionBuilder("Test", new AreaBuilder(686,0,354,699))
     );
     $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
 
     $test1 = new LocationMessageBuilder("TESTTi","SSS","12.12","21.21");
 
-    $asd = new AreaBuilder("0","0","355","699");
+    $asd = new AreaBuilder(0,0,355,699);
     $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
 
     $sti = new StickerMessageBuilder("1","2563");
@@ -380,7 +380,7 @@ public function pho123($replyToken = null)
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $az->buildMessage(),
+            'messages'   => $replyData->buildMessage(),
         ]);
 }
 
