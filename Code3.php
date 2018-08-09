@@ -51,7 +51,6 @@ class BOT_API extends LINEBot
     public $isText          = false;
     public $isImage         = false;
     public $isSticker       = false;
-    public $isSticker       = false;
     public $isImagemap      = false;
 
     public $text            = null;
