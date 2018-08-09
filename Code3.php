@@ -361,10 +361,12 @@ public function pho123($replyToken = null)
 
     $test1 = new LocationMessageBuilder("TESTTi","SSS","12.12","21.21");
 
+    $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",new AreaBuilder(0,0,355,699));
+
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $test1->buildMessage(),
+            'messages'   => $az->buildImagemapAction(),
         ]);
 }
 
