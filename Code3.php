@@ -366,8 +366,7 @@ public function pho123($replyToken = null)
 
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messagesasdfasdf'   => $test1->buildMessage(),
+            'replyToken' => $replyToken
         ]);
 }
 
