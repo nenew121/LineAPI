@@ -339,9 +339,12 @@ public function pho123($replyToken = null)
     );
     $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
 
+    $test1 = new LocationMessageBuilder("TESTTi","SSS","12.12","21.21");
+
+
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $replyData->buildMessage(),
+            'messages'   => $test1->buildMessage(),
         ]);
 }
 
