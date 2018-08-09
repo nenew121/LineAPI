@@ -364,9 +364,11 @@ public function pho123($replyToken = null)
     $asd = new AreaBuilder(0,0,355,699);
     $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
 
+    $sti = new StickerMessageBuilder("1","2563");
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
+            'messages'   => $sti->buildMessage(),
         ]);
 }
 
