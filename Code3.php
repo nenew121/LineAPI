@@ -1,38 +1,38 @@
 <?php 
 include('vendor/autoload.php');
-use LINE\LINEBot;
-use LINE\LINEBot\HTTPClient;
-use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use \LINE\LINEBot;
+use \LINE\LINEBot\HTTPClient;
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 //use LINE\LINEBot\Event;
 //use LINE\LINEBot\Event\BaseEvent;
 //use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\MessageBuilder;
-use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
-use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
-use LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
-use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
-use LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
-use LINE\LINEBot\ImagemapActionBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder ;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
-use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
-use LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
-use LINE\LINEBot\TemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder;
+use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
+use \LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder ;
+use \LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
+use \LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
+use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
+use \LINE\LINEBot\TemplateActionBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 
 class BOT_API extends LINEBot
 {
@@ -333,7 +333,7 @@ public function LocationMessage($replyToken = null, $text)
 {
     $split = explode(",", $text); 
     if($split[1] != null){
-        $outputText = new LocationMessageBuilder("GetLocation","Location",$split[0],$split[1]);
+        $outputText = new LocationMessageBuilder("GetLocation",$split[0],$split[1],$split[0],$split[1]);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $outputText->buildMessage(),
@@ -361,12 +361,13 @@ public function pho123($replyToken = null)
 
     $test1 = new LocationMessageBuilder("TESTTi","SSS","12.12","21.21");
 
-    $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",new AreaBuilder(0,0,355,699));
+    $asd = new AreaBuilder(0,0,355,699);
+    $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
 
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $az->buildMessage(),
+            'messages'   => $az->buildImagemapAction(),
         ]);
 }
 
