@@ -52,8 +52,7 @@ class BOT_API extends LINEBot
     public $isImage         = false;
     public $isSticker       = false;
     public $isImagemap      = false;
-    public $isMessage       = false;
-    
+
     public $text            = null;
     public $replyToken      = null;
     public $source          = null;
@@ -103,10 +102,6 @@ class BOT_API extends LINEBot
 
                 if ($event['type'] == 'message' && $event['message']['type'] == 'imagemap') {
                     $this->isImagemap = true;
-                }
-
-                if ($event['type'] == 'message' && $event['message']['type'] == 'message') {
-                    $this->isMessage = true;
                 }
             }
         }
@@ -375,8 +370,6 @@ public function pho123($replyToken = null)
     $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
 
     $sti = new StickerMessageBuilder("1","2563");
-
-    $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png", "https://lineservice.prosofthcm.com/upload/Resource/img.png");
 
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
