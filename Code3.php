@@ -331,8 +331,8 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 
 public function LocationMessage($replyToken = null, $text)
 {
-    $split = split(",", $text); 
-    if($split[0] != null){
+    $split = explode(",", $text); 
+    if($split[1] != null){
         $outputText = new LocationMessageBuilder("GetLocation","Location",$split[0],$split[1]);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
