@@ -106,17 +106,9 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->SendLeaveType($bot->replyToken);
             }
-            elseif($bot->text == "Q")
-            {
-                $bot->phoQ($bot->replyToken);
-            }
-            elseif($bot->text == "t")
-            {
-                $bot->pho123($bot->replyToken);
-            }
             else
             {
-            $bot->LocationMessage($bot->replyToken,$bot->text);
+            $bot->BOT_New($bot->replyToken,$bot->text);
             }
         }
         else
