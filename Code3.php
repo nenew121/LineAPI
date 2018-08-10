@@ -510,28 +510,12 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "T0":
-        $replyData = new TemplateMessageBuilder('Image Carousel',
-                new ImageCarouselTemplateBuilder(
-                    array(
-                        new ImageCarouselColumnTemplateBuilder(
-                            'https://lineservice.prosofthcm.com/upload/Resource/imgtest.png',
-                            new UriTemplateActionBuilder(
-                                'Uri Template', // ข้อความแสดงในปุ่ม
-                                'https://www.ninenik.com'
-                            )
-                        ),
-                        new ImageCarouselColumnTemplateBuilder(
-                            'https://lineservice.prosofthcm.com/upload/Resource/imgtest.png',
-                            new UriTemplateActionBuilder(
-                                'Uri Template', // ข้อความแสดงในปุ่ม
-                                'https://www.ninenik.com'
-                            )
-                        )                                       
-                    )
-                )
-            );
-        $carousel = new ImageCarouselTemplateBuilder($columns);
-        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
+        $asdasd = array(
+            new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png",new UriTemplateActionBuilder('Uri Template','https://www.ninenik.com')),
+            new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png",new UriTemplateActionBuilder('Uri Template','https://www.ninenik.com'))                                       
+            );
+        $aaaa = new ImageCarouselTemplateBuilder($asdasd);
+        $replyData = new TemplateMessageBuilder("Image Carousel", $aaaa);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
                 'replyToken' => $replyToken,
                 'messages'   => $replyData->buildMessage(),
