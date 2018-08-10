@@ -374,6 +374,17 @@ public function BOT_New($replyToken = null, $text)
             'messages'   => $replyData->buildMessage(),
             ]);
         break;
+        case "To":
+            $messageBuilder = new TextMessageBuilder(substr($text, 2, 100));
+            $StickerBuilder = new StickerMessageBuilder("2","527");
+            $multiMessage = new MultiMessageBuilder;
+            $multiMessage->add($messageBuilder);
+            $multiMessage->add($StickerBuilder);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => "U05a39ae3a619678ef4b1b58111980a79",
+            'messages'   => $multiMessage->buildMessage(),
+            ]);
+        break;
         case "Im":
             $base = new BaseSizeBuilder(699,1040);
             $arr = array(
@@ -413,8 +424,8 @@ public function BOT_New($replyToken = null, $text)
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $replyData->buildTemplateAction(),
-    ]);
-    break;
+        ]);
+        break;
         default:
             $messageBuilder = new TextMessageBuilder("ไม่มีคำสั่ง ".$text." นี้");
             //$StickerBuilder = new StickerMessageBuilder("1","7");
