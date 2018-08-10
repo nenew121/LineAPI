@@ -381,7 +381,7 @@ public function BOT_New($replyToken = null, $text)
             $multiMessage->add($messageBuilder);
             $multiMessage->add($StickerBuilder);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => "U05a39ae3a619678ef4b1b58111980a79",
+            'to' => "U05a39ae3a619678ef4b1b58111980a79",
             'messages'   => $multiMessage->buildMessage(),
             ]);
         break;
