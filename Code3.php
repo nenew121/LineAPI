@@ -478,7 +478,6 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "T8":
-        
         $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
         $actions = array(
           new MessageTemplateActionBuilder("ภาษาไทย", "TH"),
@@ -490,6 +489,20 @@ public function BOT_New($replyToken = null, $text)
             new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions)
         );
         $carousel = new CarouselTemplateBuilder($columns);
+        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+                'replyToken' => $replyToken,
+                'messages'   => $outputText->buildMessage(),
+            ]);
+        break;
+        case "T9":
+        $as = new UriTemplateActionBuilder('Uri Template','https://lineservice.prosofthcm.com/upload/Resource/Leave.png');
+        $columns = array(
+          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", $as),
+          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", $as),
+          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", $as)
+        );
+        $carousel = new ImageCarouselTemplateBuilder($columns);
         $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
                 'replyToken' => $replyToken,
