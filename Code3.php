@@ -389,8 +389,8 @@ public function BOT_New($replyToken = null, $text)
         case "T1":
             $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg";
             $base = new BaseSizeBuilder(698,1039);
-            $imgmap = array();
-            $imgmap1 = array(
+            $imgmap1 = array();
+            $imgmap = array(
                 new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
                 new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
             );
@@ -398,6 +398,7 @@ public function BOT_New($replyToken = null, $text)
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
+            'imagemap'   => $imgmap1->buildImagemapAction(),
         ]);
         break;
         case "Ur":
