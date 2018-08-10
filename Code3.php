@@ -373,12 +373,12 @@ public function BOT_New($replyToken = null, $text)
             new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
             new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10))
         );
-        $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png","test",$base,$arr);
+        $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg","test",$base,$arr);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $replyData->buildMessage(),
         ]);
-    break;
+        break;
         case "T1":
             $asd = new AreaBuilder(0,0,50,50);
             $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
