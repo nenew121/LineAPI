@@ -135,8 +135,8 @@ public function SendLanguage($replyToken = null, $LineID){
     $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
 
         $actions = array(
-            New UriTemplateActionBuilder("Thai", "http://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/th-TH"),
-            New UriTemplateActionBuilder("English", "http://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/en-US")
+            New UriTemplateActionBuilder("Thai", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/th-TH"),
+            New UriTemplateActionBuilder("English", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/en-US")
         );
         $button = new ButtonTemplateBuilder("Setting","กรุณาเลือกภาษาที่จะใช้\nPlease select a display language.", $img_url, $actions);
         $outputText = new TemplateMessageBuilder("Setting Language", $button);
@@ -150,7 +150,7 @@ public function SendLanguage($replyToken = null, $LineID){
 
 public function Register($replyToken = null, $LineID){
     $actions = array(
-        New UriTemplateActionBuilder("ลงทะเบียน", "http://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
+        New UriTemplateActionBuilder("ลงทะเบียน", "https://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
         New MessageTemplateActionBuilder("ย้อนกลับ", "ย้อนกลับ")
     );
     $button  = new ConfirmTemplateBuilder("ลงทะเบียนใช้งาน\nYou have not yet registered" , $actions);
@@ -164,9 +164,9 @@ public function Register($replyToken = null, $LineID){
 public function ApproveCenter($replyToken = null,$LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Leave Record", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
-        New UriTemplateActionBuilder("Approve Request", "http://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
-        New UriTemplateActionBuilder("Approve Abstain", "http://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID),
+        New UriTemplateActionBuilder("Leave Record", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
+        New UriTemplateActionBuilder("Approve Request", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
+        New UriTemplateActionBuilder("Approve Abstain", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID),
         New MessageTemplateActionBuilder("Test", "Test")
          );
 
@@ -183,10 +183,10 @@ public function ApproveCenter($replyToken = null,$LineID)
 public function TimeAttendance($replyToken = null, $LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Abstain Time Stamp", "http://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
-        New UriTemplateActionBuilder("Leave Information", "http://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
+        New UriTemplateActionBuilder("Abstain Time Stamp", "https://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
+        New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
         New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
-        New UriTemplateActionBuilder("Time Stamp", "http://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID)
+        New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
@@ -240,7 +240,7 @@ public function Organization($replyToken = null)
 public function Setting($replyToken = null, $LineID)
 {
     $actions = array(        
-        New UriTemplateActionBuilder("Register", "http://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
+        New UriTemplateActionBuilder("Register", "https://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
         New MessageTemplateActionBuilder("Language", "Language"),
         New MessageTemplateActionBuilder("Choose Profile", "Choose Profile"),
         New MessageTemplateActionBuilder("Web Service URL", "Web Service URL")
