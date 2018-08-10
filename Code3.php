@@ -367,11 +367,11 @@ public function BOT_New($replyToken = null, $text)
             'messages'   => $replyData->buildMessage(),
             ]);
         break;
-        case "im":
+        case "Im":
         $base = new BaseSizeBuilder(70,104);
         $arr = array(
-            new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png"),
-            new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png")
+            new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
+            new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10))
         );
         $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png","test",$base,$arr);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -456,7 +456,6 @@ public function BOT_New($replyToken = null, $text)
         case "T7":
         $columns = array();
         $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
-        for ($i=0;$i<1;$i++) {
             $actions = array(
           new MessageTemplateActionBuilder("ภาษาไทย", "TH"),
           new MessageTemplateActionBuilder("English", "ENG"),
@@ -464,7 +463,6 @@ public function BOT_New($replyToken = null, $text)
         );
             $column = new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions);
             $columns[] = $column;
-        }
         $carousel = new CarouselTemplateBuilder($columns);
         $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
