@@ -93,6 +93,21 @@ class BOT_API extends LINEBot
                     $this->text   = $event['message']['text'];
                 }
 
+                /*if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+                    $this->isImage = true;
+                }
+
+                if ($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
+                    $this->isSticker = true;
+                }
+
+                if ($event['type'] == 'message' && $event['message']['type'] == 'imagemap') {
+                    $this->isImagemap = true;
+                }
+
+                if ($event['type'] == 'message' && $event['message']['type'] == 'message') {
+                    $this->isMessage = true;
+                }*/
             }
         }
 
@@ -401,10 +416,14 @@ public function BOT_New($replyToken = null, $text)
     ]);
     break;
         default:
-            $messageBuilder = new TextMessageBuilder($text);
+            $messageBuilder = new TextMessageBuilder("ไม่มีคำสั่ง ".$text." นี้");
+            $StickerBuilder = new StickerMessageBuilder("1","7");
+            $multiMessage = new MultiMessageBuilder;
+            $multiMessage->add($messageBuilder);
+            $multiMessage->add($StickerBuilder);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages'   => $messageBuilder->buildMessage(),
+            'messages'   => $multiMessage->buildMessage(),
             ]);
         break;
     }
