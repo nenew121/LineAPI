@@ -342,11 +342,10 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 public function BOT_New($replyToken = null, $text)
 {
     $TEXT = substr($text, 0, 2);
-    //$split = explode(",", $text); 
+    $textsub = substr($text, 2, 100);
+    $split = explode(",", $textsub);
     switch($TEXT){
         case "Lo":
-            $textsub = substr($text, 2, 100);
-            $split = explode(",", $textsub); 
             $outputText = new LocationMessageBuilder("GetLocation",$split[0].",".$split[1],$split[0],$split[1]);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
@@ -375,39 +374,16 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "To":
-            $messageBuilder = new TextMessageBuilder(substr($text, 2, 100));
+            $messageBuilder = new TextMessageBuilder($split[1]);
             $StickerBuilder = new StickerMessageBuilder("2","527");
             $multiMessage = new MultiMessageBuilder;
             $multiMessage->add($messageBuilder);
             $multiMessage->add($StickerBuilder);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
-            'to' => "U05a39ae3a619678ef4b1b58111980a79",
-            'replyToken' => $replyToken,
+            'to' => $textsub,
             'messages'   => $multiMessage->buildMessage(),
             ]);
         break;
-        case "Tf":
-            $messageBuilder = new TextMessageBuilder(substr($text, 2, 100));
-            $StickerBuilder = new StickerMessageBuilder("2","527");
-            $multiMessage = new MultiMessageBuilder;
-            $multiMessage->add($messageBuilder);
-            $multiMessage->add($StickerBuilder);
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
-            'to' => "U05a39ae3a619678ef4b1b58111980a79",
-            'messages'   => $multiMessage->buildMessage(),
-            ]);
-        break;
-        case "Th":
-            $messageBuilder = new TextMessageBuilder(substr($text, 2, 100));
-            $StickerBuilder = new StickerMessageBuilder("2","527");
-            $multiMessage = new MultiMessageBuilder;
-            $multiMessage->add($messageBuilder);
-            $multiMessage->add($StickerBuilder);
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
-            'replyToken' => $replyToken,
-            'messages'   => $multiMessage->buildMessage(),
-            ]);
-    break;
         case "Im":
             $base = new BaseSizeBuilder(699,1040);
             $arr = array(
