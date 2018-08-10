@@ -386,6 +386,19 @@ public function BOT_New($replyToken = null, $text)
         'messages'   => $replyData->buildMessage(),
         ]);
         break;
+        case "Tt":
+        $sggg = new UriTemplateActionBuilder('Uri Template','https://www.ninenik.com');
+        $asdasd = array(
+            new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png",$sggg),
+            new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png",$sggg)                                       
+            );
+        $aaaa = new ImageCarouselTemplateBuilder($asdasd);
+        $replyData = new TemplateMessageBuilder("Image Carousel", $aaaa);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+                'replyToken' => $replyToken,
+                'messages'   => $replyData->buildMessage(),
+            ]);
+        break;
         case "T1":
             $asd = new AreaBuilder(0,0,50,50);
             $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
