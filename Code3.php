@@ -448,7 +448,7 @@ public function BOT_New($replyToken = null, $text)
             $actions = array(
           new MessageTemplateActionBuilder("ภาษาไทย", "TH"),
           new MessageTemplateActionBuilder("English", "ENG"),
-          new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel")
+          new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel"),
         );
             $column = new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions),new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions);
             $columns[] = $column;
@@ -461,10 +461,6 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "T8":
-        $columns = array(
-            new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions),
-            new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions)
-        );
         $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
         for ($i=0;$i<1;$i++) {
             $actions = array(
@@ -473,6 +469,10 @@ public function BOT_New($replyToken = null, $text)
           new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel")
         );
         }
+        $columns = array(
+            new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions),
+            new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions)
+        );
         $carousel = new CarouselTemplateBuilder($columns);
         $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
