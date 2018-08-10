@@ -361,7 +361,7 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "P1":
-        $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png");
+        $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg", "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg");
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
@@ -380,14 +380,14 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
                 new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
             );
-            $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
         ]);
         break;
         case "T1":
-            $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
+            $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg";
             $base = new BaseSizeBuilder(698,1039);
             $imgmap = array();
             $imgmap1 = array(
