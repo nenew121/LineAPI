@@ -380,7 +380,7 @@ public function BOT_New($replyToken = null, $text)
             $multiMessage->add($messageBuilder);
             $multiMessage->add($StickerBuilder);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
-            'to' => $textsub,
+            'to' => $split[0],
             'messages'   => $multiMessage->buildMessage(),
             ]);
         break;
