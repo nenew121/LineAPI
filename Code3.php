@@ -375,29 +375,29 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "Im":
-        $base = new BaseSizeBuilder(699,1000);
-        $arr = array(
-            new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
-            new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
-        );
-        $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png","test",$base,$arr);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
+            $base = new BaseSizeBuilder(699,1040);
+            $arr = array(
+                new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
+                new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
+            );
+            $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png","test",$base,$arr);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
         ]);
         break;
         case "T1":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
-        $base = new BaseSizeBuilder(1000,1000);
-        $imgmap = array(
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
-        );
-        $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
-
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
+            $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
+            $base = new BaseSizeBuilder(698,1039);
+            $imgmap = [];
+            $imgmap1 = array(
+                new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
+                new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
+            );
+            $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
         ]);
         break;
         default:
