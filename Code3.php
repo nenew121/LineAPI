@@ -375,7 +375,7 @@ public function BOT_New($replyToken = null, $text)
         break;
         case "To":
             $messageBuilder = new TextMessageBuilder($split[1]);
-            $StickerBuilder = new StickerMessageBuilder("2","527");
+            $StickerBuilder = new StickerMessageBuilder($split[2],$split[3]);
             $multiMessage = new MultiMessageBuilder;
             $multiMessage->add($messageBuilder);
             $multiMessage->add($StickerBuilder);
