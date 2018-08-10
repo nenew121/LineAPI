@@ -394,7 +394,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
                 new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
             );
-            $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,"");
+            $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
