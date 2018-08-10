@@ -366,7 +366,7 @@ public function BOT_New($replyToken = null, $text)
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
         ]);
-    break;
+        break;
         case "St":
             $replyData = new StickerMessageBuilder("1","17");
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -419,7 +419,7 @@ public function BOT_New($replyToken = null, $text)
         ]);
         break;
         case "T4":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";
+        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
         $base = new BaseSizeBuilder(699,1040);
         $imgmap = array(
             new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,355,699)),
@@ -447,8 +447,8 @@ public function BOT_New($replyToken = null, $text)
         ]);
         break;
         case "T6":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";
-        $base = new BaseSizeBuilder(600,700);
+        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
+        $base = new BaseSizeBuilder(1000,1000);
         $imgmap = array(
             new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
             new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
@@ -496,11 +496,11 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "T9":
-        $as = new UriTemplateActionBuilder('Uri Template','https://lineservice.prosofthcm.com/upload/Resource/Leave.png');
+        $as = new UriTemplateActionBuilder("Uri Template","https://lineservice.prosofthcm.com/upload/Resource/Leave.png");
         $columns = array(
-          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", $as),
-          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", $as),
-          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", $as)
+          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", $as),
+          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", $as),
+          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", $as)
         );
         $carousel = new ImageCarouselTemplateBuilder($columns);
         $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
