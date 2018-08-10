@@ -339,6 +339,53 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 //$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 }
 
+public function BOT_New($replyToken = null, $text)
+{
+    $TEXT = substr($text, 0, 2);
+    //$split = explode(",", $text); 
+    switch($TEXT){
+        case "Lo":
+            $textsub = substr($text, 2, 100);
+            $split = explode(",", $textsub); 
+            $outputText = new LocationMessageBuilder("GetLocation",$split[0].",".$split[1],$split[0],$split[1]);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+            ]);
+        break;
+        case "Qr":
+            $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+            ]);
+        break;
+        case "St":
+            $replyData = new StickerMessageBuilder("1","17");
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
+            ]);
+        break;
+        case "Ts":
+            $asd = new AreaBuilder(0,0,355,355);
+            $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
+
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $az->buildImagemapAction(),
+            ]);
+        break;
+        default:
+            $messageBuilder = new TextMessageBuilder($text);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $messageBuilder->buildMessage(),
+            ]);
+        break;
+    }
+}
+
 public function Sticker($replyToken = null)
 {
     $sti = new StickerMessageBuilder("1","17");
@@ -366,53 +413,6 @@ public function LocationMessage($replyToken = null, $text)
             'replyToken' => $replyToken,
             'messages'   => $messageBuilder->buildMessage(),
         ]);
-    }
-}
-
-public function BOT_New($replyToken = null, $text)
-{
-    $TEXT = substr($text, 0, 2);
-    //$split = explode(",", $text); 
-    switch($TEXT){
-        case "Lo":
-            $TEXT = substr($text, 2, 100);
-            $split = explode(",", $text); 
-            $outputText = new LocationMessageBuilder("GetLocation",$split[0].",".$split[1],$split[0],$split[1]);
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $outputText->buildMessage(),
-            ]);
-        break;
-        case "Qr":
-            $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $outputText->buildMessage(),
-            ]);
-        break;
-        case "St":
-            $sti = new StickerMessageBuilder("1","17");
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $replyData->buildMessage(),
-            ]);
-        break;
-        case "Ts":
-            $asd = new AreaBuilder(0,0,355,355);
-            $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
-
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $az->buildImagemapAction(),
-            ]);
-        break;
-        default:
-            $messageBuilder = new TextMessageBuilder($text);
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $messageBuilder->buildMessage(),
-            ]);
-        break;
     }
 }
 
