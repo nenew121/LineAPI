@@ -449,14 +449,16 @@ public function BOT_New($replyToken = null, $text)
           new MessageTemplateActionBuilder("English", "ENG"),
           new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel"),
         );
+            $column = new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions);
+            $columns[] = $column;
             $ar = array(
                 new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions),
                 new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions);
             );
 
-            $carousel = new CarouselTemplateBuilder($$ar);
-            $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        $carousel = new CarouselTemplateBuilder($columns);
+        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
                 'replyToken' => $replyToken,
                 'messages'   => $outputText->buildMessage(),
             ]);
