@@ -110,10 +110,6 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->pho123($bot->replyToken);
             }
-            elseif($bot->text == "Q")
-            {
-                $bot->pho123($bot->replyToken);
-            }
             else
             {
             $bot->LocationMessage($bot->replyToken,$bot->text);
