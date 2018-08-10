@@ -360,8 +360,8 @@ public function BOT_New($replyToken = null, $text)
             'messages'   => $outputText->buildMessage(),
             ]);
         break;
-        case "Q1":
-        $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png", "https://lineservice.prosofthcm.com/upload/Resource/Leave.png");
+        case "P1":
+        $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png");
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
@@ -386,20 +386,32 @@ public function BOT_New($replyToken = null, $text)
         'messages'   => $replyData->buildMessage(),
         ]);
         break;
-        case "Tt":
-        $sggg = new UriTemplateActionBuilder('Uri Template','https://www.ninenik.com');
-        $asdasd = array(
-            new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png",$sggg),
-            new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png",$sggg)                                       
-            );
-        $aaaa = new ImageCarouselTemplateBuilder($asdasd);
-        $replyData = new TemplateMessageBuilder("Image Carousel", $aaaa);
+        case "T1":
+        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
+        $base = new BaseSizeBuilder(1000,1000);
+        $imgmap = array(
+            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
+            new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
+        );
+        $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
+
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-                'replyToken' => $replyToken,
-                'messages'   => $replyData->buildMessage(),
+        'replyToken' => $replyToken,
+        'messages'   => $replyData->buildMessage(),
+        ]);
+        break;
+        default:
+            $messageBuilder = new TextMessageBuilder($text);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $messageBuilder->buildMessage(),
             ]);
         break;
-        case "T1":
+    }
+}
+
+/*
+case "T1":
             $asd = new AreaBuilder(0,0,50,50);
             $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
 
@@ -459,20 +471,7 @@ public function BOT_New($replyToken = null, $text)
         'messages'   => $replyData->buildImagemapAction(),
         ]);
         break;
-        case "T6":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
-        $base = new BaseSizeBuilder(1000,1000);
-        $imgmap = array(
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
-        );
-        $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
-
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
-        ]);
-        break;
+        
         case "T7":
         $columns = array();
         $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
@@ -522,15 +521,7 @@ public function BOT_New($replyToken = null, $text)
                 'messages'   => $outputText->buildMessage(),
             ]);
         break;
-        default:
-            $messageBuilder = new TextMessageBuilder($text);
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $messageBuilder->buildMessage(),
-            ]);
-        break;
-    }
-}
+*/
 
 public function Sticker($replyToken = null)
 {
