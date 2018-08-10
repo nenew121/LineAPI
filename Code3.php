@@ -400,6 +400,20 @@ public function BOT_New($replyToken = null, $text)
             'messages'   => $replyData->buildMessage(),
         ]);
         break;
+        case "Ur":
+        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg";
+        $base = new BaseSizeBuilder(698,1039);
+        $imgmap = array();
+        $imgmap1 = array(
+            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
+            new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
+        );
+        $replyData = new UriTemplateActionBuilder("Imgmap","https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg");
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $replyData->buildTemplateAction(),
+    ]);
+    break;
         default:
             $messageBuilder = new TextMessageBuilder($text);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
