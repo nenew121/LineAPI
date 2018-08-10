@@ -52,6 +52,7 @@ class BOT_API extends LINEBot
     public $isImage         = false;
     public $isSticker       = false;
     public $isImagemap      = false;
+    public $isMessage       = false;
 
     public $text            = null;
     public $replyToken      = null;
@@ -102,6 +103,10 @@ class BOT_API extends LINEBot
 
                 if ($event['type'] == 'message' && $event['message']['type'] == 'imagemap') {
                     $this->isImagemap = true;
+                }
+
+                if ($event['type'] == 'message' && $event['message']['type'] == 'message') {
+                    $this->isMessage = true;
                 }
             }
         }
@@ -324,7 +329,7 @@ public function LeaveRemain($replyToken = null)
     ]);
 }
 
-public function pho($replyToken = null)
+public function phoQ($replyToken = null)
 {
 $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Linebot.png", "https://lineservice.prosofthcm.com/upload/Resource/Linebot.png");
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
