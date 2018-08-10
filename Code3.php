@@ -15,7 +15,7 @@ use \LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
 use \LINE\LINEBot\ImagemapActionBuilder;
 use \LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
-use \LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder ;
+use \LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
 use \LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
 use \LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
 use \LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
@@ -380,7 +380,7 @@ public function BOT_New($replyToken = null, $text)
             new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
             new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
         );
-        $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/Leave.png","test",$base,$arr);
+        $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png","test",$base,$arr);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $replyData->buildMessage(),
@@ -509,7 +509,34 @@ public function BOT_New($replyToken = null, $text)
                 'messages'   => $outputText->buildMessage(),
             ]);
         break;
-        
+        case "T0":
+        $replyData = new TemplateMessageBuilder('Image Carousel',
+                new ImageCarouselTemplateBuilder(
+                    array(
+                        new ImageCarouselColumnTemplateBuilder(
+                            'https://lineservice.prosofthcm.com/upload/Resource/imgtest.png',
+                            new UriTemplateActionBuilder(
+                                'Uri Template', // ข้อความแสดงในปุ่ม
+                                'https://www.ninenik.com'
+                            )
+                        ),
+                        new ImageCarouselColumnTemplateBuilder(
+                            'https://lineservice.prosofthcm.com/upload/Resource/imgtest.png',
+                            new UriTemplateActionBuilder(
+                                'Uri Template', // ข้อความแสดงในปุ่ม
+                                'https://www.ninenik.com'
+                            )
+                        )                                       
+                    )
+                )
+            );
+        $carousel = new ImageCarouselTemplateBuilder($columns);
+        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+                'replyToken' => $replyToken,
+                'messages'   => $replyData->buildMessage(),
+            ]);
+        break;
         default:
             $messageBuilder = new TextMessageBuilder($text);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
