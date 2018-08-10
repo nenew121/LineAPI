@@ -441,6 +441,26 @@ public function BOT_New($replyToken = null, $text)
         'messages'   => $replyData->buildMessage(),
         ]);
         break;
+        case "T7":
+        $columns = array();
+        $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
+            $actions = array(
+          new MessageTemplateActionBuilder("ภาษาไทย", "TH"),
+          new MessageTemplateActionBuilder("English", "ENG"),
+          new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel"),
+        );
+            $ar = array(
+                new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions),
+                new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions);
+            );
+
+            $carousel = new CarouselTemplateBuilder($$ar);
+            $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+                'replyToken' => $replyToken,
+                'messages'   => $outputText->buildMessage(),
+            ]);
+        break;
         default:
             $messageBuilder = new TextMessageBuilder($text);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
