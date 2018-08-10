@@ -417,7 +417,10 @@ public function BOT_New($replyToken = null, $text)
     break;
         default:
             $messageBuilder = new TextMessageBuilder("ไม่มีคำสั่ง ".$text." นี้");
-            $StickerBuilder = new StickerMessageBuilder("1","7");
+            //$StickerBuilder = new StickerMessageBuilder("1","7");
+            //$StickerBuilder = new StickerMessageBuilder("2","527");
+            $StickerBuilder = new StickerMessageBuilder("2","159");
+            //$StickerBuilder = new StickerMessageBuilder("1","109");
             $multiMessage = new MultiMessageBuilder;
             $multiMessage->add($messageBuilder);
             $multiMessage->add($StickerBuilder);
