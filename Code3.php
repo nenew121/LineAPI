@@ -382,9 +382,22 @@ public function BOT_New($replyToken = null, $text)
             $multiMessage->add($StickerBuilder);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'to' => "U05a39ae3a619678ef4b1b58111980a79",
+            'replyToken' => $replyToken,
             'messages'   => $multiMessage->buildMessage(),
             ]);
         break;
+        case "Tf":
+        $messageBuilder = new TextMessageBuilder(substr($text, 2, 100));
+        $StickerBuilder = new StickerMessageBuilder("2","527");
+        $multiMessage = new MultiMessageBuilder;
+        $multiMessage->add($messageBuilder);
+        $multiMessage->add($StickerBuilder);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'to' => "U05a39ae3a619678ef4b1b58111980a79",
+        'messages'   => $multiMessage->buildMessage(),
+        ]);
+    break;
         case "Im":
             $base = new BaseSizeBuilder(699,1040);
             $arr = array(
