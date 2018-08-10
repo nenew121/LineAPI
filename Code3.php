@@ -93,21 +93,6 @@ class BOT_API extends LINEBot
                     $this->text   = $event['message']['text'];
                 }
 
-                if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-                    $this->isImage = true;
-                }
-
-                if ($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
-                    $this->isSticker = true;
-                }
-
-                if ($event['type'] == 'message' && $event['message']['type'] == 'imagemap') {
-                    $this->isImagemap = true;
-                }
-
-                if ($event['type'] == 'message' && $event['message']['type'] == 'message') {
-                    $this->isMessage = true;
-                }
             }
         }
 
