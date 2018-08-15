@@ -110,7 +110,7 @@ function SendUserID(){
     
     return $open;
 }
-
+/*
 function LeaveRequest($LineID){
     
     $url = "http://lineservice.prosofthcm.com/api/ApproveRequestInfoAPI/".$LineID;
@@ -118,5 +118,6 @@ function LeaveRequest($LineID){
     
     return $open;
 }
+*/
 
 ?>

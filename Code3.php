@@ -304,24 +304,7 @@ public function AboutUs($replyToken = null)
     ]);
 }
 
-public function SendLeaveType($replyToken = null)
-{
-        $actions = array(
-            new MessageTemplateActionBuilder("ลาป่วย1", "ลาป่วย1"),
-            new MessageTemplateActionBuilder("ลากิจ1", "ลากิจ1"),
-            new MessageTemplateActionBuilder("ลาพักร้อน1", "ลาพักร้อน1"),
-            new MessageTemplateActionBuilder("ยกเลิก", "ยกเลิก"),
-        );
-
-    $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
-    $button = new ButtonTemplateBuilder("ประเภทการลา","เลือกประเภทการลา", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("Type Approved", $button);
-    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-      'replyToken' => $replyToken,
-      'messages'   => $outputText->buildMessage(),
-  ]);
-}
-
+/*
 public function Leaveinformation($replyToken = null)
 {
     $actions = array(
@@ -339,6 +322,7 @@ public function Leaveinformation($replyToken = null)
         'messages'   => $outputText->buildMessage(),
     ]);
 }
+*/
 
 public function LeaveRemain($replyToken = null)
 {
@@ -471,6 +455,7 @@ public function BOT_New($replyToken = null, $text)
     }
 }
 
+/*
 public function Leavere($replyToken = null, $text)
 {
     $ar = [];
@@ -497,7 +482,7 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 'replyToken' => $replyToken,
 'messages'   => $replyData->buildMessage(),
 ]);
-}
+}*/
 
 /*
 case "T1":

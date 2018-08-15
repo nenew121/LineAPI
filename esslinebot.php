@@ -50,21 +50,6 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->Leaveinformation($bot->replyToken);
             }
-            elseif($bot->text == "Wait Approve")
-            {
-                $Text = Leaveinformation($bot->userId,"W");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Approved")
-            {
-                $Text = Leaveinformation($bot->userId,"Y");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Not Approve")
-            {
-                $Text = Leaveinformation($bot->userId,"N");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
             elseif($bot->text == "Leave Remain")
             {
                 $bot->LeaveRemain($bot->replyToken);
@@ -109,15 +94,6 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->AboutUs($bot->replyToken);
             }
-            elseif($bot->text == "Leave")
-            {
-                $bot->SendLeaveType($bot->replyToken);
-            }
-            elseif($bot->text == "ลาป่วย1")
-            {
-                $resu = LeaveRequest($bot->userId);
-                $bot->Leavere($bot->replyToken,$resu);
-            }
             else
             {
             $bot->BOT_New($bot->replyToken,$bot->text);
@@ -143,4 +119,23 @@ if ($bot->isSuccess())
 // Failed
 echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody();
 exit();
+
+/*
+            elseif($bot->text == "Wait Approve")
+            {
+                $Text = Leaveinformation($bot->userId,"W");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Approved")
+            {
+                $Text = Leaveinformation($bot->userId,"Y");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Not Approve")
+            {
+                $Text = Leaveinformation($bot->userId,"N");
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+*/
 ?>
+
