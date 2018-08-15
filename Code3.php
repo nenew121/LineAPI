@@ -129,9 +129,9 @@ public function SendMessageApproveTo($ToLineID = null, $message = null){
         new ConfirmTemplateBuilder(
                 'Approve Center', // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
                 array(
-                    new MessageTemplateActionBuilder(
-                        'No', // ข้อความสำหรับปุ่มแรก
-                        'NO' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                    new UriTemplateActionBuilder(
+                        'Yes', // ข้อความสำหรับปุ่มแรก
+                        "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     ),
                     new MessageTemplateActionBuilder(
                         'No', // ข้อความสำหรับปุ่มแรก
