@@ -425,6 +425,80 @@ public function BOT_New($replyToken = null, $text)
         'messages'   => $replyData->buildTemplateAction(),
         ]);
         break;
+        case "Le":
+            // กำหนด action 4 ปุ่ม 4 ประเภท
+        $actionBuilder = array(
+                new MessageTemplateActionBuilder(
+                    'Message Template',// ข้อความแสดงในปุ่ม
+                    'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                ),
+                new UriTemplateActionBuilder(
+                    'Uri Template', // ข้อความแสดงในปุ่ม
+                    'https://www.ninenik.com'
+                ),
+                new PostbackTemplateActionBuilder(
+                    'Postback', // ข้อความแสดงในปุ่ม
+                    http_build_query(array(
+                        'action'=>'buy',
+        
+                        'item'=>100
+                    )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
+                    'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                ),      
+            );
+        $replyData = new TemplateMessageBuilder('Carousel',
+            new CarouselTemplateBuilder(
+                array(
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),
+                    new CarouselColumnTemplateBuilder(
+                        'Title Carousel',
+                        'Description Carousel',
+                        'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
+                        $actionBuilder
+                    ),                                          
+                )
+            )
+        );
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $replyData->buildMessage(),
+        ]);
+    break;
         default:
             $messageBuilder = new TextMessageBuilder("ไม่มีคำสั่ง ".$text." นี้");
             //$StickerBuilder = new StickerMessageBuilder("1","7");
