@@ -460,9 +460,10 @@ public function Leavere($replyToken = null, $text)
     );
     $ar = [];
     foreach($text as $out){
-        array_push($ar,new CarouselTemplateBuilder(new CarouselColumnTemplateBuilder('เอกสารขออนุมัติ'.$out['Docuno'],"วันที่ขอลา".$out['DocuDate']."\nประเภทการลา".$out['LeaveTypeName']."\nสาเหตุ".$out['LeaveRemark'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder))); 
+        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา".$out['DocuDate'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
     }
-$replyData = new TemplateMessageBuilder('Carousel', $ar);
+    $caro =  new CarouselTemplateBuilder($ar);
+$replyData = new TemplateMessageBuilder('Carousel', $caro);
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
 'replyToken' => $replyToken,
 'messages'   => $replyData->buildMessage(),
