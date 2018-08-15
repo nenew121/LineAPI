@@ -458,7 +458,7 @@ public function Leavere($replyToken = null, $text)
             'ย้อนกลับ' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
         ),     
     );
-    $ar = []
+    $ar = [];
     foreach($text as $out){ 
         $ar = array(
                 new CarouselColumnTemplateBuilder(
