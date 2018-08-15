@@ -460,7 +460,7 @@ public function Leavere($replyToken = null, $text)
                 'ย้อนกลับ' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
             ),     
         );
-        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา:".$out['DocuDate']."\nประเภทการลา:".$out['LeaveTypeName'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
+        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา : ".$out['DocuDate']."\nประเภทการลา : ".$out['LeaveTypeName'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
     }
     $caro =  new CarouselTemplateBuilder($ar);
 $replyData = new TemplateMessageBuilder('Carousel', $caro);
