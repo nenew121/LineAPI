@@ -446,25 +446,23 @@ public function Leavere($replyToken = null, $text)
 {
     $ar = [];
     foreach($text as $out){
-    $actionBuilder = array(
-        new MessageTemplateActionBuilder(
-            'อนุมัติ',// ข้อความแสดงในปุ่ม
-            'อนุมัติ'.$out['Docuno'] // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),
-        new MessageTemplateActionBuilder(
-            'ไม่อนุมัติ',// ข้อความแสดงในปุ่ม
-            'ไม่อนุมัติ'.$out['Docuno'] // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),
-        new MessageTemplateActionBuilder(
-            'ย้อนกลับ',// ข้อความแสดงในปุ่ม
-            'ย้อนกลับ' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),     
-    );
-    $ar2 = [];
-    foreach($text as $out){
-        array_push($ar2,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา:".$out['DocuDate']."\nประเภทการลา:".$out['LeaveTypeName'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
+        $actionBuilder = array(
+            new MessageTemplateActionBuilder(
+                'อนุมัติ',// ข้อความแสดงในปุ่ม
+                'อนุมัติ'.$out['Docuno'] // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+            ),
+            new MessageTemplateActionBuilder(
+                'ไม่อนุมัติ',// ข้อความแสดงในปุ่ม
+                'ไม่อนุมัติ'.$out['Docuno'] // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+            ),
+            new MessageTemplateActionBuilder(
+                'ย้อนกลับ',// ข้อความแสดงในปุ่ม
+                'ย้อนกลับ' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+            ),     
+        );
+        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา:".$out['DocuDate']."\nประเภทการลา:".$out['LeaveTypeName'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
     }
-    $caro =  new CarouselTemplateBuilder($ar2);
+    $caro =  new CarouselTemplateBuilder($ar);
 $replyData = new TemplateMessageBuilder('Carousel', $caro);
 $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
 'replyToken' => $replyToken,
