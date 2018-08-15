@@ -463,7 +463,7 @@ public function Leavere($replyToken = null, $text)
         $ar = array(
                 new CarouselColumnTemplateBuilder(
                     'เอกสารขออนุมัติ',
-                    $out['Docuno'],
+                    $out['DocuDate'].$out['Docuno'].$out['LeaveTypeName'].$out['LeaveRemark'],
                     'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',
                     $actionBuilder
                 ),                             
