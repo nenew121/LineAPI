@@ -123,6 +123,35 @@ public function SendMessageTo($ToLineID = null, $message = null){
     ]);
 }
 
+public function SendMessageApproveTo($ToLineID = null, $message = null){
+    $messageBuilder = new TextMessageBuilder($message);
+    $Temp = new TemplateMessageBuilder('Approve Center',
+        new ConfirmTemplateBuilder(
+                'Approve Center', // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
+                array(
+                    New UriTemplateActionBuilder(
+                        "Approve Request", // ข้อความสำหรับปุ่มแรก
+                        "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/"$ToLineID  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                    ),
+                    new MessageTemplateActionBuilder(
+                        'No', // ข้อความสำหรับปุ่มแรก
+                        'NO' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                    )
+                )
+            )
+        );
+
+    $multiMessage = new MultiMessageBuilder;
+    $multiMessage->add($messageBuilder);
+    $multiMessage->add($Temp);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
+        'to' => $ToLineID,
+        // 'toChannel' => 'Channel ID,
+        'messages'  => $multiMessage->buildMessage()
+    ]);
+}
+
 public function replyMessageNew($replyToken = null, $message = null){
     $messageBuilder = new TextMessageBuilder($message);
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
