@@ -103,4 +103,12 @@ function EPaySlip($LineID){
     return $open;
 }
 
+function LeaveRequest($LineID){
+    
+    $url = "http://lineservice.prosofthcm.com/api/ApproveRequestAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    
+    return $open;
+}
+
 ?>

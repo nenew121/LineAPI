@@ -10,7 +10,7 @@ $access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUF
 $bot = new BOT_API($channelSecret, $access_token);
 $idnews = $_POST['txtNews'];
 
-
+// Check News
 if(!empty($idnews)){
 
     $str = NEWS($idnews);
@@ -20,7 +20,6 @@ if(!empty($idnews)){
     for ($i = 0; $i<$iCount; $i++) {
         $bot->SendMessageTo($arr[$i],$str);
     }
-
 // return echo "success";
 }
 
@@ -105,6 +104,11 @@ if (!empty($bot->isEvents)) {
             elseif($bot->text == "Leave")
             {
                 $bot->SendLeaveType($bot->replyToken);
+            }
+            elseif($bot->text == "ลาป่วย1")
+            {
+                $resu = LeaveRequest($bot->userId);
+                $bot->Leavere($bot->replyToken,$resu);
             }
             else
             {
