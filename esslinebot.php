@@ -28,7 +28,7 @@ if(!empty($idnews)){
 // Check Approve MS
 if(!empty($LineID)){
     $str = "มีเอกสารอนุมัติ";
-    $bot->SendMessageTo($LineID,$str." ".$Docuno);
+    $bot->SendMessageApproveTo($LineID,$str." ".$Docuno);
 }
 
 if (!empty($bot->isEvents)) {
