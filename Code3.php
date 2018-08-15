@@ -460,7 +460,7 @@ public function Leavere($replyToken = null, $text)
     );
     $ar = [];
     foreach($text as $out){
-        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา".$out['DocuDate'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
+        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา:".$out['DocuDate']."\nประเภทการลา:".$out['LeaveTypeName']." สาเหตุ:".$out['LeaveRemark'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
     }
     $caro =  new CarouselTemplateBuilder($ar);
 $replyData = new TemplateMessageBuilder('Carousel', $caro);
