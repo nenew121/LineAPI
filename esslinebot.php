@@ -11,6 +11,8 @@ $bot = new BOT_API($channelSecret, $access_token);
 $idnews = $_POST['txtNews'];
 $LineID = $_POST['LineID'];
 $Docuno = $_POST['Docuno'];
+$LineID_EmpID = $_POST['LineID_EmpID'];
+$Apprequest = $_POST['Apprequest'];
 
 // Check News
 if(!empty($idnews)){
@@ -28,7 +30,17 @@ if(!empty($idnews)){
 // Check Approve MS
 if(!empty($LineID)){
     $str = "มีเอกสารอนุมัติ";
-    $bot->SendMessageApproveTo($LineID,$str." ".$Docuno);
+    $bot->SendMessageApproveTo($LineID ,$str." ".$Docuno);
+}
+
+// Check MS request
+if(!empty($LineID_EmpID)){
+    if($Apprequest == "Y"){
+        $str = "เอกสาร อนุมัติ";
+    }else{
+        $str = "เอกสาร ไม่อนุมัติ";
+    }
+    $bot->SendMessageApproveTo($LineID_EmpID ,$str);
 }
 
 if (!empty($bot->isEvents)) {
