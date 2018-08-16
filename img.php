@@ -9,7 +9,7 @@ use Intervention\Image\ImageManager;
 $manager = new ImageManager();      
      
 // การอ่านไฟล์จากรูภาพที่มีอยู่แล้ว โดยระ path ของรูปภาพ ที่จะใช้งาน เพื่อสร้างข้อมูลรูปภาพใหม่
-   
+//$img = $manager->make('img/bg1.jpg');     
  
 // ส่ง HTTP header และข้อมูลของรูปเพื่อนำไปแสดง 
 //echo $img->response();
@@ -103,8 +103,5 @@ if(isset($_GET['file']) && $_GET['file']!=""){
         }
     }  
     echo $img->response();   
-}else{
-    header("HTTP/1.0 404 Not Found");
-    exit;   
 }
 ?>
