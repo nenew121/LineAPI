@@ -67,7 +67,7 @@ function Leaveinformation($LineID,$Status){
             $sum = $sum."ประเภทการลา : ".$text['LeaveTypeName']."\n";
             $sum = $sum."จำนวนวันลา : 1"."\n";
             $sum = $sum."สาเหตุการลา : ".$text['LeaveRemark']."\n";
-            $sum = $sum."----------------------------------------------\n";
+            $sum = $sum."----------------------------------------------";
         }
     }else{
         return "ไม่มีพบข้อมูล";
