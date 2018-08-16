@@ -9,7 +9,7 @@ use Intervention\Image\ImageManager;
 $manager = new ImageManager();      
      
 // การอ่านไฟล์จากรูภาพที่มีอยู่แล้ว โดยระ path ของรูปภาพ ที่จะใช้งาน เพื่อสร้างข้อมูลรูปภาพใหม่
-$img = $manager->make('img/bg1.jpg');     
+//$img = $manager->make('img/bg1.jpg');     
  
 // ส่ง HTTP header และข้อมูลของรูปเพื่อนำไปแสดง 
 //echo $img->response();
