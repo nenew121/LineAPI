@@ -104,7 +104,7 @@ if(isset($_GET['file']) && $_GET['file']!=""){
     }  
     echo $img->response();   
 }else{
-    header("HTTP/1.0 404 Not Found");
+    print_r("HTTP/1.0 404 Not Found");
     exit;   
 }
 ?>
