@@ -399,7 +399,7 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "Im":
-            $base = new BaseSizeBuilder(699,1040);
+            $base = new BaseSizeBuilder(460,460);
             $arr = array(
                 new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
                 new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
