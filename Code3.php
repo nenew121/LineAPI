@@ -373,7 +373,8 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "P1":
-        $outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg", "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg");
+        //$outputText = new ImageMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg", "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg");
+        $outputText = new ImageMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/asdf.jpg", "https://cherry-pie-82107.herokuapp.com/img/asdf.jpg");
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
