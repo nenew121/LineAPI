@@ -404,7 +404,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
                 new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
             );
-            $replyData = new ImagemapMessageBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/asdf.jpg","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
