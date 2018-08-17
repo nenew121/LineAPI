@@ -403,7 +403,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("ttt", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=1040","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://avatars2.githubusercontent.com/u/1119714","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
