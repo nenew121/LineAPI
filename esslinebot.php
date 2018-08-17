@@ -9,10 +9,10 @@ $access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUF
 
 $bot = new BOT_API($channelSecret, $access_token);
 $idnews = $_POST['txtNews'];
-$LineID = $_POST['LineID'];
+$LineID_NextApprove = $_POST['LineID_NextApprove'];
 $Docuno = $_POST['Docuno'];
 $LineID_EmpID = $_POST['LineID_EmpID'];
-$Apprequest = $_POST['Apprequest'];
+$ApproveStatus = $_POST['ApproveStatus'];
 
 // Check News
 if(!empty($idnews)){
@@ -28,19 +28,19 @@ if(!empty($idnews)){
 }
 
 // Check Approve MS
-if(!empty($LineID)){
+if(!empty($LineID_NextApprove)){
     $str = "มีเอกสารอนุมัติ";
-    $bot->SendMessageApproveTo($LineID ,$str." ".$Docuno);
+    $bot->SendMessageApproveTo($LineID_NextApprove ,$str." ".$Docuno);
 }
 
 // Check MS request
 if(!empty($LineID_EmpID)){
-    if($Apprequest == "Y"){
-        $str = "เอกสาร อนุมัติ";
+    if($ApproveStatus == "Y"){
+        $str = "อนุมัติ";
     }else{
-        $str = "เอกสาร ไม่อนุมัติ";
+        $str = "ไม่อนุมัติ";
     }
-    $bot->SendMessageTo($LineID_EmpID ,$str);
+    $bot->SendMessageTo($LineID_EmpID ,"เอกสาร ".$Docuno." ".$str);
 }
 
 if (!empty($bot->isEvents)) {
