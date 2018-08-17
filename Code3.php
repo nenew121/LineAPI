@@ -400,8 +400,8 @@ public function BOT_New($replyToken = null, $text)
         case "Im":
             $base = new BaseSizeBuilder(699,1040);
             $arr = array(
-                new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,520,699)),
-                new ImagemapMessageActionBuilder("ttt", new AreaBuilder(520,0,520,699))
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
+                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
             $replyData = new ImagemapMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=1040","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
