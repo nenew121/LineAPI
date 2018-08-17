@@ -391,7 +391,7 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "P1":
-        $outputText = new ImageMessageBuilder("http://lineservice.prosofthcm.com/LineService/TestImgmap/TestImgmap3/460/460", "http://lineservice.prosofthcm.com/LineService/TestImgmap/TestImgmap3/460/460");
+        $outputText = new ImageMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=300", "https://avatars2.githubusercontent.com/u/1119714?s=300");
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
@@ -403,7 +403,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder("http://lineservice.prosofthcm.com/LineService/TestImgmap/TestImgmap3/460/460","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=1040","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
