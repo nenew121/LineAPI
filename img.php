@@ -15,4 +15,24 @@ use Intervention\Image\ImageManager;
 // ทดสอบแสดงค่า ตัวแปร $_GET ที่ส่งผ่าน url
 echo "<pre>";
 print_r($_GET);
+
+if(isset($_GET['file']) && $_GET['file']!=""){
+    $picFile = trim($_GET['file']);
+    $originalFilePath = 'img/'; // แก้ไขเป็นโฟลเดอร์รูปต้นฉบับ
+    $fullFilePath = $originalFilePath.$picFile;
+    $fullFilePathJPG = $fullFilePath.'.jpg';
+    $fullFilePathPNG = $fullFilePath.'.png';
+    $fullFile = '';
+    $picType = '';
+    if(file_exists($fullFilePathJPG)){
+        print_r("case1 ok");
+    }
+    if(file_exists($fullFilePathPNG)){ 
+        print_r("case2 ok");
+    }   
+    if($picType==''){
+        print_r("case3 ok");
+        exit;
+    }
+}
 ?>

@@ -40,7 +40,7 @@ if(!empty($LineID_EmpID)){
     }else{
         $str = "เอกสาร ไม่อนุมัติ";
     }
-    $bot->SendMessageApproveTo($LineID_EmpID ,$str);
+    $bot->SendMessageTo($LineID_EmpID ,$str);
 }
 
 if (!empty($bot->isEvents)) {
