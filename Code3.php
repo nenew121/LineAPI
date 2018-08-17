@@ -415,7 +415,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder("http://www.scbcreditcard.com/online/edm/201808Aurora17aug/?jwt=B-ToEc8qceqcqyFDrXU4UVuSbLUg-LCDc03JLEP-bnwZ5JWMj6Y3yrsfkSCIiV0N26eAyBGh8N3UD1DvE-2KATIe9-xLHwYTGwxJYOFXupWsr663RvbCQPeucWbJUlYY0xYiu00n7BOrl5QQD5SxifFEvmRqAuwOnOSiEHo0fs6XkEqCAvpinqSKwQDxnp0Txo2EmjaGWCjcc6ta6YHlY86SidRsCoKdMFvdZRQ0zk5s_Ownquzxb9w1F19vYxmatR8_7WgMAaBhy7HjQNakf8PMKA6cbpITPJog_aGceJQCdzkro8x_HBlkhXFiUdTbj9jR3O1qTCnWadEJQJT3W6aEDANOR1KcZ-z641NX-R6KIVoVvdySxryiWQiyHDB0-rOwZItJaOD4CQOL8BsvMbhJVLxteZm_ZVk-qgu-TvM5NxyPKeyTrkVwnqzIikO6c1cDMWItok6fHMFVIA_QsgQSfCABJMvGmmK3mX3E9qeCNCxhiS7A8pg90AzC7Avy1lFUXBlqHgOQDWVROCwUoGy9sg4-dY1NClKGbDkE0XvaVxY63l6b6lKOIbEY3-3lop41Gh6vqtOliPviyELv2A==","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/iYwdctTo8d.jpg?S=251","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
