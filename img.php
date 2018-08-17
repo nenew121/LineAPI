@@ -11,7 +11,8 @@ require_once 'vendor/autoload.php';
  
 // import the Intervention Image Manager Class
 use Intervention\Image\ImageManager;  
- 
+use Intervention\Image\ImageManagerStatic as Image;
+
 // ทดสอบแสดงค่า ตัวแปร $_GET ที่ส่งผ่าน url
 if(isset($_GET['file']) && $_GET['file']!=""){
     $picFile = trim($_GET['file']);
@@ -34,7 +35,10 @@ if(isset($_GET['file']) && $_GET['file']!=""){
         exit;
     }
     $manager = new ImageManager();
-    $img = $manager->make($fullFile); 
+    //$img = $manager->make($fullFile); 
+
+    $img = Image::make($fullFile); // Create Intervention instance
+
     if(isset($_GET['mode']) && $_GET['mode']=='f'){
         if(isset($_GET['width']) && $_GET['width']!="" && isset($_GET['height']) && $_GET['height']!=""){       
             $img->fit($_GET['width'], $_GET['height'], function ($constraint) {
