@@ -13,9 +13,7 @@ require_once 'ResizeImg/Re/vendor/autoload.php';
 use Intervention\Image\ImageManager;  
  
 // ทดสอบแสดงค่า ตัวแปร $_GET ที่ส่งผ่าน url
-$manager = new ImageManager();    
-echo "<pre>";
-print_r($_GET);
+$manager = new ImageManager();
 if(isset($_GET['file']) && $_GET['file']!=""){
     $picFile = trim($_GET['file']);
     $originalFilePath = 'img/'; // แก้ไขเป็นโฟลเดอร์รูปต้นฉบับ
@@ -25,14 +23,17 @@ if(isset($_GET['file']) && $_GET['file']!=""){
     $fullFile = '';
     $picType = '';
     if(file_exists($fullFilePathJPG)){
-        print_r("1");
+        $picType = 'jpg';
+        $fullFile = $fullFilePath.'.'.$picType;
     }
     if(file_exists($fullFilePathPNG)){ 
-        print_r("2");
+        $picType = 'png';
+        $fullFile = $fullFilePath.'.'.$picType;
     }   
     if($picType==''){
-        print_r("3");
+        header("HTTP/1.0 404 Not Found");
         exit;
     }
+    $img = $manager->make($fullFile); 
 }
 ?>
