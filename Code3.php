@@ -391,7 +391,7 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "P1":
-        $outputText = new ImageMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/img_2.jpg", "https://cherry-pie-82107.herokuapp.com/img/img_2.jpg");
+        $outputText = new ImageMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=300", "https://avatars2.githubusercontent.com/u/1119714?s=300");
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
@@ -403,7 +403,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapMessageActionBuilder("tt", new AreaBuilder(0,0,10,10)),
                 new ImagemapMessageActionBuilder("ttt", new AreaBuilder(0,0,10,10))
             );
-            $replyData = new ImagemapMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/img_2.jpg","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=300","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
