@@ -391,11 +391,11 @@ public function BOT_New($replyToken = null, $text)
             ]);
         break;
         case "P1":
-        $outputText = new ImageMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=300", "https://avatars2.githubusercontent.com/u/1119714?s=300");
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
-        ]);
+            $outputText = new ImageMessageBuilder("https://avatars2.githubusercontent.com/u/1119714?s=300", "https://avatars2.githubusercontent.com/u/1119714?s=300");
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $outputText->buildMessage(),
+            ]);
         break;
         case "Im":
             $base = new BaseSizeBuilder(699,1040);
@@ -410,18 +410,51 @@ public function BOT_New($replyToken = null, $text)
         ]);
         break;
         case "T1":
-            $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.jpg";
-            $base = new BaseSizeBuilder(698,1039);
-            $imgmap1 = array();
-            $imgmap = array(
-                new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,69)),
-                new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
+            $base = new BaseSizeBuilder(699,1040);
+            $arr = array(
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
+                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
+            $replyData = new ImagemapMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/img_3.jpg","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
-            'imagemap'   => $imgmap1->buildImagemapAction(),
+        ]);
+        break;
+        case "T2":
+            $base = new BaseSizeBuilder(699,1040);
+            $arr = array(
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
+                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
+            );
+            $replyData = new ImagemapMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/img_4.jpg","test",$base,$arr);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
+        ]);
+        break;
+        case "T3":
+            $base = new BaseSizeBuilder(699,1040);
+            $arr = array(
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
+                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
+            );
+            $replyData = new ImagemapMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/img_5.jpg","test",$base,$arr);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
+        ]);
+        break;
+        case "T4":
+            $base = new BaseSizeBuilder(699,1040);
+            $arr = array(
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
+                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
+            );
+            $replyData = new ImagemapMessageBuilder("https://cherry-pie-82107.herokuapp.com/img/img_1.jpg","test",$base,$arr);
+            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages'   => $replyData->buildMessage(),
         ]);
         break;
         case "Ur":
