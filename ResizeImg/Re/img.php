@@ -13,6 +13,7 @@ require_once 'vendor/autoload.php';
 use Intervention\Image\ImageManager;  
  
 // ทดสอบแสดงค่า ตัวแปร $_GET ที่ส่งผ่าน url
+$manager = new ImageManager();     
 $img = $manager->make('img/bg1.jpg');     
  
 // ส่ง HTTP header และข้อมูลของรูปเพื่อนำไปแสดง
