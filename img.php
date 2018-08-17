@@ -13,6 +13,7 @@ require_once 'ResizeImg/Re/vendor/autoload.php';
 use Intervention\Image\ImageManager;  
  
 // ทดสอบแสดงค่า ตัวแปร $_GET ที่ส่งผ่าน url
+$manager = new ImageManager();    
 echo "<pre>";
 print_r($_GET);
 ?>
