@@ -450,7 +450,7 @@ public function BOT_New($replyToken = null, $text)
     $split = explode(",", $textsub);
     switch($TEXT){
         case "Lo":
-            $outputText = new LocationMessageBuilder("GetLocation",$split[0]."gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg,".$split[1],$split[0],$split[1]);
+            $outputText = new LocationMessageBuilder("GetLocation",$split[0].",".$split[1],$split[0],$split[1]);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $outputText->buildMessage(),
@@ -520,12 +520,14 @@ public function BOT_New($replyToken = null, $text)
         ]);
         break;
         case "T2":
-            $base = new BaseSizeBuilder(699,1040);
+            $base = new BaseSizeBuilder(1040,710);
             $arr = array(
-                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
-                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
+                new ImagemapMessageActionBuilder("Text4", new AreaBuilder(0,790,1040,130)),
+                new ImagemapMessageActionBuilder("Text3", new AreaBuilder(0,660,1040,130)),
+                new ImagemapMessageActionBuilder("Text2", new AreaBuilder(0,530,1040,130)),
+                new ImagemapMessageActionBuilder("Text1", new AreaBuilder(0,400,1040,130))
             );
-            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/E6s9Vg2g2H.jpg?S=700","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/epGPOPH7LC.png?S=699","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
