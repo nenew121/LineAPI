@@ -387,7 +387,7 @@ public function LocationOrg($replyToken = null,$Text)
             $TextOut = $TextOut.$texts;
             }
             $textsub = mb_substr($TextOut,0,12,'UTF-8');
-            $textsub = $textsub."...";
+            $textsub = $textsub."..";
         }
         if($text['AddressNo'] != null && $text['AddressNo'] != ""){
             $sum = $sum.$text['AddressNo']." ";
@@ -437,7 +437,7 @@ public function LocationOrg($replyToken = null,$Text)
             $sum = $sum.$text['Vilage']." ";
         }
         $sum = mb_substr($sum,0,45,'UTF-8');
-        $sum = $sum."...";
+        $sum = $sum."..";
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
         $outputText = new LocationMessageBuilder($textsub,$sum,$Latitude,$Longtitude);
