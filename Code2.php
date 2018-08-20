@@ -110,6 +110,14 @@ function SendUserID(){
     
     return $open;
 }
+
+function LocationOrganization($LineID){
+    
+    $url = "https://lineservice.prosofthcm.com/Api/LocationOrgAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    
+    return $open;
+}
 /*
 function LeaveRequest($LineID){
     

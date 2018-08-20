@@ -92,7 +92,12 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Organization")
             {
-                $bot->Organization($bot->replyToken);
+                $bot->Organization($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Location of Organization")
+            {
+                $Text = LocationOrganization($bot->userId);
+                $bot->LocationOrg($bot->replyToken,$Text);
             }
             elseif($bot->text == "Setting")
             {
