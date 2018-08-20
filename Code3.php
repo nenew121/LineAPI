@@ -374,6 +374,7 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 public function LocationOrg($replyToken = null,$Text)
 {
     $sum = "";
+    $Ta = "";
     $Latitude = "";
     $Longtitude =  "";
     foreach($Text as $text){
