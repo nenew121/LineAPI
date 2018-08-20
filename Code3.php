@@ -436,7 +436,7 @@ public function LocationOrg($replyToken = null,$Text)
         if($text['Vilage'] != null && $text['Vilage'] != ""){
             $sum = $sum.$text['Vilage']." ";
         }
-        $sum = mb_substr($sum,0,80,'UTF-8');
+        $sum = mb_substr($sum,0,45,'UTF-8');
         $sum = $sum."...";
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
