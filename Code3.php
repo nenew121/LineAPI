@@ -386,7 +386,7 @@ public function LocationOrg($replyToken = null,$Text)
             foreach($split as $texts){
             $TextOut = $TextOut.$texts;
             }
-            $textsub = mb_substr($TextOut,0,16,'UTF-8');
+            $textsub = mb_substr($TextOut,0,12,'UTF-8');
             $textsub = $textsub."...";
         }
         if($text['AddressNo'] != null && $text['AddressNo'] != ""){
