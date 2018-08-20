@@ -438,8 +438,8 @@ public function LocationOrg($replyToken = null,$Text)
         if($text['Vilage'] != null && $text['Vilage'] != ""){
             $sum = $sum.$text['Vilage']." ";
         }
-        $sum = mb_substr($sum,0,20,'UTF-8');
-        $sum = $sum."..";
+        //$sum = mb_substr($sum,0,20,'UTF-8');
+        //$sum = $sum."..";
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
         $outputText = new LocationMessageBuilder("GetLocation",$sum,$Latitude,$Longtitude);
