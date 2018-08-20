@@ -410,7 +410,7 @@ public function BOT_New($replyToken = null, $text)
         ]);
         break;
         case "T1":
-            $base = new BaseSizeBuilder(1040,699);
+            $base = new BaseSizeBuilder(1040,710);
             $arr = array(
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
