@@ -414,8 +414,8 @@ public function BOT_New($replyToken = null, $text)
             $arr = array(
                 new ImagemapMessageActionBuilder("Text1", new AreaBuilder(35,800,380,170)),
                 new ImagemapMessageActionBuilder("Text2", new AreaBuilder(35,600,380,170)),
-                new ImagemapMessageActionBuilder("Text3", new AreaBuilder(35,1197,965,187)),
-                new ImagemapMessageActionBuilder("Text4", new AreaBuilder(35,1197,965,187))
+                new ImagemapMessageActionBuilder("Text3", new AreaBuilder(35,400,380,187)),
+                new ImagemapMessageActionBuilder("Text4", new AreaBuilder(35,200,380,187))
 
                 //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
                 //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,823,965,186)),
