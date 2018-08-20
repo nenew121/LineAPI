@@ -386,7 +386,7 @@ public function LocationOrg($replyToken = null,$Text)
             foreach($split as $texts){
             $TextOut = $TextOut.$texts;
             }
-            $textsub = mb_substr($TextOut,0,10,'UTF-8');
+            $textsub = mb_substr($TextOut,0,9,'UTF-8');
             $textsub = $textsub."..";
         }
         if($text['AddressNo'] != null && $text['AddressNo'] != ""){
@@ -436,7 +436,7 @@ public function LocationOrg($replyToken = null,$Text)
         if($text['Vilage'] != null && $text['Vilage'] != ""){
             $sum = $sum.$text['Vilage']." ";
         }
-        $sum = mb_substr($sum,0,30,'UTF-8');
+        $sum = mb_substr($sum,0,20,'UTF-8');
         $sum = $sum."..";
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
