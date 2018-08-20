@@ -430,10 +430,10 @@ public function BOT_New($replyToken = null, $text)
         case "T1":
             $base = new BaseSizeBuilder(1040,710);
             $arr = array(
-                new ImagemapMessageActionBuilder("Text1", new AreaBuilder(33,700,973,174)),
-                new ImagemapMessageActionBuilder("Text2", new AreaBuilder(33,600,973,174)),
-                new ImagemapMessageActionBuilder("Text3", new AreaBuilder(33,500,973,174)),
-                new ImagemapMessageActionBuilder("Text4", new AreaBuilder(33,400,973,174))
+                new ImagemapMessageActionBuilder("Text1", new AreaBuilder(33,700,644,130)),
+                new ImagemapMessageActionBuilder("Text2", new AreaBuilder(33,600,644,130)),
+                new ImagemapMessageActionBuilder("Text3", new AreaBuilder(33,500,644,130)),
+                new ImagemapMessageActionBuilder("Text4", new AreaBuilder(33,400,644,130))
 
                 //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
                 //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,823,965,186)),
