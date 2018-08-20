@@ -412,17 +412,19 @@ public function BOT_New($replyToken = null, $text)
         case "T1":
             $base = new BaseSizeBuilder(1040,710);
             $arr = array(
-                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
-                new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,823,965,186)),
+                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
+                new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
             );
-            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/ZIkjVrH1Mv.png?S=699","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/E6s9Vg2g2H.jpg?S=251","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
         ]);
         break;
         case "T2":
-            $base = new BaseSizeBuilder(1546,1040);
+            $base = new BaseSizeBuilder(699,1040);
             $arr = array(
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
@@ -439,7 +441,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/zMqgwsQ36v.png?S=300","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/zMqgwsQ36v.png?S=600","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
