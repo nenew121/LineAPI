@@ -249,7 +249,7 @@ public function Payroll($replyToken = null,$LineID)
 
 public function Organization($replyToken = null)
 {
-    $actions = array(
+    /*$actions = array(
         New MessageTemplateActionBuilder("Calendar", "Calendar"),
         New UriTemplateActionBuilder("HR News", "https://cherry-pie-82107.herokuapp.com/HR.php"),
         New MessageTemplateActionBuilder("Address", "Address"),
@@ -263,6 +263,24 @@ public function Organization($replyToken = null)
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
+    ]);
+    */
+    $base = new BaseSizeBuilder(1040,710);
+        $arr = array(
+            new ImagemapMessageActionBuilder("Calendar", new AreaBuilder(33,400,973,174)),
+            new ImagemapMessageActionBuilder("HR News", new AreaBuilder(33,500,973,174)),
+            new ImagemapMessageActionBuilder("Address", new AreaBuilder(33,600,973,174)),
+            new ImagemapMessageActionBuilder("Phone No.", new AreaBuilder(33,700,973,174))
+            
+            //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
+            //new ImagemapUriActionBuilder("https://cherry-pie-82107.herokuapp.com/HR.php", new AreaBuilder(35,823,965,186)),
+            //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
+            //new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
+        );
+        $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/ZIkjVrH1Mv.png?S=699","test",$base,$arr);
+        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $replyData->buildMessage(),
     ]);
 }
 
