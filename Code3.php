@@ -412,10 +412,15 @@ public function BOT_New($replyToken = null, $text)
         case "T1":
             $base = new BaseSizeBuilder(1040,710);
             $arr = array(
-                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
-                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,823,965,186)),
-                new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
-                new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
+                new ImagemapMessageActionBuilder("Text1", new AreaBuilder(35,800,380,170)),
+                new ImagemapMessageActionBuilder("Text2", new AreaBuilder(35,600,380,170)),
+                new ImagemapMessageActionBuilder("Text3", new AreaBuilder(35,1197,965,187)),
+                new ImagemapMessageActionBuilder("Text4", new AreaBuilder(35,1197,965,187))
+
+                //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
+                //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,823,965,186)),
+                //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
+                //new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
             );
             $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/E6s9Vg2g2H.jpg?S=251","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
