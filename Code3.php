@@ -439,7 +439,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/iYwdctTo8d.jpg?S=251","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/zMqgwsQ36v.png?S=300","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
@@ -451,7 +451,7 @@ public function BOT_New($replyToken = null, $text)
                 new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(0,0,520,699)),
                 new ImagemapMessageActionBuilder("Text", new AreaBuilder(520,0,520,699))
             );
-            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/n8ojFBnBvQ.png?S=251","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/zMqgwsQ36v.png?S=251","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
