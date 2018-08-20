@@ -442,7 +442,7 @@ public function LocationOrg($replyToken = null,$Text)
         //$sum = $sum."..";
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
-        $outputText = new LocationMessageBuilder("GetLocation",$sum,$Latitude,$Longtitude);
+        $outputText = new LocationMessageBuilder("GetLocationnnnnnnnnn",$sum,$Latitude,$Longtitude);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
