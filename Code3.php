@@ -378,31 +378,31 @@ public function LocationOrg($replyToken = null,$Text)
     $Longtitude =  "";
     foreach($Text as $text){
         if($text['AddressName'] != null && $text['AddressName'] != ""){
-            $sum = $sum."AddressName : ".$text['AddressName']." ";
+            $sum = $sum.$text['AddressName']." ";
         }
         if($text['AddressNo'] != null && $text['AddressNo'] != ""){
-            $sum = $sum."AddressNo : ".$text['AddressNo']." ";
+            $sum = $sum.$text['AddressNo']." ";
         }
         if($text['Amphur'] != null && $text['Amphur'] != ""){
-            $sum = $sum."Amphur : ".$text['Amphur']." ";
+            $sum = $sum.$text['Amphur']." ";
         }
         if($text['Building'] != null && $text['Building'] != ""){
-            //$sum = $sum."Building : ".$text['Building']." ";
+            $sum = $sum.$text['Building']." ";
         }
         if($text['Country'] != null && $text['Country'] != ""){
-            //$sum = $sum."Country : ".$text['Country']." ";
+            $sum = $sum.$text['Country']." ";
         }
         if($text['District'] != null && $text['District'] != ""){
-            //$sum = $sum."District : ".$text['District']." ";
+            $sum = $sum.$text['District']." ";
         }
         if($text['FloorNo'] != null && $text['FloorNo'] != ""){
-            //$sum = $sum."FloorNo : ".$text['FloorNo']." ";
+            $sum = $sum.$text['FloorNo']." ";
         }
         if($text['GroupNo'] != null && $text['GroupNo'] != ""){
-            //$sum = $sum."GroupNo : ".$text['GroupNo']." ";
+            $sum = $sum.$text['GroupNo']." ";
         }
         if($text['Lane'] != null && $text['Lane'] != ""){
-            //$sum = $sum."Lane : ".$text['Lane']." ";
+            $sum = $sum.$text['Lane']." ";
         }
         if($text['Latitude'] != null && $text['Latitude'] != ""){
             //$sum = $sum."Latitude : ".$text['Latitude']." ";
@@ -413,19 +413,19 @@ public function LocationOrg($replyToken = null,$Text)
             $Longtitude = $text['Longtitude'];
         }
         if($text['PostalCode'] != null && $text['PostalCode'] != ""){
-            //$sum = $sum."PostalCode : ".$text['PostalCode']." ";
+            $sum = $sum.$text['PostalCode']." ";
         }
         if($text['Province'] != null && $text['Province'] != ""){
-            //$sum = $sum."Province : ".$text['Province']." ";
+            $sum = $sum.$text['Province']." ";
         }
         if($text['RoomNo'] != null && $text['RoomNo'] != ""){
-            //$sum = $sum."RoomNo : ".$text['RoomNo']." ";
+            $sum = $sum.$text['RoomNo']." ";
         }
         if($text['Street'] != null && $text['Street'] != ""){
-            //$sum = $sum."Street : ".$text['Street']." ";
+            $sum = $sum.$text['Street']." ";
         }
         if($text['Vilage'] != null && $text['Vilage'] != ""){
-            //$sum = $sum."Vilage : ".$text['Vilage']." ";
+            $sum = $sum.$text['Vilage']." ";
         }
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
