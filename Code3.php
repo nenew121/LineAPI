@@ -381,13 +381,15 @@ public function LocationOrg($replyToken = null,$Text)
     $Longtitude =  "";
     foreach($Text as $text){
         if($text['AddressName'] != null && $text['AddressName'] != ""){
-            $Ta = $text['AddressName'];
+            $sum = $sum.$text['AddressName']." ";
+            /*$Ta = $text['AddressName'];
             $split = explode(" ", $Ta);
             foreach($split as $texts){
             $TextOut = $TextOut.$texts;
             }
             $textsub = mb_substr($TextOut,0,9,'UTF-8');
             $textsub = $textsub."..";
+            */
         }
         if($text['AddressNo'] != null && $text['AddressNo'] != ""){
             $sum = $sum.$text['AddressNo']." ";
@@ -436,11 +438,11 @@ public function LocationOrg($replyToken = null,$Text)
         if($text['Vilage'] != null && $text['Vilage'] != ""){
             $sum = $sum.$text['Vilage']." ";
         }
-        $sum = mb_substr($sum,0,20,'UTF-8');
-        $sum = $sum."..";
+        //$sum = mb_substr($sum,0,20,'UTF-8');
+        //$sum = $sum."..";
     }
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
-        $outputText = new LocationMessageBuilder($textsub,$sum,$Latitude,$Longtitude);
+        $outputText = new LocationMessageBuilder("GetLocation",$sum,$Latitude,$Longtitude);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
