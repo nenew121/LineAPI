@@ -269,7 +269,7 @@ public function Organization($replyToken = null,$LineID)
     $base = new BaseSizeBuilder(1040,710);
         $arr = array(
             new ImagemapMessageActionBuilder("Organization Calendar", new AreaBuilder(0,400,1040,130)),
-            new ImagemapUriActionBuilder("http://lineservice.prosofthcm.com/News/News/".$LineID, new AreaBuilder(0,530,1040,130)),
+            new ImagemapUriActionBuilder("http://lineservice.prosofthcm.com/LineService/News/News/".$LineID, new AreaBuilder(0,530,1040,130)),
             new ImagemapMessageActionBuilder("Location of Organization", new AreaBuilder(0,660,1040,130)),
             new ImagemapMessageActionBuilder("Organization Phone No.", new AreaBuilder(0,790,1040,130))
             
