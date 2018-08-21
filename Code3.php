@@ -526,7 +526,7 @@ public function BOT_New($replyToken = null, $text)
                 //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
                 //new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
             );
-            $replyData = new ImagemapMessageBuilder("https://esslineservice.herokuapp.com/imgsrc/photos/f/sampleimage.png?S=1000","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://raw.githubusercontent.com/ProsoftHCM/ESS-LineService/master/imgsrc/photos/f/sampleimage.png?S=1000","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
