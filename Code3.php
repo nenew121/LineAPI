@@ -382,38 +382,45 @@ public function LocationOrg($replyToken = null,$Text)
     foreach($Text as $text){
         if($text['AddressName'] != null && $text['AddressName'] != ""){
             $sum = $sum.$text['AddressName']." ";
-            /*$Ta = $text['AddressName'];
-            $split = explode(" ", $Ta);
-            foreach($split as $texts){
-            $TextOut = $TextOut.$texts;
-            }
-            $textsub = mb_substr($TextOut,0,9,'UTF-8');
-            $textsub = $textsub."..";
-            */
         }
         if($text['AddressNo'] != null && $text['AddressNo'] != ""){
             $sum = $sum.$text['AddressNo']." ";
         }
-        if($text['Amphur'] != null && $text['Amphur'] != ""){
-            $sum = $sum.$text['Amphur']." ";
+        if($text['GroupNo'] != null && $text['GroupNo'] != ""){
+            $sum = $sum.$text['GroupNo']." ";
         }
         if($text['Building'] != null && $text['Building'] != ""){
             $sum = $sum.$text['Building']." ";
         }
-        if($text['Country'] != null && $text['Country'] != ""){
-            $sum = $sum.$text['Country']." ";
-        }
-        if($text['District'] != null && $text['District'] != ""){
-            $sum = $sum.$text['District']." ";
+        if($text['RoomNo'] != null && $text['RoomNo'] != ""){
+            $sum = $sum.$text['RoomNo']." ";
         }
         if($text['FloorNo'] != null && $text['FloorNo'] != ""){
             $sum = $sum.$text['FloorNo']." ";
         }
-        if($text['GroupNo'] != null && $text['GroupNo'] != ""){
-            $sum = $sum.$text['GroupNo']." ";
+        if($text['Vilage'] != null && $text['Vilage'] != ""){
+            $sum = $sum.$text['Vilage']." ";
         }
         if($text['Lane'] != null && $text['Lane'] != ""){
             $sum = $sum.$text['Lane']." ";
+        }
+        if($text['Street'] != null && $text['Street'] != ""){
+            $sum = $sum.$text['Street']." ";
+        }
+        if($text['District'] != null && $text['District'] != ""){
+            $sum = $sum.$text['District']." ";
+        }
+        if($text['Amphur'] != null && $text['Amphur'] != ""){
+            $sum = $sum.$text['Amphur']." ";
+        }
+        if($text['Province'] != null && $text['Province'] != ""){
+            $sum = $sum.$text['Province']." ";
+        }
+        if($text['PostalCode'] != null && $text['PostalCode'] != ""){
+            $sum = $sum.$text['PostalCode']." ";
+        }
+        if($text['Country'] != null && $text['Country'] != ""){
+            $sum = $sum.$text['Country']." ";
         }
         if($text['Latitude'] != null && $text['Latitude'] != ""){
             //$sum = $sum."Latitude : ".$text['Latitude']." ";
@@ -423,26 +430,9 @@ public function LocationOrg($replyToken = null,$Text)
             //$sum = $sum."Longtitude : ".$text['Longtitude']." ";
             $Longtitude = $text['Longtitude'];
         }
-        if($text['PostalCode'] != null && $text['PostalCode'] != ""){
-            $sum = $sum.$text['PostalCode']." ";
-        }
-        if($text['Province'] != null && $text['Province'] != ""){
-            $sum = $sum.$text['Province']." ";
-        }
-        if($text['RoomNo'] != null && $text['RoomNo'] != ""){
-            $sum = $sum.$text['RoomNo']." ";
-        }
-        if($text['Street'] != null && $text['Street'] != ""){
-            $sum = $sum.$text['Street']." ";
-        }
-        if($text['Vilage'] != null && $text['Vilage'] != ""){
-            $sum = $sum.$text['Vilage']." ";
-        }
-        //$sum = mb_substr($sum,0,20,'UTF-8');
-        //$sum = $sum."..";
-    }
+}
     if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
-        $outputText = new LocationMessageBuilder("GetLocationnnnnnnnnn",$sum,$Latitude,$Longtitude);
+        $outputText = new LocationMessageBuilder("GetLocation",$sum,$Latitude,$Longtitude);
         $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
@@ -526,7 +516,7 @@ public function BOT_New($replyToken = null, $text)
                 //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
                 //new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
             );
-            $replyData = new ImagemapMessageBuilder("http://prosoft.gotdns.com/ESS/Employee/ImageEmployee?EncypRelate=ede2cd0f-65ef-4c09-9bb3-7395851417f5","test",$base,$arr);
+            $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/ZIkjVrH1Mv.png?S=699","test",$base,$arr);
             $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages'   => $replyData->buildMessage(),
