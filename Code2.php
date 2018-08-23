@@ -111,6 +111,14 @@ function SendUserID(){
     return $open;
 }
 
+function SendNewsTo($NewsHDID){
+    
+    $url = "http://lineservice.prosofthcm.com/api/SendNewsToAPI/".$NewsHDID;
+    $open = json_decode(file_get_contents($url), true);
+    
+    return $open;
+}
+
 function LocationOrganization($LineID){
     
     $url = "https://lineservice.prosofthcm.com/Api/LocationOrgAPI/".$LineID;
