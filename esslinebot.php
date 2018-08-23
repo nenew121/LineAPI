@@ -30,8 +30,8 @@ if(!empty($idnews)){
 }
 
 if(!empty($NewsHDID)){
-    
-    $bot->replyMessageNew("U7fb3dc484426fb164c424df09b7a42ba",$News);
+
+    $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
 // Check Approve MS
