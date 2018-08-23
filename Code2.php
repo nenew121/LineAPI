@@ -114,7 +114,7 @@ function SendUserID(){
 */
 function SendNewsTo($NewsHDID){
     
-    $url = "https://lineservice.prosofthcm.com/api/SendNewsToAPI/".$NewsHDID;
+    $url = "http://lineservice.prosofthcm.com/Api/SendNewsToAPI/".$NewsHDID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
