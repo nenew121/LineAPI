@@ -22,7 +22,7 @@ function ConnectDatabase()
 }
 
 //**เอาไว้ให้ HR ส่งข่าววว*//
-function NEWS($news)
+/*function NEWS($news)
 {
     $link = ConnectDatabase();
     $sql = "SELECT * FROM news WHERE newsid = '".$news."'  AND IsDelete = 0";
@@ -39,6 +39,7 @@ function NEWS($news)
   return "ยังไม่มีข่าวสารใดๆอัพเดท";
   $link->close();
 }
+*/
 
 function GetLanguage($LineID){
     
@@ -102,7 +103,7 @@ function EPaySlip($LineID){
     
     return $open;
 }
-
+/*
 function SendUserID(){
     
     $url = "http://lineservice.prosofthcm.com/api/CountLineID";
@@ -110,7 +111,7 @@ function SendUserID(){
     
     return $open;
 }
-
+*/
 function SendNewsTo($NewsHDID){
     
     $url = "http://lineservice.prosofthcm.com/api/SendNewsToAPI/".$NewsHDID;

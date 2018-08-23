@@ -15,7 +15,7 @@ $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 $NewsHDID = $_POST['NewsHDID'];
 $News = $_POST['News'];
-
+/*
 // Check News
 if(!empty($idnews)){
 
@@ -27,16 +27,16 @@ if(!empty($idnews)){
         $bot->SendMessageTo($arr[$i],$str);
     }
 // return echo "success";
-}
+}*/
 
 if(!empty($NewsHDID)){
 
     $arr = SendNewsTo($NewsHDID);
-    //$iCount = count($arr);
-    //for ($i = 0; $i<$iCount; $i++) {
-        //$bot->SendMessageTo($arr[$i],$News);
-    //}
-    $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
+    $iCount = count($arr);
+    for ($i = 0; $i<$iCount; $i++) {
+        $bot->SendMessageTo($arr[$i],$News);
+    }
+    //$bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
 // Check Approve MS
