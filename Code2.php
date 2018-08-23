@@ -43,7 +43,7 @@ function ConnectDatabase()
 
 function GetLanguage($LineID){
     
-    $url = "http://lineservice.prosofthcm.com/api/LanguageAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/api/LanguageAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
@@ -51,7 +51,7 @@ function GetLanguage($LineID){
 
 function Leaveinformation($LineID,$Status){
     
-    $url = "http://lineservice.prosofthcm.com/api/LeaveinformationAPI/".$LineID."/".$Status;
+    $url = "https://lineservice.prosofthcm.com/api/LeaveinformationAPI/".$LineID."/".$Status;
     $open = json_decode(file_get_contents($url), true);
     $sum = "ข้อมูลการ".$t."ลาล่าสุด 10 รายการ\n----------------------------------------------\n";
     $t =  "";
@@ -78,7 +78,7 @@ function Leaveinformation($LineID,$Status){
 
 function LeaveRemainNum($LineID,$Leavetype){
     
-    $url = "http://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$Leavetype;
+    $url = "https://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID."/".$Leavetype;
     $open = json_decode(file_get_contents($url), true);
     $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n----------------------------------------------\n";
     if($open != null){
@@ -98,7 +98,7 @@ function LeaveRemainNum($LineID,$Leavetype){
 
 function EPaySlip($LineID){
     
-    $url = "http://lineservice.prosofthcm.com/api/EPaySlipAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/api/EPaySlipAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
@@ -114,7 +114,7 @@ function SendUserID(){
 */
 function SendNewsTo($NewsHDID){
     
-    $url = "http://lineservice.prosofthcm.com/api/SendNewsToAPI/".$NewsHDID;
+    $url = "https://lineservice.prosofthcm.com/api/SendNewsToAPI/".$NewsHDID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;

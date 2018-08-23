@@ -8,7 +8,7 @@ $access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUF
 
 
 $bot = new BOT_API($channelSecret, $access_token);
-$idnews = $_POST['txtNews'];
+//$idnews = $_POST['txtNews'];
 $LineID_NextApprove = $_POST['LineID_NextApprove'];
 $Docuno = $_POST['Docuno'];
 $LineID_EmpID = $_POST['LineID_EmpID'];
