@@ -13,6 +13,8 @@ $LineID_NextApprove = $_POST['LineID_NextApprove'];
 $Docuno = $_POST['Docuno'];
 $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
+$NewsHDID = $_POST['NewsHDID'];
+$News = $_POST['News'];
 
 // Check News
 if(!empty($idnews)){
@@ -25,6 +27,11 @@ if(!empty($idnews)){
         $bot->SendMessageTo($arr[$i],$str);
     }
 // return echo "success";
+}
+
+if(!empty($NewsHDID)){
+    
+    $bot->replyMessageNew("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
 // Check Approve MS
