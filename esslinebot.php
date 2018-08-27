@@ -41,9 +41,9 @@ if(!empty($NewsHDID)){
     $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
-$LineID_Grant = $_POST['LineID_Grant'];
+$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
 $Detail = $_POST['Detail'];
-if(!empty($LineID_Grant)){
+if(!empty($LineIDLeaveRecord)){
     $bot->SendMessageTo($LineID_Grant,$Detail);
 }
 
