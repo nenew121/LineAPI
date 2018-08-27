@@ -423,11 +423,12 @@ public function LocationOrg($replyToken = null,$Text)
         if($text['Country'] != null && $text['Country'] != ""){
             $sum = $sum.$text['Country']." ";
         }
+        */
         if($text['Latitude'] != null && $text['Latitude'] != ""){
             //$sum = $sum."Latitude : ".$text['Latitude']." ";
             $Latitude = $text['Latitude'];
         }
-        */
+        
         if($text['Longtitude'] != null && $text['Longtitude'] != ""){
             //$sum = $sum."Longtitude : ".$text['Longtitude']." ";
             $Longtitude = $text['Longtitude'];
