@@ -8,16 +8,9 @@ $access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUF
 
 
 $bot = new BOT_API($channelSecret, $access_token);
-//$idnews = $_POST['txtNews'];
-$LineID_NextApprove = $_POST['LineID_NextApprove'];
-$Docuno = $_POST['Docuno'];
-$LineID_EmpID = $_POST['LineID_EmpID'];
-$ApproveStatus = $_POST['ApproveStatus'];
-$NewsHDID = $_POST['NewsHDID'];
-$News = $_POST['News'];
-$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
-$Detail = $_POST['Detail'];
+
 /*
+$idnews = $_POST['txtNews'];
 // Check News
 if(!empty($idnews)){
 
@@ -31,6 +24,8 @@ if(!empty($idnews)){
 // return echo "success";
 }*/
 
+$NewsHDID = $_POST['NewsHDID'];
+$News = $_POST['News'];
 if(!empty($NewsHDID)){
     /*
     $arr = SendNewsTo($NewsHDID);
@@ -42,17 +37,22 @@ if(!empty($NewsHDID)){
     $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
-
+$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
+$Detail = $_POST['Detail'];
 if(!empty($LineIDLeaveRecord)){
     $bot->SendMessageTo($LineIDLeaveRecord,$Detail);
 }
 
+$LineID_NextApprove = $_POST['LineID_NextApprove'];
+$Docuno = $_POST['Docuno'];
 // Check Approve MS
 if(!empty($LineID_NextApprove)){
     $str = "มีเอกสารอนุมัติ";
     $bot->SendMessageApproveTo($LineID_NextApprove ,$str." ".$Docuno);
 }
 
+$LineID_EmpID = $_POST['LineID_EmpID'];
+$ApproveStatus = $_POST['ApproveStatus'];
 // Check MS request
 if(!empty($LineID_EmpID)){
     if($ApproveStatus == "Y"){
