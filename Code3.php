@@ -395,6 +395,7 @@ public function LocationOrg($replyToken = null,$Text)
         if($text['RoomNo'] != null && $text['RoomNo'] != ""){
             $sum = $sum.$text['RoomNo']." ";
         }
+        /*
         if($text['FloorNo'] != null && $text['FloorNo'] != ""){
             $sum = $sum.$text['FloorNo']." ";
         }
@@ -426,6 +427,7 @@ public function LocationOrg($replyToken = null,$Text)
             //$sum = $sum."Latitude : ".$text['Latitude']." ";
             $Latitude = $text['Latitude'];
         }
+        */
         if($text['Longtitude'] != null && $text['Longtitude'] != ""){
             //$sum = $sum."Longtitude : ".$text['Longtitude']." ";
             $Longtitude = $text['Longtitude'];
