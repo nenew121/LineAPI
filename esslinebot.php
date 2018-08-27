@@ -15,7 +15,8 @@ $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 $NewsHDID = $_POST['NewsHDID'];
 $News = $_POST['News'];
-
+$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
+$Detail = $_POST['Detail'];
 /*
 // Check News
 if(!empty($idnews)){
@@ -41,10 +42,9 @@ if(!empty($NewsHDID)){
     $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
-$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
-$Detail = $_POST['Detail'];
+
 if(!empty($LineIDLeaveRecord)){
-    $bot->SendMessageTo($LineID_Grant,$Detail);
+    $bot->SendMessageTo($LineIDLeaveRecord,$Detail);
 }
 
 // Check Approve MS
