@@ -15,6 +15,7 @@ $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 $NewsHDID = $_POST['NewsHDID'];
 $News = $_POST['News'];
+
 /*
 // Check News
 if(!empty($idnews)){
@@ -38,6 +39,12 @@ if(!empty($NewsHDID)){
     }
     */
     $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
+}
+
+$LineID_Grant = $_POST['LineID_Grant'];
+$Detail = $_POST['Detail'];
+if(!empty($LineID_Grant)){
+    $bot->SendMessageTo($LineID_Grant,$Detail);
 }
 
 // Check Approve MS
