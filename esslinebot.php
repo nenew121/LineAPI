@@ -23,7 +23,7 @@ if(!empty($idnews)){
     }
 // return echo "success";
 }*/
-
+// แจ้งข่าวสาร
 $NewsHDID = $_POST['NewsHDID'];
 $News = $_POST['News'];
 if(!empty($NewsHDID)){
@@ -36,13 +36,13 @@ if(!empty($NewsHDID)){
     */
     $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
-
+// แจ้งเอกสารลาหาผู้อนุมัติ
 $LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
 $Detail = $_POST['Detail'];
 if(!empty($LineIDLeaveRecord)){
     $bot->SendMessageTo($LineIDLeaveRecord,$Detail);
 }
-
+// แจ้งเอกสารคนอนุมัติถัดไป
 $LineID_NextApprove = $_POST['LineID_NextApprove'];
 $Docuno = $_POST['Docuno'];
 // Check Approve MS
@@ -50,7 +50,7 @@ if(!empty($LineID_NextApprove)){
     $str = "มีเอกสารอนุมัติ";
     $bot->SendMessageApproveTo($LineID_NextApprove ,$str." ".$Docuno);
 }
-
+// แจ้งเอกสารอนุมัติหาผู้ขอลา
 $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 // Check MS request
