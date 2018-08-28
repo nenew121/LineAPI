@@ -40,7 +40,7 @@ if(!empty($NewsHDID)){
 $LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
 $Detail = $_POST['Detail'];
 if(!empty($LineIDLeaveRecord)){
-    $bot->SendMessageTo($LineIDLeaveRecord,$Detail);
+    $bot->SendMessageApproveTo($LineIDLeaveRecord,$Detail);
 }
 // แจ้งเอกสารคนอนุมัติถัดไป
 $LineID_NextApprove = $_POST['LineID_NextApprove'];
