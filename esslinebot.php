@@ -48,11 +48,11 @@ $Docuno = $_POST['Docuno'];
 if(!empty($LineID_NextApprove)){
     $bot->SendMessageApproveTo($LineID_NextApprove ,$Docuno);
 }
-// แจ้งเอกสารอนุมัติหาผู้ขอลา
+// แจ้งเอกสารอนุมัติกลับหาผู้ขอลา
 $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 if(!empty($LineID_EmpID)){
-    $bot->SendMessageTo($LineID_EmpID ,$ApproveStatus);
+    $bot->SendMessageToEmpRequest($LineID_EmpID ,$ApproveStatus);
 }
 
 if (!empty($bot->isEvents)) {
