@@ -124,10 +124,10 @@ public function SendMessageTo($ToLineID = null, $message = null){
 }
 
 public function SendMessageApproveTo($ToLineID = null, $message = null){
-    $messageBuilder = new TextMessageBuilder($message);
+    //$messageBuilder = new TextMessageBuilder($message);
     $Temp = new TemplateMessageBuilder('Approve Center',
         new ConfirmTemplateBuilder(
-                'Approve Center', // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
+            $message, // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
                 array(
                     new UriTemplateActionBuilder(
                         'Yes', // ข้อความสำหรับปุ่มแรก
@@ -142,7 +142,7 @@ public function SendMessageApproveTo($ToLineID = null, $message = null){
         );
 
     $multiMessage = new MultiMessageBuilder;
-    $multiMessage->add($messageBuilder);
+    //$multiMessage->add($messageBuilder);
     $multiMessage->add($Temp);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [

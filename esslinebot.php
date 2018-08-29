@@ -45,22 +45,14 @@ if(!empty($LineIDLeaveRecord)){
 // แจ้งเอกสารคนอนุมัติถัดไป
 $LineID_NextApprove = $_POST['LineID_NextApprove'];
 $Docuno = $_POST['Docuno'];
-// Check Approve MS
 if(!empty($LineID_NextApprove)){
-    $str = "มีเอกสารอนุมัติ";
-    $bot->SendMessageApproveTo($LineID_NextApprove ,$str." ".$Docuno);
+    $bot->SendMessageApproveTo($LineID_NextApprove ,$Docuno);
 }
 // แจ้งเอกสารอนุมัติหาผู้ขอลา
 $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
-// Check MS request
 if(!empty($LineID_EmpID)){
-    if($ApproveStatus == "Y"){
-        $str = "อนุมัติ";
-    }else{
-        $str = "ไม่อนุมัติ";
-    }
-    $bot->SendMessageTo($LineID_EmpID ,"เอกสาร ".$Docuno." ".$str);
+    $bot->SendMessageTo($LineID_EmpID ,$ApproveStatus);
 }
 
 if (!empty($bot->isEvents)) {
@@ -84,8 +76,11 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Leave Remain")
             {
-                $bot->LeaveRemain($bot->replyToken);
+                $Text = LeaveRemainNum($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+                //$bot->LeaveRemain($bot->replyToken);
             }
+            /*
             elseif($bot->text == "ลากิจ")
             {
                 $Text = LeaveRemainNum($bot->userId,"L-001");
@@ -101,6 +96,7 @@ if (!empty($bot->isEvents)) {
                 $Text = LeaveRemainNum($bot->userId,"L-003");
                 $bot->replyMessageNew($bot->replyToken,$Text);
             }
+            */
             elseif($bot->text == "Payroll")
             {
                 $bot->Payroll($bot->replyToken,$bot->userId);
