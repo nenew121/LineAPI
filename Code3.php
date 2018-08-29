@@ -222,10 +222,10 @@ public function Register($replyToken = null, $LineID){
 public function ApproveCenter($replyToken = null,$LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Leave Record", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
-        New UriTemplateActionBuilder("Approve Request", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
-        New UriTemplateActionBuilder("Approve Abstain", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID),
-        New MessageTemplateActionBuilder("Test", "Test")
+        New UriTemplateActionBuilder("Leave Request", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
+        New UriTemplateActionBuilder("Abstain Time", "https://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
+        New UriTemplateActionBuilder("Approve Leave", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
+        New UriTemplateActionBuilder("Approve Abstain", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/tIn6U0zMf6.jpg";
@@ -241,10 +241,9 @@ public function ApproveCenter($replyToken = null,$LineID)
 public function TimeAttendance($replyToken = null, $LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Abstain Time Stamp", "https://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
-        New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID),
+        New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
         New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
-        New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID)
+        New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
@@ -261,9 +260,15 @@ public function Payroll($replyToken = null,$LineID)
 {
     $actions = array(
         New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip"),
+        New MessageTemplateActionBuilder("ขอเอกสาร 50 ทวิ", "ขอเอกสาร 50 ทวิ"),
+        New MessageTemplateActionBuilder("Works Cer.Request", "Works Cer.Request"),
+        New MessageTemplateActionBuilder("Salary Cer.Request", "Salary Cer.Request")
+        
+        /*
         New UriTemplateActionBuilder("Tax Calculator", "https://www.prosofthcm.com/Article/Detail/65472"),
         New UriTemplateActionBuilder("Google", "http://www.Google.co.th"),
         New MessageTemplateActionBuilder("Test", "Test")
+        */
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
@@ -278,11 +283,10 @@ public function Payroll($replyToken = null,$LineID)
 
 public function Organization($replyToken = null,$LineID)
 {
-    /*$actions = array(
-        New MessageTemplateActionBuilder("Calendar", "Calendar"),
-        New UriTemplateActionBuilder("HR News", "https://cherry-pie-82107.herokuapp.com/HR.php"),
-        New MessageTemplateActionBuilder("Address", "Address"),
-        New MessageTemplateActionBuilder("Phone No.", "Phone No.")
+    $actions = array(
+        New UriTemplateActionBuilder("News", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
+        New UriTemplateActionBuilder("News List", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
+        New MessageTemplateActionBuilder("Location", "Location of Organization")
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
@@ -293,8 +297,8 @@ public function Organization($replyToken = null,$LineID)
         'replyToken' => $replyToken,
         'messages'   => $outputText->buildMessage(),
     ]);
-    */
-
+    
+    /*
     $base = new BaseSizeBuilder(1040,710);
         $arr = array(
             new ImagemapMessageActionBuilder("Organization Calendar", new AreaBuilder(0,400,1040,130)),
@@ -312,15 +316,14 @@ public function Organization($replyToken = null,$LineID)
         'replyToken' => $replyToken,
         'messages'   => $replyData->buildMessage(),
     ]);
+    */
 }
 
 public function Setting($replyToken = null, $LineID)
 {
     $actions = array(        
         New UriTemplateActionBuilder("Register", "https://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
-        New MessageTemplateActionBuilder("Language", "Language"),
-        New MessageTemplateActionBuilder("Choose Profile", "Choose Profile"),
-        New MessageTemplateActionBuilder("Web Service URL", "Web Service URL")
+        New MessageTemplateActionBuilder("Language", "Language")
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/67m2YbOk6S.jpg";
