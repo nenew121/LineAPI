@@ -27,14 +27,14 @@ if(!empty($idnews)){
 $NewsHDID = $_POST['NewsHDID'];
 $News = $_POST['News'];
 if(!empty($NewsHDID)){
-    /*
+    
     $arr = SendNewsTo($NewsHDID);
     $iCount = count($arr);
     for ($i = 0; $i<$iCount; $i++) {
         $bot->SendMessageTo($arr[$i],$News);
     }
-    */
-    $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
+    
+    //$bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 // แจ้งเอกสารลาหาผู้อนุมัติ
 $LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
