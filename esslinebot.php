@@ -44,9 +44,9 @@ if(!empty($LineIDLeaveRecord)){
 }
 // แจ้งเอกสารคนอนุมัติถัดไป
 $LineID_NextApprove = $_POST['LineID_NextApprove'];
-$Docuno = $_POST['Docuno'];
+$WaitApprove = $_POST['WaitApprove'];
 if(!empty($LineID_NextApprove)){
-    $bot->SendMessageApproveTo($LineID_NextApprove ,$Docuno);
+    $bot->SendMessageApproveTo($LineID_NextApprove ,$WaitApprove);
 }
 // แจ้งเอกสารอนุมัติกลับหาผู้ขอลา
 $LineID_EmpID = $_POST['LineID_EmpID'];
