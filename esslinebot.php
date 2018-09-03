@@ -60,7 +60,7 @@ if (!empty($bot->isEvents)) {
     /*if(CheckLineID($bot->userId))
     {*/
         $Language = GetLanguage($bot->userId);
-        if($Language != null)
+        if($Language == "th-TH")
         {
             if($bot->text == "Approve Center")
             {
@@ -70,13 +70,65 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->TimeAttendance($bot->replyToken,$bot->userId);
             }
+            elseif($bot->text == "Leave Remain")
+            {
+                $Text = LeaveRemainNum($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Payroll")
+            {
+                $bot->Payroll($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "E-Pay Slip")
+            {
+                $Text = EPaySlip($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Organization")
+            {
+                $bot->Organization($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Location of Organization")
+            {
+                $Text = LocationOrganization($bot->userId);
+                $bot->LocationOrg($bot->replyToken,$Text);
+            }
+            elseif($bot->text == "Setting")
+            {
+                $bot->Setting($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Language")
+            {
+                $bot->SendLanguage($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "AboutUs")
+            {
+                $bot->AboutUs($bot->replyToken);
+            }
+            else
+            {
+            $bot->BOT_New($bot->replyToken,$bot->text);
+            }
+        }
+        else if($Language == "en-US") //#####################################################################################
+        {
+            if($bot->text == "Approve Center")
+            {
+                $bot->ApproveCenterEng($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Time Attendance")
+            {
+                $bot->TimeAttendanceEng($bot->replyToken,$bot->userId);
+            }
+            /*
             elseif($bot->text == "Leave Information")
             {
                 $bot->Leaveinformation($bot->replyToken);
             }
+            */
             elseif($bot->text == "Leave Remain")
             {
-                $Text = LeaveRemainNum($bot->userId);
+                $Text = LeaveRemainNumEng($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
                 //$bot->LeaveRemain($bot->replyToken);
             }
@@ -108,7 +160,7 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Organization")
             {
-                $bot->Organization($bot->replyToken,$bot->userId);
+                $bot->OrganizationEng($bot->replyToken,$bot->userId);
             }
             elseif($bot->text == "Location of Organization")
             {
@@ -117,7 +169,7 @@ if (!empty($bot->isEvents)) {
             }
             elseif($bot->text == "Setting")
             {
-                $bot->Setting($bot->replyToken,$bot->userId);
+                $bot->SettingEng($bot->replyToken,$bot->userId);
             }
             elseif($bot->text == "Language")
             {

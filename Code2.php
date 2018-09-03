@@ -49,6 +49,7 @@ function GetLanguage($LineID){
     return $open;
 }
 
+/*
 function Leaveinformation($LineID,$Status){
     
     $url = "https://lineservice.prosofthcm.com/api/LeaveinformationAPI/".$LineID."/".$Status;
@@ -75,22 +76,43 @@ function Leaveinformation($LineID,$Status){
     }
     return $sum;
 }
+*/
 
 function LeaveRemainNum($LineID){
     
     $url = "https://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n-----------------------------------------\n";
+    $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n------------------------------\n";
     if($open != null){
         foreach($open as $text){
             $sum = $sum."ประเภทการลา : ".$text['LeaveTypeName']."\n";
-            $sum = $sum."จำนวนวันอนุญาต: ".$text['LeaveTypeDayNum']."\n";
+            $sum = $sum."วันอนุญาตลา : ".$text['LeaveTypeDayNum']."\n";
             $sum = $sum."จำนวนวันลา : ".$text['Days']."\n";
             $sum = $sum."วันลาคงเหลือ : ".$text['Hours']."\n";
-            $sum = $sum."-----------------------------------------\n";
+            $sum = $sum."-----------------------------\n";
         }
     }else{
         return "ไม่พบข้อมูล";
+    }
+        
+    return $sum;
+}
+
+function LeaveRemainNumEng($LineID){
+    
+    $url = "https://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    $sum = "Leave Information Days Num\n-----------------------------\n";
+    if($open != null){
+        foreach($open as $text){
+            $sum = $sum."Leave Type : ".$text['LeaveTypeName']."\n";
+            $sum = $sum."Leave Approve : ".$text['LeaveTypeDayNum']."\n";
+            $sum = $sum."Leave Record : ".$text['Days']."\n";
+            $sum = $sum."Leave Days Num : ".$text['Hours']."\n";
+            $sum = $sum."-----------------------------\n";
+        }
+    }else{
+        return "No Data.";
     }
         
     return $sum;
