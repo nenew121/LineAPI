@@ -204,23 +204,5 @@ if ($bot->isSuccess())
 // Failed
 echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody();
 exit();
-
-/*
-            elseif($bot->text == "Wait Approve")
-            {
-                $Text = Leaveinformation($bot->userId,"W");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Approved")
-            {
-                $Text = Leaveinformation($bot->userId,"Y");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Not Approve")
-            {
-                $Text = Leaveinformation($bot->userId,"N");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-*/
 ?>
 
