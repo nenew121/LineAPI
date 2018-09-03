@@ -70,7 +70,7 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->TimeAttendance($bot->replyToken,$bot->userId);
             }
-            elseif($bot->text == "Leave Remain")
+            elseif($bot->text == "วันอนุญาตลา")
             {
                 $Text = LeaveRemainNum($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
@@ -88,7 +88,7 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->Organization($bot->replyToken,$bot->userId);
             }
-            elseif($bot->text == "Location of Organization")
+            elseif($bot->text == "ที่ตั้งองค์กร")
             {
                 $Text = LocationOrganization($bot->userId);
                 $bot->LocationOrg($bot->replyToken,$Text);
@@ -97,7 +97,7 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->Setting($bot->replyToken,$bot->userId);
             }
-            elseif($bot->text == "Language")
+            elseif($bot->text == "เปลี่ยนภาษา")
             {
                 $bot->SendLanguage($bot->replyToken,$bot->userId);
             }
