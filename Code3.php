@@ -405,80 +405,17 @@ $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message
 
 public function LocationOrg($replyToken = null,$Text)
 {
-    $sum = "";
-    $Ta = "";
-    $textsub = "";
-    $TextOut = "";
-    $Latitude = "";
-    $Longtitude =  "";
-    foreach($Text as $text){
-        if($text['AddressName'] != null && $text['AddressName'] != ""){
-            $sum = $sum.$text['AddressName']." ";
-        }
-        if($text['AddressNo'] != null && $text['AddressNo'] != ""){
-            $sum = $sum.$text['AddressNo']." ";
-        }
-        if($text['GroupNo'] != null && $text['GroupNo'] != ""){
-            $sum = $sum.$text['GroupNo']." ";
-        }
-        if($text['Building'] != null && $text['Building'] != ""){
-            $sum = $sum.$text['Building']." ";
-        }
-        if($text['RoomNo'] != null && $text['RoomNo'] != ""){
-            $sum = $sum.$text['RoomNo']." ";
-        }
-        /*
-        if($text['FloorNo'] != null && $text['FloorNo'] != ""){
-            $sum = $sum.$text['FloorNo']." ";
-        }
-        if($text['Vilage'] != null && $text['Vilage'] != ""){
-            $sum = $sum.$text['Vilage']." ";
-        }
-        if($text['Lane'] != null && $text['Lane'] != ""){
-            $sum = $sum.$text['Lane']." ";
-        }
-        if($text['Street'] != null && $text['Street'] != ""){
-            $sum = $sum.$text['Street']." ";
-        }
-        if($text['District'] != null && $text['District'] != ""){
-            $sum = $sum.$text['District']." ";
-        }
-        if($text['Amphur'] != null && $text['Amphur'] != ""){
-            $sum = $sum.$text['Amphur']." ";
-        }
-        if($text['Province'] != null && $text['Province'] != ""){
-            $sum = $sum.$text['Province']." ";
-        }
-        if($text['PostalCode'] != null && $text['PostalCode'] != ""){
-            $sum = $sum.$text['PostalCode']." ";
-        }
-        if($text['Country'] != null && $text['Country'] != ""){
-            $sum = $sum.$text['Country']." ";
-        }
-        */
-        if($text['Latitude'] != null && $text['Latitude'] != ""){
-            //$sum = $sum."Latitude : ".$text['Latitude']." ";
-            $Latitude = $text['Latitude'];
-        }
-        
-        if($text['Longtitude'] != null && $text['Longtitude'] != ""){
-            //$sum = $sum."Longtitude : ".$text['Longtitude']." ";
-            $Longtitude = $text['Longtitude'];
-        }
-}
-    if($Latitude != null && $Latitude != "" && $Longtitude != null && $Longtitude != ""){
-        $outputText = new LocationMessageBuilder("GetLocation",$sum,$Latitude,$Longtitude);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
-        ]);
-    }else{
-        $messageBuilder = new TextMessageBuilder("ยังไม่ได้บันทึก Location");
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $messageBuilder->buildMessage(),
-        ]);
-    }
+    $split = explode(",", $Text);
+    $DetailOrg = $split[0];
+    $Latitude = $split[1];
+    $Longtitude = $split[2];
+    $Phone = $split[3];
+
+    $outputText = new LocationMessageBuilder($Phone,$DetailOrg,$Latitude,$Longtitude);
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+    'replyToken' => $replyToken,
+    'messages'   => $outputText->buildMessage(),
+    ]);
 }
 
 public function BOT_New($replyToken = null, $text)

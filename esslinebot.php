@@ -62,11 +62,11 @@ if (!empty($bot->isEvents)) {
         $Language = GetLanguage($bot->userId);
         if($Language != null)
         {
-            if($bot->text == "ApproveCenter")
+            if($bot->text == "Approve Center")
             {
                 $bot->ApproveCenter($bot->replyToken,$bot->userId);
             }
-            elseif($bot->text == "TimeAttendance")
+            elseif($bot->text == "Time Attendance")
             {
                 $bot->TimeAttendance($bot->replyToken,$bot->userId);
             }
