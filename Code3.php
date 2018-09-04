@@ -162,7 +162,7 @@ public function SendMessageToEmpRequest($ToLineID = null, $message = null){
                         'To information', // ข้อความสำหรับปุ่มแรก
                         "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     ),
-                    new MessageTemplateActionBuilder(
+                    new UriTemplateActionBuilder(
                         'To request', // ข้อความสำหรับปุ่มแรก
                         "https://lineservice.prosofthcm.com/LineService/Leave/Leaveinfo/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     )

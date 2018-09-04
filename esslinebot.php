@@ -53,7 +53,7 @@ if(!empty($LineID_NextApprove)){
     $bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$WaitApprove);
 }
 
-// แจ้งเอกสารอนุมัติกลับหาผู้ขอลา
+// แจ้งเอกสารหาผู้ขอลา
 if(!empty($LineID_EmpID)){
     //$bot->SendMessageToEmpRequest($LineID_EmpID ,$ApproveStatus);
     $bot->SendMessageToEmpRequest("U7fb3dc484426fb164c424df09b7a42ba",$ApproveStatus);
