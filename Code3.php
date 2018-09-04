@@ -431,10 +431,10 @@ public function SettingEng($replyToken = null, $LineID)
 public function AboutUs($replyToken = null)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/"),
-        New UriTemplateActionBuilder("Getlocation", "https://lineservice.prosofthcm.com/LineService/GetLocaltion/GetLocaltion"),
-        New MessageTemplateActionBuilder("Test", "Test"),
-        New MessageTemplateActionBuilder("Test", "Test")
+        New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/")
+        //New UriTemplateActionBuilder("Getlocation", "https://lineservice.prosofthcm.com/LineService/GetLocaltion/GetLocaltion"),
+        //New MessageTemplateActionBuilder("Test", "Test"),
+        //New MessageTemplateActionBuilder("Test", "Test")
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
