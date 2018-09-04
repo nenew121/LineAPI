@@ -40,19 +40,24 @@ if(!empty($NewsHDID)){
 $LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
 $Detail = $_POST['Detail'];
 if(!empty($LineIDLeaveRecord)){
-    $bot->SendMessageApproveTo($LineIDLeaveRecord,$Detail);
+    //$bot->SendMessageApproveTo($LineIDLeaveRecord,$Detail);
+    $bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
 }
 // แจ้งเอกสารคนอนุมัติถัดไป
 $LineID_NextApprove = $_POST['LineID_NextApprove'];
 $WaitApprove = $_POST['WaitApprove'];
 if(!empty($LineID_NextApprove)){
-    $bot->SendMessageApproveTo($LineID_NextApprove ,$WaitApprove);
+    //$bot->SendMessageApproveTo($LineID_NextApprove ,$WaitApprove);
+    $bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
+    
 }
 // แจ้งเอกสารอนุมัติกลับหาผู้ขอลา
 $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 if(!empty($LineID_EmpID)){
-    $bot->SendMessageToEmpRequest($LineID_EmpID ,$ApproveStatus);
+    //$bot->SendMessageToEmpRequest($LineID_EmpID ,$ApproveStatus);
+    $bot->SendMessageToEmpRequest("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
+    
 }
 
 if (!empty($bot->isEvents)) {
