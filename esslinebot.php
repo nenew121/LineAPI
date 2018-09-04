@@ -6,7 +6,14 @@ include('Code2.php');
 $channelSecret = '592e8df851742b42aa264f7e9e5fb26c';
 $access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUFFUvhFT8A7JOD0AOTUsYDWqXRGXa5Z1Ta3Qzb38JNSzpmB6CQmllEiHJh0SZSBkgI+EYnR0DSwWJuvwBTXe4PkMeQdB04t89/1O/w1cDnyilFU=';
 
-
+$NewsHDID = $_POST['NewsHDID'];
+$News = $_POST['News'];
+$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
+$Detail = $_POST['Detail'];
+$LineID_NextApprove = $_POST['LineID_NextApprove'];
+$WaitApprove = $_POST['WaitApprove'];
+$LineID_EmpID = $_POST['LineID_EmpID'];
+$ApproveStatus = $_POST['ApproveStatus'];
 $bot = new BOT_API($channelSecret, $access_token);
 
 /*
@@ -24,8 +31,7 @@ if(!empty($idnews)){
 // return echo "success";
 }*/
 // แจ้งข่าวสาร
-$NewsHDID = $_POST['NewsHDID'];
-$News = $_POST['News'];
+
 if(!empty($NewsHDID)){
     
     //$arr = SendNewsTo($NewsHDID);
@@ -37,23 +43,20 @@ if(!empty($NewsHDID)){
     $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 // แจ้งเอกสารลาหาผู้อนุมัติ
-$LineIDLeaveRecord = $_POST['LineIDLeaveRecord'];
-$Detail = $_POST['Detail'];
+
 if(!empty($LineIDLeaveRecord)){
     //$bot->SendMessageApproveTo($LineIDLeaveRecord,$Detail);
     $bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
 }
 // แจ้งเอกสารคนอนุมัติถัดไป
-$LineID_NextApprove = $_POST['LineID_NextApprove'];
-$WaitApprove = $_POST['WaitApprove'];
+
 if(!empty($LineID_NextApprove)){
     //$bot->SendMessageApproveTo($LineID_NextApprove ,$WaitApprove);
     $bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
     
 }
 // แจ้งเอกสารอนุมัติกลับหาผู้ขอลา
-$LineID_EmpID = $_POST['LineID_EmpID'];
-$ApproveStatus = $_POST['ApproveStatus'];
+
 if(!empty($LineID_EmpID)){
     //$bot->SendMessageToEmpRequest($LineID_EmpID ,$ApproveStatus);
     $bot->SendMessageToEmpRequest("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
