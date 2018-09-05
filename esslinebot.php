@@ -92,7 +92,7 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->Organization($bot->replyToken,$bot->userId);
             }
-            elseif($bot->text == "ปฏิทินวันหยุดองค์กร")
+            elseif($bot->text == "วันหยุดองค์กร")
             {
                 $Text = Calender($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
