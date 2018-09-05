@@ -109,7 +109,7 @@ function LeaveRemainNumEng($LineID){
             $sum = $sum."Leave Approve : ".$text['LeaveTypeDayNum']."\n";
             $sum = $sum."Leave Record : ".$text['Days']."\n";
             $sum = $sum."Leave Days Num : ".$text['Hours']."\n";
-            $sum = $sum."-----------------------------\n";
+            $sum = $sum."-----------------------------";
         }
     }else{
         return "No Data.";
@@ -162,7 +162,7 @@ function LeaveRequest($LineID){
 function Calender($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "ปฏิทินวันหยุดองค์กร\n----------------------------------------------\n";
+    $sum = "วันหยุดองค์กร\n----------------------------------------------\n";
     $i = 0;
     if($open != null){
         foreach($open as $text){
@@ -174,7 +174,7 @@ function Calender($LineID){
     }
     $sum = $sum."----------------------------------------------\n";
     $sum = $sum."รวมวันหยุดประจำปี ".$i." วัน\n";
-    $sum = $sum."----------------------------------------------\n";
+    $sum = $sum."----------------------------------------------";
     return $sum;
 }
 ?>
