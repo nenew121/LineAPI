@@ -165,7 +165,7 @@ function Calender($LineID){
     $sum = "ปฏิทินวันหยุดองค์กร\n----------------------------------------------\n";
     if($open != null){
         foreach($open as $text){
-            $sum = $sum.$text['countholiday'].": ".$text['nameday']." ".$text['numday']." ".$text['namemounth']." ".$text['year']." ".$text['Subject']."\n";
+            $sum = $sum.$text['countholiday'].": ".$text['nameday']." ".$text['numday']." ".$text['namemounth']." ".$text['year']."\n".$text['Subject']."\n";
         }
     }else{
         return "ไม่พบข้อมูล";
