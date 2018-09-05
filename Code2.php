@@ -163,13 +163,16 @@ function Calender($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "ปฏิทินวันหยุดองค์กร\n----------------------------------------------\n";
+    $i = 0;
     if($open != null){
         foreach($open as $text){
+            $i = $i+1;
             $sum = $sum.$text['countholiday'].": ".$text['nameday']." ".$text['numday']." ".$text['namemounth']." ".$text['year']."\n".$text['Subject']."\n";
         }
     }else{
         return "ไม่พบข้อมูล";
     }
+    $sum = $sum."รวมวันหยุดประจำปี ".$i." วัน\n";
     $sum = $sum."----------------------------------------------\n";
     return $sum;
 }
