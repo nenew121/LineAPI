@@ -321,7 +321,7 @@ public function Payroll($replyToken = null,$LineID)
 public function Organization($replyToken = null,$LineID)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("วันหยุดองค์กร", "ปฏิทินวันหยุดองค์กร"),
+        New MessageTemplateActionBuilder("วันหยุดองค์กร", "วันหยุดองค์กร"),
         New UriTemplateActionBuilder("ข่าวสารองค์กร", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
         New UriTemplateActionBuilder("ข้อมูลข่าวสาร", "https://lineservice.prosofthcm.com/LineService/News/NewsList/".$LineID),
         New MessageTemplateActionBuilder("ที่ตั้งองค์กร", "ที่ตั้งองค์กร")
