@@ -92,6 +92,11 @@ if (!empty($bot->isEvents)) {
             {
                 $bot->Organization($bot->replyToken,$bot->userId);
             }
+            elseif($bot->text == "ปฏิทินวันหยุดองค์กร")
+            {
+                $Text = Calender($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            }
             elseif($bot->text == "ที่ตั้งองค์กร")
             {
                 $Text = LocationOrganization($bot->userId);
@@ -165,6 +170,11 @@ if (!empty($bot->isEvents)) {
             elseif($bot->text == "Organization")
             {
                 $bot->OrganizationEng($bot->replyToken,$bot->userId);
+            }
+            elseif($bot->text == "Organization Calender")
+            {
+                $Text = Calender($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
             }
             elseif($bot->text == "Location of Organization")
             {

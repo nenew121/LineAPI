@@ -136,7 +136,7 @@ function SendUserID(){
 */
 function SendNewsTo($NewsHDID){
     
-    $url = "http://lineservice.prosofthcm.com/Api/SendNewsToAPI/".$NewsHDID;
+    $url = "https://lineservice.prosofthcm.com/Api/SendNewsToAPI/".$NewsHDID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
@@ -159,4 +159,18 @@ function LeaveRequest($LineID){
 }
 */
 
+function Calender($LineID){
+    $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    $sum = "ปฏิทินวันหยุดองค์กร\n----------------------------------------------\n";
+    if($open != null){
+        foreach($open as $text){
+            $sum = $sum.$text['countholiday'].": ".$text['nameday']." ".$text['numday']." ".$text['namemounth']." ".$text['year']." ".$text['Subject']."\n";
+        }
+    }else{
+        return "ไม่พบข้อมูล";
+    }
+    $sum = $sum."----------------------------------------------\n";
+    return $sum;
+}
 ?>
