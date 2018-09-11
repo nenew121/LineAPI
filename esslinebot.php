@@ -37,8 +37,12 @@ if(!empty($NewsHDID)){
     //for ($i = 0; $i<$iCount; $i++) {
     //    $bot->SendMessageTo($arr[$i],$News);
     //}
-    $ArrID = array('U7fb3dc484426fb164c424df09b7a42ba','U05a39ae3a619678ef4b1b58111980a79');
-    $bot->SendMessageTo($ArrID,$News);
+    $ArrID = array("U7fb3dc484426fb164c424df09b7a42ba","U05a39ae3a619678ef4b1b58111980a79");
+    $iCount = count($ArrID);
+    for ($i = 0; $i<$iCount; $i++) {
+        $bot->SendMessageTo($ArrID[$i],$News);
+    }
+    //$bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
 // แจ้งเอกสารลาหาผู้อนุมัติ
