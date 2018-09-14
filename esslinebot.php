@@ -16,32 +16,19 @@ $LineID_EmpID = $_POST['LineID_EmpID'];
 $ApproveStatus = $_POST['ApproveStatus'];
 $bot = new BOT_API($channelSecret, $access_token);
 
-/*
-$idnews = $_POST['txtNews'];
-// Check News
-if(!empty($idnews)){
 
-    $str = NEWS($idnews);
-    
-    $arr = SendUserID();
-    $iCount = count($arr);
-    for ($i = 0; $i<$iCount; $i++) {
-        $bot->SendMessageTo($arr[$i],$str);
-    }
-// return echo "success";
-}*/
 // แจ้งข่าวสาร
 if(!empty($NewsHDID)){
-    //$arr = SendNewsTo($NewsHDID);
-    //$iCount = count($arr);
-    //for ($i = 0; $i<$iCount; $i++) {
-    //    $bot->SendMessageTo($arr[$i],$News);
-    //}
-    $ArrID = array("U7fb3dc484426fb164c424df09b7a42ba","U05a39ae3a619678ef4b1b58111980a79");
-    $iCount = count($ArrID);
+    $arr = SendNewsTo($NewsHDID);
+    $iCount = count($arr);
     for ($i = 0; $i<$iCount; $i++) {
-        $bot->SendMessageTo($ArrID[$i],$News);
+        $bot->SendMessageTo($arr[$i],$News);
     }
+    //$ArrID = array("U7fb3dc484426fb164c424df09b7a42ba","U05a39ae3a619678ef4b1b58111980a79");
+    //$iCount = count($ArrID);
+    //for ($i = 0; $i<$iCount; $i++) {
+    //    $bot->SendMessageTo($ArrID[$i],$News);
+    //}
     //$bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
@@ -64,153 +51,145 @@ if(!empty($LineID_EmpID)){
 }
 
 if (!empty($bot->isEvents)) {
-
-    /*if(CheckLineID($bot->userId))
-    {*/
-        $Language = GetLanguage($bot->userId);
-        if($Language == "th-TH")
+    $Language = GetLanguage($bot->userId);
+    if($Language == "th-TH")
+    {
+        if($bot->text == "Approve Center")
         {
-            if($bot->text == "Approve Center")
-            {
-                $bot->ApproveCenter($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "Time Attendance")
-            {
-                $bot->TimeAttendance($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "วันอนุญาตลา")
-            {
-                $Text = LeaveRemainNum($bot->userId);
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Payroll")
-            {
-                $bot->Payroll($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "E-Pay Slip")
-            {
-                $Text = EPaySlip($bot->userId);
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Organization")
-            {
-                $bot->Organization($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "วันหยุดองค์กร")
-            {
-                $Text = Calender($bot->userId);
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "ที่ตั้งองค์กร")
-            {
-                $Text = LocationOrganization($bot->userId);
-                $bot->LocationOrg($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Setting")
-            {
-                $bot->Setting($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "เปลี่ยนภาษา")
-            {
-                $bot->SendLanguage($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "AboutUs")
-            {
-                $bot->AboutUs($bot->replyToken);
-            }
-            else
-            {
-            $bot->BOT_New($bot->replyToken,$bot->text);
-            }
+            $bot->ApproveCenter($bot->replyToken,$bot->userId);
         }
-        else if($Language == "en-US") //#####################################################################################
+        elseif($bot->text == "Time Attendance")
         {
-            if($bot->text == "Approve Center")
-            {
-                $bot->ApproveCenterEng($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "Time Attendance")
-            {
-                $bot->TimeAttendanceEng($bot->replyToken,$bot->userId);
-            }
-            /*
-            elseif($bot->text == "Leave Information")
-            {
-                $bot->Leaveinformation($bot->replyToken);
-            }
-            */
-            elseif($bot->text == "Leave Remain")
-            {
-                $Text = LeaveRemainNumEng($bot->userId);
-                $bot->replyMessageNew($bot->replyToken,$Text);
-                //$bot->LeaveRemain($bot->replyToken);
-            }
-            /*
-            elseif($bot->text == "ลากิจ")
-            {
-                $Text = LeaveRemainNum($bot->userId,"L-001");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "ลาป่วย")
-            {
-                $Text = LeaveRemainNum($bot->userId,"L-002");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "ลาพักร้อน")
-            {
-                $Text = LeaveRemainNum($bot->userId,"L-003");
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            */
-            elseif($bot->text == "Payroll")
-            {
-                $bot->Payroll($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "E-Pay Slip")
-            {
-                $Text = EPaySlip($bot->userId);
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Organization")
-            {
-                $bot->OrganizationEng($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "Organization Calender")
-            {
-                $Text = Calender($bot->userId);
-                $bot->replyMessageNew($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Location of Organization")
-            {
-                $Text = LocationOrganization($bot->userId);
-                $bot->LocationOrg($bot->replyToken,$Text);
-            }
-            elseif($bot->text == "Setting")
-            {
-                $bot->SettingEng($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "Language")
-            {
-                $bot->SendLanguage($bot->replyToken,$bot->userId);
-            }
-            elseif($bot->text == "AboutUs")
-            {
-                $bot->AboutUs($bot->replyToken);
-            }
-            else
-            {
-            $bot->BOT_New($bot->replyToken,$bot->text);
-            }
+            $bot->TimeAttendance($bot->replyToken,$bot->userId);
         }
-        else
+        elseif($bot->text == "วันอนุญาตลา")
+        {
+            $Text = LeaveRemainNum($bot->userId);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "Payroll")
+        {
+            $bot->Payroll($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "E-Pay Slip")
+        {
+            $Text = EPaySlip($bot->userId);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "Organization")
+        {
+            $bot->Organization($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "วันหยุดองค์กร")
+        {
+            $Text = Calender($bot->userId);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "ที่ตั้งองค์กร")
+        {
+            $Text = LocationOrganization($bot->userId);
+            $bot->LocationOrg($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "Setting")
+        {
+            $bot->Setting($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "เปลี่ยนภาษา")
         {
             $bot->SendLanguage($bot->replyToken,$bot->userId);
         }
-    /*}
+        elseif($bot->text == "AboutUs")
+        {
+            $bot->AboutUs($bot->replyToken);
+        }
+        else
+        {
+            $bot->BOT_New($bot->replyToken,$bot->text);
+        }
+    }
+    else if($Language == "en-US") //#####################################################################################
+    {
+        if($bot->text == "Approve Center")
+        {
+            $bot->ApproveCenterEng($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "Time Attendance")
+        {
+            $bot->TimeAttendanceEng($bot->replyToken,$bot->userId);
+        }
+                /*
+                elseif($bot->text == "Leave Information")
+                {
+                    $bot->Leaveinformation($bot->replyToken);
+                }
+                */
+        elseif($bot->text == "Leave Remain")
+        {
+            $Text = LeaveRemainNumEng($bot->userId);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+            //$bot->LeaveRemain($bot->replyToken);
+        }
+                /*
+                elseif($bot->text == "ลากิจ")
+                {
+                    $Text = LeaveRemainNum($bot->userId,"L-001");
+                    $bot->replyMessageNew($bot->replyToken,$Text);
+                }
+                elseif($bot->text == "ลาป่วย")
+                {
+                    $Text = LeaveRemainNum($bot->userId,"L-002");
+                    $bot->replyMessageNew($bot->replyToken,$Text);
+                }
+                elseif($bot->text == "ลาพักร้อน")
+                {
+                    $Text = LeaveRemainNum($bot->userId,"L-003");
+                    $bot->replyMessageNew($bot->replyToken,$Text);
+                }
+                */
+        elseif($bot->text == "Payroll")
+        {
+            $bot->Payroll($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "E-Pay Slip")
+        {
+            $Text = EPaySlip($bot->userId);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "Organization")
+        {
+            $bot->OrganizationEng($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "Organization Calender")
+        {
+            $Text = Calender($bot->userId);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "Location of Organization")
+        {
+            $Text = LocationOrganization($bot->userId);
+            $bot->LocationOrg($bot->replyToken,$Text);
+        }
+        elseif($bot->text == "Setting")
+        {
+            $bot->SettingEng($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "Language")
+        {
+            $bot->SendLanguage($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "AboutUs")
+        {
+            $bot->AboutUs($bot->replyToken);
+        }
+        else
+        {
+            $bot->BOT_New($bot->replyToken,$bot->text);
+        }
+    }
     else
     {
         $bot->SendLanguage($bot->replyToken,$bot->userId);
-    }*/
+    }
 }
 
 if ($bot->isSuccess()) 
