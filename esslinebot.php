@@ -19,17 +19,17 @@ $bot = new BOT_API($channelSecret, $access_token);
 
 // แจ้งข่าวสาร
 if(!empty($NewsHDID)){
-    $arr = SendNewsTo($NewsHDID);
-    $iCount = count($arr);
-    for ($i = 0; $i<$iCount; $i++) {
-        $bot->SendMessageTo($arr[$i],$News);
-    }
-    //$ArrID = array("U7fb3dc484426fb164c424df09b7a42ba","U05a39ae3a619678ef4b1b58111980a79");
-    //$iCount = count($ArrID);
+    //$arr = SendNewsTo($NewsHDID);
+    //$iCount = count($arr);
     //for ($i = 0; $i<$iCount; $i++) {
-    //    $bot->SendMessageTo($ArrID[$i],$News);
+    //    $bot->SendMessageTo($arr[$i],$News);
     //}
-    //$bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
+    $ArrID = array("U7fb3dc484426fb164c424df09b7a42ba","U05a39ae3a619678ef4b1b58111980a79");
+    $iCount = count($ArrID);
+    for ($i = 0; $i<$iCount; $i++) {
+        $bot->SendMessageTo($ArrID[$i],$News);
+    }
+    $bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
 // แจ้งเอกสารลาหาผู้อนุมัติ
