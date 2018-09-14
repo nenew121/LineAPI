@@ -130,11 +130,11 @@ public function SendMessageApproveTo($ToLineID = null, $message = null){
             $message, // ข้อความแนะนำหรือบอกวิธีการ หรือคำอธิบาย
                 array(
                     new UriTemplateActionBuilder(
-                        'To Approve', // ข้อความสำหรับปุ่มแรก
+                        'Go to', // ข้อความสำหรับปุ่มแรก
                         "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     ),
                     new MessageTemplateActionBuilder(
-                        '?', // ข้อความสำหรับปุ่มแรก
+                        'Approve', // ข้อความสำหรับปุ่มแรก
                         "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     )
                 )
@@ -362,7 +362,7 @@ public function Organization($replyToken = null,$LineID)
 public function OrganizationEng($replyToken = null,$LineID)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("Calender", "Organization Calender"),
+        New MessageTemplateActionBuilder("Calendar", "Organization Calendar"),
         New UriTemplateActionBuilder("News", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
         New UriTemplateActionBuilder("News List", "https://lineservice.prosofthcm.com/LineService/News/NewsList/".$LineID),
         New MessageTemplateActionBuilder("Location", "Location of Organization")

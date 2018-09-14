@@ -159,9 +159,9 @@ if (!empty($bot->isEvents)) {
         {
             $bot->OrganizationEng($bot->replyToken,$bot->userId);
         }
-        elseif($bot->text == "Organization Calender")
+        elseif($bot->text == "Organization Calendar")
         {
-            $Text = Calender($bot->userId);
+            $Text = Calendar($bot->userId);
             $bot->replyMessageNew($bot->replyToken,$Text);
         }
         elseif($bot->text == "Location of Organization")
