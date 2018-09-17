@@ -98,6 +98,11 @@ if (!empty($bot->isEvents)) {
         {
             $bot->SendLanguage($bot->replyToken,$bot->userId);
         }
+        elseif($bot->text == "ภาษาไทย (Thai)" || $bot->text == "ภาษาอังกฤษ (English)")
+        {   
+            $Text = ChangeLanguage($bot->userId,$bot->text);
+            $bot->replyMessageNew($bot->replyToken,$Text);
+        }
         elseif($bot->text == "AboutUs")
         {
             $bot->AboutUs($bot->replyToken);
@@ -159,6 +164,11 @@ if (!empty($bot->isEvents)) {
         elseif($bot->text == "Language")
         {
             $bot->SendLanguage($bot->replyToken,$bot->userId);
+        }
+        elseif($bot->text == "ภาษาไทย (Thai)" || $bot->text == "ภาษาอังกฤษ (English)")
+        {   
+            $Text = ChangeLanguage($bot->userId,$bot->text);
+            $bot->replyMessageNew($bot->replyToken,$Text);
         }
         elseif($bot->text == "AboutUs")
         {
