@@ -193,11 +193,11 @@ public function SendLanguage($replyToken = null, $LineID){
     $img_url = "https://www.prosofthcm.com/upload/5934/LK2wVaS34N.jpg";
 
         $actions = array(
-            New UriTemplateActionBuilder("Thai", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/th-TH"),
-            New UriTemplateActionBuilder("English", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/en-US")
+            New UriTemplateActionBuilder("ภาษาไทย (Thai)", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/th-TH"),
+            New UriTemplateActionBuilder("ภาษาอังกฤษ (English)", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/en-US")
         );
-        $button = new ButtonTemplateBuilder("Setting","กรุณาเลือกภาษาที่จะใช้\nPlease select a display language.", $img_url, $actions);
-        $outputText = new TemplateMessageBuilder("Setting Language", $button);
+        $button = new ButtonTemplateBuilder("Language Setting","กรุณาเลือกภาษาที่ต้องการใช้งาน\nPlease select language.", $img_url, $actions);
+        $outputText = new TemplateMessageBuilder("Language Setting", $button);
 
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -406,8 +406,8 @@ public function Setting($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
-    $button  = new ButtonTemplateBuilder("ตั้งค่า", "เมนู", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("ตั้งค่า", $button);
+    $button  = new ButtonTemplateBuilder("Setting", "สำหรับตั้งค่าการใช้งานระบบ\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("Setting", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
@@ -423,7 +423,7 @@ public function SettingEng($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
-    $button  = new ButtonTemplateBuilder("Setting", "Menu", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Setting", "For setting the system.\nPlease select menu...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Setting", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
