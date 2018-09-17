@@ -298,6 +298,31 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
 public function Payroll($replyToken = null,$LineID)
 {
     $actions = array(
+        New MessageTemplateActionBuilder("ขอสลิปเงินเดือน", "ขอสลิปเงินเดือน")
+        //New MessageTemplateActionBuilder("ขอเอกสาร 50 ทวิ", "ขอเอกสาร 50 ทวิ"),
+        //New MessageTemplateActionBuilder("Works Cer.Request", "Works Cer.Request"),
+        //New MessageTemplateActionBuilder("Salary Cer.Request", "Salary Cer.Request")
+        
+        /*
+        New UriTemplateActionBuilder("Tax Calculator", "https://www.prosofthcm.com/Article/Detail/65472"),
+        New UriTemplateActionBuilder("Google", "http://www.Google.co.th"),
+        New MessageTemplateActionBuilder("Test", "Test")
+        */
+         );
+
+    $img_url = "https://www.prosofthcm.com/upload/5934/CGD9pX8Q9X.jpg";
+    $button  = new ButtonTemplateBuilder("บัญชีเงินเดือน", "For manage your salary data.\nPlease select menu...", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("บัญชีเงินเดือน", $button);
+
+    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+        'replyToken' => $replyToken,
+        'messages'   => $outputText->buildMessage(),
+    ]);
+}
+    
+public function PayrollEng($replyToken = null,$LineID)
+{
+    $actions = array(
         New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip")
         //New MessageTemplateActionBuilder("ขอเอกสาร 50 ทวิ", "ขอเอกสาร 50 ทวิ"),
         //New MessageTemplateActionBuilder("Works Cer.Request", "Works Cer.Request"),
