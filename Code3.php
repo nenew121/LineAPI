@@ -228,7 +228,7 @@ public function ApproveCenter($replyToken = null,$LineID)
         New UriTemplateActionBuilder("อนุมัติยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/mKsddYG2Jp.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
     $button  = new ButtonTemplateBuilder("อนุมัติ/ร้องขอ", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("อนุมัติ/ร้องขอ", $button);
 
@@ -247,7 +247,7 @@ public function ApproveCenterEng($replyToken = null,$LineID)
         New UriTemplateActionBuilder("Approve Abstain", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/mKsddYG2Jp.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
     $button  = new ButtonTemplateBuilder("Approve Center", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Approve Center", $button);
 
