@@ -49,6 +49,19 @@ function GetLanguage($LineID){
     return $open;
 }
 
+function ChangeLanguage($LineID,$Lang){
+    $SetLang = "";
+    if($Lang == "ภาษาไทย (Thai)"){
+        $SetLang = "th-TH";
+    }else{
+        $SetLang = "en-US";
+    }
+    $url = "https://lineservice.prosofthcm.com/api/LanguageSetting/".$LineID."/".$SetLang;
+    $open = json_decode(file_get_contents($url), true);
+    
+    return $open;
+}
+
 /*
 function Leaveinformation($LineID,$Status){
     
