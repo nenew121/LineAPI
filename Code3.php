@@ -373,7 +373,7 @@ public function OrganizationEng($replyToken = null,$LineID)
 {
     $actions = array(
         New MessageTemplateActionBuilder("Calendar", "Calendar"),
-        New UriTemplateActionBuilder("News", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
+        New UriTemplateActionBuilder("Create News", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
         New UriTemplateActionBuilder("News List", "https://lineservice.prosofthcm.com/LineService/News/NewsList/".$LineID),
         New MessageTemplateActionBuilder("Location", "Location")
          );
