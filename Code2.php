@@ -169,7 +169,7 @@ function Calendar($LineID){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
             $sum = $sum."\nวัน ".$text['nameday']." ที่ ".$text['numday'];
             $sum = $sum."\nเดือน ".$text['namemounth']." ปี ".$text['year'];
-            $i = $i + $text['countholiday'];
+            $i = $i + 1;
         }
     }else{
         return "ไม่พบข้อมูล";
@@ -190,7 +190,7 @@ function CalendarEng($LineID){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
             $sum = $sum."\nDay ".$text['nameday']." At ".$text['numday'];
             $sum = $sum."\nMounth ".$text['namemounth']." Year ".$text['year'];
-            $i = $i + $text['countholiday'];
+            $i = $i + 1;
         }
     }else{
         return "No data to display";
