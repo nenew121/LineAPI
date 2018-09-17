@@ -162,42 +162,42 @@ function LeaveRequest($LineID){
 function Calendar($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "วันหยุดองค์กร\n----------------------------------------------";
+    $sum = "วันหยุดองค์กร\n-----------------------------";
     $i = 0;
     if($open != null){
         foreach($open as $text){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
-            $sum = $sum."\nวัน ".$text['nameday']." ที่ ".$text['numday'];
-            $sum = $sum."\nเดือน ".$text['namemounth']." ปี ".$text['year'];
+            $sum = $sum."\n ".$text['nameday']." ที่ ".$text['numday'];
+            $sum = $sum."\n เดือน ".$text['namemounth']." ปี ".$text['year'];
             $i = $i + 1;
         }
     }else{
         return "ไม่พบข้อมูล";
     }
-    $sum = $sum."\n----------------------------------------------";
+    $sum = $sum."\n-----------------------------";
     $sum = $sum."\nรวมวันหยุดประจำปี ".$i." วัน";
-    $sum = $sum."\n----------------------------------------------";
+    $sum = $sum."\n-----------------------------";
     return $sum;
 }
 
 function CalendarEng($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "Organization Calender\n----------------------------------------------";
+    $sum = "Organization Calender\n-----------------------------";
     $i = 0;
     if($open != null){
         foreach($open as $text){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
-            $sum = $sum."\nDay ".$text['nameday']." At ".$text['numday'];
-            $sum = $sum."\nMounth ".$text['namemounth']." Year ".$text['year'];
+            $sum = $sum."\n Day ".$text['nameday']." At ".$text['numday'];
+            $sum = $sum."\n Mounth ".$text['namemounth']." Year ".$text['year'];
             $i = $i + 1;
         }
     }else{
         return "No data to display";
     }
-    $sum = $sum."\n----------------------------------------------";
+    $sum = $sum."\n-----------------------------";
     $sum = $sum."\nTotal annual holiday ".$i;
-    $sum = $sum."\n----------------------------------------------";
+    $sum = $sum."\n-----------------------------";
     return $sum;
 }
 ?>
