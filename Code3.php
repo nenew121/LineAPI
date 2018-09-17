@@ -224,7 +224,7 @@ public function ApproveCenter($replyToken = null,$LineID)
     $actions = array(
         New UriTemplateActionBuilder("ขออนุมัติลา", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
         New UriTemplateActionBuilder("ขอยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
-        New UriTemplateActionBuilder("อนุมัติการขอลา", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
+        New UriTemplateActionBuilder("อนุมัติเอกสารลา", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
         New UriTemplateActionBuilder("อนุมัติยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
          );
 
@@ -267,7 +267,7 @@ public function TimeAttendance($replyToken = null, $LineID)
         );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
-    $button  = new ButtonTemplateBuilder("Time Attendence", "เมนู", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Time Attendence", "สำหรับจัดการข้อมูลเวลาการทำงาน\nกรุณาเลือกเมนู...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -286,7 +286,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
-    $button  = new ButtonTemplateBuilder("Time Attendence", "Menu", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Time Attendence", "For manage work time data.\nPlease select menu...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -311,7 +311,7 @@ public function Payroll($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/CGD9pX8Q9X.jpg";
-    $button  = new ButtonTemplateBuilder("Payroll", "Menu", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Payroll", "For manage your salary data.\nPlease select menu...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Payroll", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -330,8 +330,8 @@ public function Organization($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
-    $button  = new ButtonTemplateBuilder("องค์กร", "เมนู", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("องค์กร", $button);
+    $button  = new ButtonTemplateBuilder("Organization", "สำหรับดูข้อมูลเกี่ยวกับองค์กร\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("Organization", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
@@ -369,7 +369,7 @@ public function OrganizationEng($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
-    $button  = new ButtonTemplateBuilder("Organization", "Menu", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Organization", "For view about organization data.\nPlease select menu...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Organization", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
