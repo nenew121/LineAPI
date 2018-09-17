@@ -329,7 +329,7 @@ public function Organization($replyToken = null,$LineID)
         New MessageTemplateActionBuilder("ที่ตั้งองค์กร", "ที่ตั้งองค์กร")
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/CGD9pX8Q9X.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
     $button  = new ButtonTemplateBuilder("องค์กร", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("องค์กร", $button);
 
@@ -368,7 +368,7 @@ public function OrganizationEng($replyToken = null,$LineID)
         New MessageTemplateActionBuilder("Location", "Location of Organization")
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
     $button  = new ButtonTemplateBuilder("Organization", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Organization", $button);
 
@@ -405,7 +405,7 @@ public function Setting($replyToken = null, $LineID)
         New MessageTemplateActionBuilder("เปลี่ยนภาษา", "เปลี่ยนภาษา")
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/67m2YbOk6S.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
     $button  = new ButtonTemplateBuilder("ตั้งค่า", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("ตั้งค่า", $button);
 
@@ -422,7 +422,7 @@ public function SettingEng($replyToken = null, $LineID)
         New MessageTemplateActionBuilder("Language", "Language")
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/67m2YbOk6S.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
     $button  = new ButtonTemplateBuilder("Setting", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Setting", $button);
 
@@ -441,7 +441,7 @@ public function AboutUs($replyToken = null)
         //New MessageTemplateActionBuilder("Test", "Test")
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/kXfjuHYzSj.jpg";
     $button  = new ButtonTemplateBuilder("About Us", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("About Us", $button);
 
