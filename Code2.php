@@ -85,11 +85,11 @@ function LeaveRemainNum($LineID){
     $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n------------------------------";
     if($open != null){
         foreach($open as $text){
-            $sum = $sum."\nประเภทการลา : ".$text['LeaveTypeName']."\n";
-            $sum = $sum."วันอนุญาตลา : ".$text['LeaveTypeDayNum']."\n";
-            $sum = $sum."จำนวนวันลา : ".$text['Days']."\n";
-            $sum = $sum."วันลาคงเหลือ : ".$text['Hours']."\n";
-            $sum = $sum."-----------------------------";
+            $sum = $sum."\nประเภทการลา : ".$text['LeaveTypeName'];
+            $sum = $sum."\nวันอนุญาตลา : ".$text['LeaveTypeDayNum'];
+            $sum = $sum."\nจำนวนวันลา : ".$text['Days'];
+            $sum = $sum."\nวันลาคงเหลือ : ".$text['Hours'];
+            $sum = $sum."\n-----------------------------";
         }
     }else{
         return "ไม่พบข้อมูล";
@@ -105,11 +105,11 @@ function LeaveRemainNumEng($LineID){
     $sum = "Leave Information Days Num\n-----------------------------";
     if($open != null){
         foreach($open as $text){
-            $sum = $sum."\nLeave Type : ".$text['LeaveTypeName']."\n";
-            $sum = $sum."Leave Approve : ".$text['LeaveTypeDayNum']."\n";
-            $sum = $sum."Leave Record : ".$text['Days']."\n";
-            $sum = $sum."Leave Days Num : ".$text['Hours']."\n";
-            $sum = $sum."-----------------------------";
+            $sum = $sum."\nLeave Type : ".$text['LeaveTypeName'];
+            $sum = $sum."\nLeave Approve : ".$text['LeaveTypeDayNum'];
+            $sum = $sum."\nLeave Record : ".$text['Days'];
+            $sum = $sum."\nLeave Days Num : ".$text['Hours'];
+            $sum = $sum."\n-----------------------------";
         }
     }else{
         return "No Data.";
@@ -162,12 +162,14 @@ function LeaveRequest($LineID){
 function Calendar($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "วันหยุดองค์กร\n----------------------------------------------\n";
+    $sum = "วันหยุดองค์กร\n----------------------------------------------";
     $i = 0;
     if($open != null){
         foreach($open as $text){
-            $i = $i+1;
-            $sum = $sum.$text['countholiday'].": ".$text['nameday']." ".$text['numday']." ".$text['namemounth']." ".$text['year']."\n".$text['Subject']."\n";
+            $sum = "\n".$text['countholiday'].". ".$text['Subject'];
+            $sum = "\nวัน ".$text['numday']." เดือน ".$text['namemounth']." ปี ".$text['year'];
+            $sum = "\nจำนวนวันหยุด ".$text['numday'];
+            $i = $i + $text['numday'];
         }
     }else{
         return "ไม่พบข้อมูล";
