@@ -266,7 +266,7 @@ public function TimeAttendance($replyToken = null, $LineID)
         New UriTemplateActionBuilder("ข้อมูลการขอลา", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
         );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/uItY2OS0mv.jpg";
     $button  = new ButtonTemplateBuilder("Time Attendence", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
@@ -285,7 +285,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
         New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/uItY2OS0mv.jpg";
     $button  = new ButtonTemplateBuilder("Time Attendence", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
