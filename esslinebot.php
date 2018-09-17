@@ -62,7 +62,7 @@ if (!empty($bot->isEvents)) {
         {
             $bot->TimeAttendance($bot->replyToken,$bot->userId);
         }
-        elseif($bot->text == "วันอนุญาตลา")
+        elseif($bot->text == "จำนวนวันอนุญาตลา")
         {
             $Text = LeaveRemainNum($bot->userId);
             $bot->replyMessageNew($bot->replyToken,$Text);
@@ -159,12 +159,12 @@ if (!empty($bot->isEvents)) {
         {
             $bot->OrganizationEng($bot->replyToken,$bot->userId);
         }
-        elseif($bot->text == "Organization Calendar")
+        elseif($bot->text == "Calendar")
         {
             $Text = CalendarEng($bot->userId);
             $bot->replyMessageNew($bot->replyToken,$Text);
         }
-        elseif($bot->text == "Location of Organization")
+        elseif($bot->text == "Location")
         {
             $Text = LocationOrganization($bot->userId);
             $bot->LocationOrg($bot->replyToken,$Text);
