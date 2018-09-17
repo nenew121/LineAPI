@@ -176,16 +176,17 @@ public function replyMessageNew($replyToken = null, $message = null){
 
 public function SendLanguage($replyToken = null, $LineID){
     $img_url = "https://www.prosofthcm.com/upload/5934/LK2wVaS34N.jpg";
-        /*
+        
         $actions = array(
             New UriTemplateActionBuilder("ภาษาไทย (Thai)", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/th-TH"),
             New UriTemplateActionBuilder("ภาษาอังกฤษ (English)", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/en-US")
         );
-        */
+        /*
         $actions = array(
             New MessageTemplateActionBuilder("ภาษาไทย (Thai)", "ภาษาไทย (Thai)"),
             New MessageTemplateActionBuilder("ภาษาอังกฤษ (English)", "ภาษาอังกฤษ (English)")
         );
+        */
         $button = new ButtonTemplateBuilder("Language Setting","กรุณาเลือกภาษาที่ต้องการใช้งาน...\nPlease select language...", $img_url, $actions);
         $outputText = new TemplateMessageBuilder("Language Setting", $button);
 
