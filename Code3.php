@@ -311,8 +311,8 @@ public function Payroll($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/CGD9pX8Q9X.jpg";
-    $button  = new ButtonTemplateBuilder("บัญชีเงินเดือน", "For manage your salary data.\nPlease select menu...", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("บัญชีเงินเดือน", $button);
+    $button  = new ButtonTemplateBuilder("Payroll", "สำหรับจัดการข้อมูลเงินเดือน\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("Payroll", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
