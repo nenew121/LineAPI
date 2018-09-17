@@ -166,17 +166,40 @@ function Calendar($LineID){
     $i = 0;
     if($open != null){
         foreach($open as $text){
-            $sum = "\n".$text['countholiday'].". ".$text['Subject'];
-            $sum = "\nวัน ".$text['nameday']."ที่ ".$text['numday']." เดือน ".$text['namemounth']." ปี ".$text['year'];
-            $sum = "\nจำนวนวันหยุด ".$text['numday'];
+            $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
+            $sum = $sum."\nวัน ".$text['nameday']." ที่ ".$text['numday'];
+            $sum = $sum."\nเดือน ".$text['namemounth']." ปี ".$text['year'];
+            $sum = $sum."\nจำนวนวันหยุด ".$text['numday'];
             $i = $i + $text['numday'];
         }
     }else{
         return "ไม่พบข้อมูล";
     }
-    $sum = $sum."----------------------------------------------\n";
-    $sum = $sum."รวมวันหยุดประจำปี ".$i." วัน\n";
-    $sum = $sum."----------------------------------------------";
+    $sum = $sum."\n----------------------------------------------";
+    $sum = $sum."\nรวมวันหยุดประจำปี ".$i." วัน";
+    $sum = $sum."\n----------------------------------------------";
+    return $sum;
+}
+
+function CalendarEng($LineID){
+    $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    $sum = "Corporate Holidays\n----------------------------------------------";
+    $i = 0;
+    if($open != null){
+        foreach($open as $text){
+            $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
+            $sum = $sum."\nDay ".$text['nameday']." At ".$text['numday'];
+            $sum = $sum."\nMounth ".$text['namemounth']." Year ".$text['year'];
+            $sum = $sum."\nNumber of holidays ".$text['numday'];
+            $i = $i + $text['numday'];
+        }
+    }else{
+        return "No data to display";
+    }
+    $sum = $sum."\n----------------------------------------------";
+    $sum = $sum."\nInclude annual holidays".$i;
+    $sum = $sum."\n----------------------------------------------";
     return $sum;
 }
 ?>
