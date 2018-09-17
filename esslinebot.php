@@ -129,23 +129,6 @@ if (!empty($bot->isEvents)) {
             $bot->replyMessageNew($bot->replyToken,$Text);
             //$bot->LeaveRemain($bot->replyToken);
         }
-                /*
-                elseif($bot->text == "ลากิจ")
-                {
-                    $Text = LeaveRemainNum($bot->userId,"L-001");
-                    $bot->replyMessageNew($bot->replyToken,$Text);
-                }
-                elseif($bot->text == "ลาป่วย")
-                {
-                    $Text = LeaveRemainNum($bot->userId,"L-002");
-                    $bot->replyMessageNew($bot->replyToken,$Text);
-                }
-                elseif($bot->text == "ลาพักร้อน")
-                {
-                    $Text = LeaveRemainNum($bot->userId,"L-003");
-                    $bot->replyMessageNew($bot->replyToken,$Text);
-                }
-                */
         elseif($bot->text == "Payroll")
         {
             $bot->PayrollEng($bot->replyToken,$bot->userId);
