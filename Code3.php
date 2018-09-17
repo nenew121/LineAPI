@@ -190,7 +190,7 @@ public function replyMessageNew($replyToken = null, $message = null){
 }
 
 public function SendLanguage($replyToken = null, $LineID){
-    $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
+    $img_url = "https://www.prosofthcm.com/upload/5934/LK2wVaS34N.jpg";
 
         $actions = array(
             New UriTemplateActionBuilder("Thai", "https://lineservice.prosofthcm.com/LineService/Language/Language/".$LineID."/th-TH"),
