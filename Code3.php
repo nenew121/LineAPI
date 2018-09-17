@@ -229,7 +229,7 @@ public function ApproveCenter($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
-    $button  = new ButtonTemplateBuilder("Approve Center", "สำหรับขอ/อนุมัติเอกสารต่าง ๆ\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Approve Center", "สำหรับขอ/อนุมัติเอกสารต่าง ๆ...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Approve Center", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -248,7 +248,7 @@ public function ApproveCenterEng($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
-    $button  = new ButtonTemplateBuilder("Approve Center", "For request or approve documents.\nPlease select menu...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Approve Center", "For request or approve documents...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Approve Center", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -267,7 +267,7 @@ public function TimeAttendance($replyToken = null, $LineID)
         );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
-    $button  = new ButtonTemplateBuilder("Time Attendence", "สำหรับจัดการข้อมูลเวลาการทำงาน\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Time Attendence", "สำหรับจัดการข้อมูลเวลาการทำงาน...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -286,7 +286,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
-    $button  = new ButtonTemplateBuilder("Time Attendence", "For manage work time data.\nPlease select menu...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Time Attendence", "For manage work time data...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -311,7 +311,7 @@ public function Payroll($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/CGD9pX8Q9X.jpg";
-    $button  = new ButtonTemplateBuilder("Payroll", "สำหรับจัดการข้อมูลเงินเดือน\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Payroll", "สำหรับจัดการข้อมูลเงินเดือน...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Payroll", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -336,7 +336,7 @@ public function PayrollEng($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/CGD9pX8Q9X.jpg";
-    $button  = new ButtonTemplateBuilder("Payroll", "For manage your salary data.\nPlease select menu...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Payroll", "For manage your salary data...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Payroll", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -355,7 +355,7 @@ public function Organization($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
-    $button  = new ButtonTemplateBuilder("Organization", "สำหรับดูข้อมูลเกี่ยวกับองค์กร\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Organization", "สำหรับดูข้อมูลเกี่ยวกับองค์กร...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Organization", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -394,7 +394,7 @@ public function OrganizationEng($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
-    $button  = new ButtonTemplateBuilder("Organization", "For view about organization data.\nPlease select menu...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Organization", "For view about organization data...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Organization", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -431,7 +431,7 @@ public function Setting($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
-    $button  = new ButtonTemplateBuilder("Setting", "สำหรับตั้งค่าการใช้งานระบบ\nกรุณาเลือกเมนู...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Setting", "สำหรับตั้งค่าการใช้งานระบบ...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Setting", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -448,7 +448,7 @@ public function SettingEng($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
-    $button  = new ButtonTemplateBuilder("Setting", "For setting the system.\nPlease select menu...", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Setting", "For setting the system...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Setting", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
@@ -475,45 +475,6 @@ public function AboutUs($replyToken = null)
         'messages'   => $outputText->buildMessage(),
     ]);
 }
-
-/*
-public function Leaveinformation($replyToken = null)
-{
-    $actions = array(
-        New MessageTemplateActionBuilder("Wait Approve", "Wait Approve"),
-        New MessageTemplateActionBuilder("Approved", "Approved"),
-        New MessageTemplateActionBuilder("Not Approve", "Not Approve")
-         );
-
-    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
-    $button  = new ButtonTemplateBuilder("Leave information", "Menu", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("Leave information", $button);
-
-    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
-    ]);
-}
-*/
-/*
-public function LeaveRemain($replyToken = null)
-{
-    $actions = array(
-        New MessageTemplateActionBuilder("ลากิจ", "ลากิจ"),
-        New MessageTemplateActionBuilder("ลาป่วย", "ลาป่วย"),
-        New MessageTemplateActionBuilder("ลาพักร้อน", "ลาพักร้อน")
-         );
-
-    $img_url = "https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg";
-    $button  = new ButtonTemplateBuilder("LeaveDayNum", "Menu", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("LeaveDayNum", $button);
-
-    $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $outputText->buildMessage(),
-    ]);
-}
-*/
 
 public function photoQR($replyToken = null)
 {
@@ -684,149 +645,6 @@ public function BOT_New($replyToken = null, $text)
         break;
     }
 }
-
-/*
-public function Leavere($replyToken = null, $text)
-{
-    $ar = [];
-    foreach($text as $out){
-        $actionBuilder = array(
-            new MessageTemplateActionBuilder(
-                'อนุมัติ',// ข้อความแสดงในปุ่ม
-                'อนุมัติ'.$out['Docuno'] // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-            ),
-            new MessageTemplateActionBuilder(
-                'ไม่อนุมัติ',// ข้อความแสดงในปุ่ม
-                'ไม่อนุมัติ'.$out['Docuno'] // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-            ),
-            new MessageTemplateActionBuilder(
-                'ย้อนกลับ',// ข้อความแสดงในปุ่ม
-                'ย้อนกลับ' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-            ),     
-        );
-        array_push($ar,new CarouselColumnTemplateBuilder($out['Docuno'],"วันที่ขอลา : ".$out['DocuDate']."\nประเภทการลา : ".$out['LeaveTypeName'],'https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg',$actionBuilder)); 
-    }
-    $caro =  new CarouselTemplateBuilder($ar);
-$replyData = new TemplateMessageBuilder('Carousel', $caro);
-$this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-'replyToken' => $replyToken,
-'messages'   => $replyData->buildMessage(),
-]);
-}*/
-
-/*
-case "T1":
-            $asd = new AreaBuilder(0,0,50,50);
-            $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
-
-            $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-            'replyToken' => $replyToken,
-            'messages'   => $az->buildImagemapAction(),
-            ]);
-        break;
-        case "T2":
-        $asd = new AreaBuilder(0,0,50,50);
-        $az = new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/upload/Resource/img.png",$asd);
-
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $az->buildMessage(),
-        ]);
-        break;
-        case "T3":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";
-        $base = new BaseSizeBuilder(699,1040);
-        $imgmap = array(
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,355,699)),
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(686,0,354,699))
-        );
-        $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
-
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildImagemapAction(),
-        ]);
-        break;
-        case "T4":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/imgtest.png";
-        $base = new BaseSizeBuilder(699,1040);
-        $imgmap = array(
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,355,699)),
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(686,0,354,699))
-        );
-        $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
-
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
-        ]);
-        break;
-        case "T5":
-        $imageMapUrl = "https://lineservice.prosofthcm.com/upload/Resource/img.png";
-        $base = new BaseSizeBuilder(70,104);
-        $imgmap = array(
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(0,0,35,6)),
-            new ImagemapMessageActionBuilder("Test", new AreaBuilder(68,0,35,69))
-        );
-        $replyData = new ImagemapMessageBuilder($imageMapUrl,"Imgmap",$base,$imgmap);
-
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildImagemapAction(),
-        ]);
-        break;
-        
-        case "T7":
-        $columns = array();
-        $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
-            $actions = array(
-          new MessageTemplateActionBuilder("ภาษาไทย", "TH"),
-          new MessageTemplateActionBuilder("English", "ENG"),
-          new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel"),
-        );
-            $column = new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions);
-            $columns[] = $column;
-        $carousel = new CarouselTemplateBuilder($columns);
-        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-                'replyToken' => $replyToken,
-                'messages'   => $outputText->buildMessage(),
-            ]);
-        break;
-        case "T8":
-        $img_url = "https://www.prosofthcm.com/upload/5934/eo3hrcpDoM.png";
-        $actions = array(
-          new MessageTemplateActionBuilder("ภาษาไทย", "TH"),
-          new MessageTemplateActionBuilder("English", "ENG"),
-          new MessageTemplateActionBuilder("ยกเลิก(Cancel)", "Cancel"),
-        );
-        $columns = array(
-            new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions),
-            new CarouselColumnTemplateBuilder("Language", "กรุณาเลือกภาษาทต้องการเปลี่ยน\nPlease select a display language.", $img_url, $actions)
-        );
-        $carousel = new CarouselTemplateBuilder($columns);
-        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-                'replyToken' => $replyToken,
-                'messages'   => $outputText->buildMessage(),
-            ]);
-        break;
-        case "T9":
-        $as = new UriTemplateActionBuilder("Uri Template","https://lineservice.prosofthcm.com/upload/Resource/Leave.png");
-        $columns = array(
-          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", $as),
-          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", $as),
-          new ImageCarouselColumnTemplateBuilder("https://lineservice.prosofthcm.com/upload/Resource/imgtest.png", $as)
-        );
-        $carousel = new ImageCarouselTemplateBuilder($columns);
-        $outputText = new TemplateMessageBuilder("Setting Language", $carousel);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-                'replyToken' => $replyToken,
-                'messages'   => $outputText->buildMessage(),
-            ]);
-        break;
-*/
-
 public function Sticker($replyToken = null)
 {
     $sti = new StickerMessageBuilder("1","17");
