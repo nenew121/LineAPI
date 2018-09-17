@@ -262,7 +262,7 @@ public function TimeAttendance($replyToken = null, $LineID)
     $actions = array(
         New UriTemplateActionBuilder("ลงเวลาเข้างาน", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
         New UriTemplateActionBuilder("ข้อมูลเวลาทำงาน", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
-        New MessageTemplateActionBuilder("วันอนุญาตลา", "วันอนุญาตลา"),
+        New MessageTemplateActionBuilder("จำนวนวันอนุญาตลา", "จำนวนวันอนุญาตลา"),
         New UriTemplateActionBuilder("ข้อมูลการขอลา", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
         );
 
@@ -387,10 +387,10 @@ public function Organization($replyToken = null,$LineID)
 public function OrganizationEng($replyToken = null,$LineID)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("Calendar", "Organization Calendar"),
+        New MessageTemplateActionBuilder("Calendar", "Calendar"),
         New UriTemplateActionBuilder("News", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
         New UriTemplateActionBuilder("News List", "https://lineservice.prosofthcm.com/LineService/News/NewsList/".$LineID),
-        New MessageTemplateActionBuilder("Location", "Location of Organization")
+        New MessageTemplateActionBuilder("Location", "Location")
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
