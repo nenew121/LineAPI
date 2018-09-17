@@ -248,7 +248,7 @@ public function ApproveCenterEng($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
-    $button  = new ButtonTemplateBuilder("Approve Center", "Menu", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Approve Center", "For request or approve documents.\nPlease select menu...", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Approve Center", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
