@@ -280,13 +280,13 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
 {
     $actions = array(
         New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
-        New UriTemplateActionBuilder("WorkTime Information", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
+        New UriTemplateActionBuilder("Work Time Information", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
         New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
         New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
-    $button  = new ButtonTemplateBuilder("Time Attendence", "Menu", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Time Attendence", "ทดสอบความยาวววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววววว", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
