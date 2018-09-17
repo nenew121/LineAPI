@@ -229,8 +229,8 @@ public function ApproveCenter($replyToken = null,$LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
-    $button  = new ButtonTemplateBuilder("1", "0000000000000000000000000000000000000000000000000000000000000", $img_url, $actions);
-    $outputText = new TemplateMessageBuilder("อนุมัติ/ร้องขอ", $button);
+    $button  = new ButtonTemplateBuilder("Approve Center", "สำหรับขอ/อนุมติเอกสารต่าง ๆ กรุณาเลือกเมนู...", $img_url, $actions);
+    $outputText = new TemplateMessageBuilder("Approve Center", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
         'replyToken' => $replyToken,
