@@ -183,7 +183,7 @@ function Calendar($LineID){
 function CalendarEng($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
-    $sum = "Corporate Holidays\n----------------------------------------------";
+    $sum = "Organization Calender\n----------------------------------------------";
     $i = 0;
     if($open != null){
         foreach($open as $text){
@@ -196,7 +196,7 @@ function CalendarEng($LineID){
         return "No data to display";
     }
     $sum = $sum."\n----------------------------------------------";
-    $sum = $sum."\nInclude annual holidays ".$i;
+    $sum = $sum."\nTotal annual holiday ".$i;
     $sum = $sum."\n----------------------------------------------";
     return $sum;
 }
