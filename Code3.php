@@ -280,7 +280,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
 {
     $actions = array(
         New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
-        New UriTemplateActionBuilder("Work Time Information", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
+        New UriTemplateActionBuilder("Worktime Information", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
         New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
         New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
          );
