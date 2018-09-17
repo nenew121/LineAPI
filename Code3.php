@@ -310,7 +310,7 @@ public function Payroll($replyToken = null,$LineID)
         */
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/jFLPJkCXUc.jpg";
     $button  = new ButtonTemplateBuilder("Payroll", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Payroll", $button);
 
@@ -329,7 +329,7 @@ public function Organization($replyToken = null,$LineID)
         New MessageTemplateActionBuilder("ที่ตั้งองค์กร", "ที่ตั้งองค์กร")
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/HDIVJszBfE.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/jFLPJkCXUc.jpg";
     $button  = new ButtonTemplateBuilder("องค์กร", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("องค์กร", $button);
 
