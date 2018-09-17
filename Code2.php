@@ -190,7 +190,7 @@ function CalendarEng($LineID){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
             $sum = $sum."\nDay ".$text['nameday']." At ".$text['numday'];
             $sum = $sum."\nMounth ".$text['namemounth']." Year ".$text['year'];
-            $i = $i + $text['numday'];
+            $i = $i + $text['countholiday'];
         }
     }else{
         return "No data to display";
