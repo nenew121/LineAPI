@@ -286,7 +286,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
          );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
-    $button  = new ButtonTemplateBuilder("Time Attendence", "", $img_url, $actions);
+    $button  = new ButtonTemplateBuilder("Time Attendence", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
     $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
