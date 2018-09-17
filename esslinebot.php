@@ -71,7 +71,7 @@ if (!empty($bot->isEvents)) {
         {
             $bot->Payroll($bot->replyToken,$bot->userId);
         }
-        elseif($bot->text == "E-Pay Slip")
+        elseif($bot->text == "ขอสลิปเงินเดือน")
         {
             $Text = EPaySlip($bot->userId);
             $bot->replyMessageNew($bot->replyToken,$Text);
@@ -148,7 +148,7 @@ if (!empty($bot->isEvents)) {
                 */
         elseif($bot->text == "Payroll")
         {
-            $bot->Payroll($bot->replyToken,$bot->userId);
+            $bot->PayrollEng($bot->replyToken,$bot->userId);
         }
         elseif($bot->text == "E-Pay Slip")
         {
