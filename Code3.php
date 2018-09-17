@@ -228,7 +228,7 @@ public function ApproveCenter($replyToken = null,$LineID)
         New UriTemplateActionBuilder("อนุมัติยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/83O8E6tLI0.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/mKsddYG2Jp.jpg";
     $button  = new ButtonTemplateBuilder("อนุมัติ/ร้องขอ", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("อนุมัติ/ร้องขอ", $button);
 
@@ -247,7 +247,7 @@ public function ApproveCenterEng($replyToken = null,$LineID)
         New UriTemplateActionBuilder("Approve Abstain", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/83O8E6tLI0.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/mKsddYG2Jp.jpg";
     $button  = new ButtonTemplateBuilder("Approve Center", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Approve Center", $button);
 
@@ -266,7 +266,7 @@ public function TimeAttendance($replyToken = null, $LineID)
         New UriTemplateActionBuilder("ข้อมูลการขอลา", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
         );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/uItY2OS0mv.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/kWiHVWNifu.jpg";
     $button  = new ButtonTemplateBuilder("Time Attendence", "เมนู", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
@@ -285,7 +285,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
         New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
          );
 
-    $img_url = "https://www.prosofthcm.com/upload/5934/uItY2OS0mv.jpg";
+    $img_url = "https://www.prosofthcm.com/upload/5934/kWiHVWNifu.jpg";
     $button  = new ButtonTemplateBuilder("Time Attendence", "Menu", $img_url, $actions);
     $outputText = new TemplateMessageBuilder("Time Attendence", $button);
 
