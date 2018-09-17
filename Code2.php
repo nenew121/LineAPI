@@ -167,8 +167,8 @@ function Calendar($LineID){
     if($open != null){
         foreach($open as $text){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
-            $sum = $sum."\n ".$text['nameday']." ที่ ".$text['numday'];
-            $sum = $sum."\n เดือน ".$text['namemounth']." ปี ".$text['year'];
+            $sum = $sum."\n   ".$text['nameday']." ที่ ".$text['numday'];
+            $sum = $sum."\n   เดือน ".$text['namemounth']." ปี ".$text['year'];
             $i = $i + 1;
         }
     }else{
@@ -188,8 +188,8 @@ function CalendarEng($LineID){
     if($open != null){
         foreach($open as $text){
             $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
-            $sum = $sum."\n Day ".$text['nameday']." At ".$text['numday'];
-            $sum = $sum."\n Mounth ".$text['namemounth']." Year ".$text['year'];
+            $sum = $sum."\n   Day ".$text['nameday']." At ".$text['numday'];
+            $sum = $sum."\n   Mounth ".$text['namemounth']." Year ".$text['year'];
             $i = $i + 1;
         }
     }else{
