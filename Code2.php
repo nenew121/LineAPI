@@ -167,7 +167,7 @@ function Calendar($LineID){
     if($open != null){
         foreach($open as $text){
             $sum = "\n".$text['countholiday'].". ".$text['Subject'];
-            $sum = "\nวัน ".$text['numday']." เดือน ".$text['namemounth']." ปี ".$text['year'];
+            $sum = "\nวัน ".$text['nameday']."ที่ ".$text['numday']." เดือน ".$text['namemounth']." ปี ".$text['year'];
             $sum = "\nจำนวนวันหยุด ".$text['numday'];
             $i = $i + $text['numday'];
         }
