@@ -118,14 +118,17 @@ function Calendar($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalendarAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "";
+    $ischeck = true;
     $i = 0;
     if($open != null){
         $sum = "วันหยุดองค์กร\n-----------------------------";
         foreach($open as $text){
             if($text['headcalendar'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
                 $sum = $text['headcalendar'];
+                $ischeck = false;
             }else if($text['headcalendar'] == "ปฎิทินของคุณไม่ได้กำหนดวัน" || $text['headcalendar'] == "Your calendar is not set the holiday."){
                 $sum = $text['headcalendar'];
+                $ischeck = false;
             }else{
                 $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
                 $sum = $sum."\n   ".$text['nameday']." ที่ ".$text['numday'];
@@ -133,9 +136,11 @@ function Calendar($LineID){
                 $i = $i + 1;
             }
         }
-        $sum = $sum."\n-----------------------------";
-        $sum = $sum."\nรวมวันหยุดประจำปี ".$i." วัน";
-        $sum = $sum."\n-----------------------------";
+        if($ischeck){
+            $sum = $sum."\n-----------------------------";
+            $sum = $sum."\nรวมวันหยุดประจำปี ".$i." วัน";
+            $sum = $sum."\n-----------------------------";
+        }
     }else{
         return "ไม่พบข้อมูล";
     }
@@ -146,14 +151,17 @@ function CalendarEng($LineID){
     $url = "https://lineservice.prosofthcm.com/APi/CalendarAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "";
+    $ischeck = true;
     $i = 0;
     if($open != null){
         $sum = "Organization Calender\n-----------------------------";
         foreach($open as $text){
             if($text['headcalendar'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
                 $sum = $text['headcalendar'];
+                $ischeck = false;
             }else if($text['headcalendar'] == "ปฎิทินของคุณไม่ได้กำหนดวัน" || $text['headcalendar'] == "Your calendar is not set the holiday."){
                 $sum = $text['headcalendar'];
+                $ischeck = false;
             }else{
                 $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
                 $sum = $sum."\n   Day ".$text['nameday']." At ".$text['numday'];
@@ -161,9 +169,11 @@ function CalendarEng($LineID){
                 $i = $i + 1;
             }
         }
-        $sum = $sum."\n-----------------------------";
-        $sum = $sum."\nTotal annual holiday ".$i;
-        $sum = $sum."\n-----------------------------";
+        if($ischeck){
+            $sum = $sum."\n-----------------------------";
+            $sum = $sum."\nTotal annual holiday ".$i;
+            $sum = $sum."\n-----------------------------";
+        }
     }else{
         return "No data to display";
     }
