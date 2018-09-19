@@ -146,7 +146,11 @@ if (!empty($bot->isEvents)) {
             case "เปลี่ยนภาษา":
                 $bot->SendLanguage($bot->replyToken,$bot->userId);
             break;
-            case "ภาษาไทย (Thai)": || "ภาษาอังกฤษ (English)":
+            case "ภาษาไทย (Thai)":
+                $Text = ChangeLanguage($bot->userId,$bot->text);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "ภาษาอังกฤษ (English)":
                 $Text = ChangeLanguage($bot->userId,$bot->text);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
@@ -253,7 +257,11 @@ if (!empty($bot->isEvents)) {
             case "Language":
                 $bot->SendLanguage($bot->replyToken,$bot->userId);
             break;
-            case "ภาษาไทย (Thai)": || "ภาษาอังกฤษ (English)":
+            case "ภาษาไทย (Thai)":
+                $Text = ChangeLanguage($bot->userId,$bot->text);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "ภาษาอังกฤษ (English)":
                 $Text = ChangeLanguage($bot->userId,$bot->text);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
