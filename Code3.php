@@ -213,11 +213,11 @@ public function Register($replyToken = null, $LineID){
 public function ApproveCenter($replyToken = null,$LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("ขออนุมัติลา", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
-        New UriTemplateActionBuilder("ขอยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
-        New UriTemplateActionBuilder("อนุมัติเอกสารลา", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
+        New UriTemplateActionBuilder("ขออนุมัติลา", "https://lineservice.prosofthcm.com/LineService/LeavereRuest/LeavereRuestInfo/".$LineID),
+        New UriTemplateActionBuilder("ขอยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/AbstainTime/AbstainTimeInfo/".$LineID),
+        New UriTemplateActionBuilder("อนุมัติการขอลา", "https://lineservice.prosofthcm.com/LineService/ApproveLeave/ApproveLeaveInfo/".$LineID),
         New UriTemplateActionBuilder("อนุมัติยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
-         );
+        );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
     $button  = new ButtonTemplateBuilder("Approve Center", "สำหรับขอ/อนุมัติเอกสารต่าง ๆ...", $img_url, $actions);
@@ -232,11 +232,11 @@ public function ApproveCenter($replyToken = null,$LineID)
 public function ApproveCenterEng($replyToken = null,$LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Leave Request", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInfo/".$LineID),
-        New UriTemplateActionBuilder("Abstain Time", "https://lineservice.prosofthcm.com/LineService/AbstainTimeStamp/AbstainInfo/".$LineID),
-        New UriTemplateActionBuilder("Approve Leave", "https://lineservice.prosofthcm.com/LineService/ApproveRequest/ApproveRequestInfo/".$LineID),
+        New UriTemplateActionBuilder("Leave Request", "https://lineservice.prosofthcm.com/LineService/LeavereRuest/LeavereRuestInfo/".$LineID),
+        New UriTemplateActionBuilder("Abstain Time", "https://lineservice.prosofthcm.com/LineService/AbstainTime/AbstainTimeInfo/".$LineID),
+        New UriTemplateActionBuilder("Approve Leave", "https://lineservice.prosofthcm.com/LineService/ApproveLeave/ApproveLeaveInfo/".$LineID),
         New UriTemplateActionBuilder("Approve Abstain", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
-         );
+        );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/BEQPPo7iiF.jpg";
     $button  = new ButtonTemplateBuilder("Approve Center", "For request or approve documents...", $img_url, $actions);
@@ -251,10 +251,10 @@ public function ApproveCenterEng($replyToken = null,$LineID)
 public function TimeAttendance($replyToken = null, $LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("ลงเวลาเข้างาน", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
+        New UriTemplateActionBuilder("ลงเวลาเข้างาน", "https://lineservice.prosofthcm.com/LineService/TimeStamp/TimeStampInfo/".$LineID),
         New UriTemplateActionBuilder("ข้อมูลเวลาทำงาน", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
-        New MessageTemplateActionBuilder("จำนวนวันอนุญาตลา", "จำนวนวันอนุญาตลา"),
-        New UriTemplateActionBuilder("ข้อมูลการขอลา", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
+        New MessageTemplateActionBuilder("วันอนุญาตลา", "วันอนุญาตลา"),
+        New UriTemplateActionBuilder("ข้อมูลการขอลา", "https://lineservice.prosofthcm.com/LineService/LeavereRuest/LeavereRuestList/".$LineID)
         );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
@@ -270,11 +270,11 @@ public function TimeAttendance($replyToken = null, $LineID)
 public function TimeAttendanceEng($replyToken = null, $LineID)
 {
     $actions = array(
-        New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/Location/LocationInfo/".$LineID),
-        New UriTemplateActionBuilder("Work Time Detail", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
+        New UriTemplateActionBuilder("Time Stamp", "https://lineservice.prosofthcm.com/LineService/TimeStamp/TimeStampInfo/".$LineID),
+        New UriTemplateActionBuilder("WorkTime Information", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
         New MessageTemplateActionBuilder("Leave Remain", "Leave Remain"),
-        New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/Leave/LeaveInformation/".$LineID)
-         );
+        New UriTemplateActionBuilder("Leave Information", "https://lineservice.prosofthcm.com/LineService/LeavereRuest/LeavereRuestList/".$LineID)
+        );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/4XNG8W47Yn.jpg";
     $button  = new ButtonTemplateBuilder("Time Attendence", "For manage work time data...", $img_url, $actions);
@@ -340,10 +340,10 @@ public function Organization($replyToken = null,$LineID)
 {
     $actions = array(
         New MessageTemplateActionBuilder("วันหยุดองค์กร", "วันหยุดองค์กร"),
-        New UriTemplateActionBuilder("สร้างข่าวสารองค์กร", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
+        New UriTemplateActionBuilder("สร้างข่าวสารองค์กร", "https://lineservice.prosofthcm.com/LineService/News/NewsInfo/".$LineID),
         New UriTemplateActionBuilder("ข้อมูลข่าวสาร", "https://lineservice.prosofthcm.com/LineService/News/NewsList/".$LineID),
         New MessageTemplateActionBuilder("ที่ตั้งองค์กร", "ที่ตั้งองค์กร")
-         );
+        );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
     $button  = new ButtonTemplateBuilder("Organization", "สำหรับดูข้อมูลเกี่ยวกับองค์กร...", $img_url, $actions);
@@ -378,11 +378,11 @@ public function Organization($replyToken = null,$LineID)
 public function OrganizationEng($replyToken = null,$LineID)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("Calendar", "Calendar"),
-        New UriTemplateActionBuilder("Create News", "https://lineservice.prosofthcm.com/LineService/News/News/".$LineID),
+        New MessageTemplateActionBuilder("Calendar", "Organization Calendar"),
+        New UriTemplateActionBuilder("Create News", "https://lineservice.prosofthcm.com/LineService/News/NewsInfo/".$LineID),
         New UriTemplateActionBuilder("News List", "https://lineservice.prosofthcm.com/LineService/News/NewsList/".$LineID),
-        New MessageTemplateActionBuilder("Location", "Location")
-         );
+        New MessageTemplateActionBuilder("Location", "Location of Organization")
+        );    
 
     $img_url = "https://www.prosofthcm.com/upload/5934/VFrLXsJrey.jpg";
     $button  = new ButtonTemplateBuilder("Organization", "For view about organization data...", $img_url, $actions);
@@ -419,7 +419,7 @@ public function Setting($replyToken = null, $LineID)
     $actions = array(        
         New UriTemplateActionBuilder("ลงทะเบียน", "https://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
         New MessageTemplateActionBuilder("เปลี่ยนภาษา", "เปลี่ยนภาษา")
-         );
+        );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
     $button  = new ButtonTemplateBuilder("Setting", "สำหรับตั้งค่าการใช้งานระบบ...", $img_url, $actions);
@@ -436,7 +436,7 @@ public function SettingEng($replyToken = null, $LineID)
     $actions = array(        
         New UriTemplateActionBuilder("Register", "https://lineservice.prosofthcm.com/LineService/Register/RegisterInfo/".$LineID),
         New MessageTemplateActionBuilder("Language", "Language")
-         );
+        );
 
     $img_url = "https://www.prosofthcm.com/upload/5934/3dHoTCaSmu.jpg";
     $button  = new ButtonTemplateBuilder("Setting", "For setting the system...", $img_url, $actions);
