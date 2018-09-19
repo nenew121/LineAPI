@@ -411,9 +411,10 @@ public function SettingEng($replyToken = null, $LineID)
 
 public function AboutUs($replyToken = null)
 {
+    $a = TestGet();
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/")
-        //New UriTemplateActionBuilder("TestGetURL", $Get),
+        New UriTemplateActionBuilder("TestGetURL", $a),
         //New MessageTemplateActionBuilder("Test", "Test"),
         //New MessageTemplateActionBuilder("Test", "Test")
          );
