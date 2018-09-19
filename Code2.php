@@ -56,7 +56,7 @@ function ChangeLanguage($LineID,$Lang){
     }else{
         $SetLang = "en-US";
     }
-    $url = "https://lineservice.prosofthcm.com/api/LanguageSetting/".$LineID."/".$SetLang;
+    $url = "https://lineservice.prosofthcm.com/api/LanguageSettingAPI/".$LineID."/".$SetLang;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
