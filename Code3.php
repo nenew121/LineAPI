@@ -411,7 +411,7 @@ public function SettingEng($replyToken = null, $LineID)
 
 public function AboutUs($replyToken = null)
 {
-    $Get = GetURL();
+    $Get = "https://www.google.co.th/";
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/")
         New UriTemplateActionBuilder("TestGetURL", $Get),
