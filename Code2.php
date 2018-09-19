@@ -149,7 +149,7 @@ function SendUserID(){
 */
 function SendNewsTo($NewsHDID){
     
-    $url = "https://lineservice.prosofthcm.com/Api/SendNewsToAPI/".$NewsHDID;
+    $url = "https://lineservice.prosofthcm.com/Api/SendNewsToLineAPI/".$NewsHDID;
     $open = json_decode(file_get_contents($url), true);
     
     return $open;
@@ -173,7 +173,7 @@ function LeaveRequest($LineID){
 */
 
 function Calendar($LineID){
-    $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/APi/CalendarAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "วันหยุดองค์กร\n-----------------------------";
     $i = 0;
@@ -194,7 +194,7 @@ function Calendar($LineID){
 }
 
 function CalendarEng($LineID){
-    $url = "https://lineservice.prosofthcm.com/APi/CalenderAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/APi/CalendarAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "Organization Calender\n-----------------------------";
     $i = 0;
