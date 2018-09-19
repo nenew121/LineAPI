@@ -411,10 +411,9 @@ public function SettingEng($replyToken = null, $LineID)
 
 public function AboutUs($replyToken = null)
 {
-    $a = TestGet();
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/")
-        New UriTemplateActionBuilder("TestGetURL", $a),
+        //New UriTemplateActionBuilder("TestGetURL", $a),
         //New MessageTemplateActionBuilder("Test", "Test"),
         //New MessageTemplateActionBuilder("Test", "Test")
          );
@@ -665,12 +664,6 @@ public function pho1234($replyToken = null)
         'replyToken' => $replyToken,
         'messages'   => $replyData->buildMessage(),
     ]);
-}
-    
-public function TestGet()
-{
-    $URL = "https://www.google.co.th/";
-    return $URL;
 }
     
 }
