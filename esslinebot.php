@@ -81,11 +81,12 @@ if (!empty($bot->isEvents)) {
             break;
             case "ที่ตั้งองค์กร":
                 $Text = LocationOrganization($bot->userId);
-                if($Text = "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $Text = "Please register to use system." || $Text = "ไม่พบที่อยู่องค์กร" || $Text = "not find Locationtion of Organization."){
+                $bot->replyMessageNew($bot->replyToken,$Text);
+                /*if($Text = "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $Text = "Please register to use system." || $Text = "ไม่พบที่อยู่องค์กร" || $Text = "not find Locationtion of Organization."){
                     $bot->replyMessageNew($bot->replyToken,$Text."adsfasdafsdf");
                 }else{
                     $bot->LocationOrg($bot->replyToken,$Text);
-                }
+                }*/
             break;
             case "Setting":
                 $bot->Setting($bot->replyToken,$bot->userId);
