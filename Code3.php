@@ -666,5 +666,11 @@ public function pho1234($replyToken = null)
     ]);
 }
     
+public function TestGet()
+{
+    $URL = "https://www.google.co.th/";
+    return $URL;
+}
+    
 }
 ?>
