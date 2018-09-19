@@ -54,7 +54,7 @@ if (!empty($bot->isEvents)) {
     $Language = GetLanguage($bot->userId);
     if($Language == "th-TH")
     {
-        if($bot->text == "Approve Center")
+        /*if($bot->text == "Approve Center")
         {
             $bot->ApproveCenter($bot->replyToken,$bot->userId);
         }
@@ -110,11 +110,53 @@ if (!empty($bot->isEvents)) {
         else
         {
             $bot->BOT_New($bot->replyToken,$bot->text);
+        }*/
+        switch($bot->text){
+            case "Approve Center":
+                $bot->ApproveCenter($bot->replyToken,$bot->userId);
+            break;
+            case "Time Attendance":
+                $bot->TimeAttendance($bot->replyToken,$bot->userId);
+            break;
+            case "วันอนุญาตลา":
+                $Text = LeaveRemainNum($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "Payroll":
+                $bot->Payroll($bot->replyToken,$bot->userId);
+            break;
+            case "ขอสลิปเงินเดือน":
+                $Text = EPaySlip($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "Organization":
+                $bot->Organization($bot->replyToken,$bot->userId);
+            break;
+            case "วันหยุดองค์กร":
+                $Text = calendar($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "ที่ตั้งองค์กร":
+                $Text = LocationOrganization($bot->userId);
+                $bot->LocationOrg($bot->replyToken,$Text);
+            break;
+            case "Setting":
+                $bot->Setting($bot->replyToken,$bot->userId);
+            break;
+            case "เปลี่ยนภาษา":
+                $bot->SendLanguage($bot->replyToken,$bot->userId);
+            break;
+            case "AboutUs":
+                $bot->AboutUs($bot->replyToken);
+            break;
+            default:
+                $bot->BOT_New($bot->replyToken,$bot->text);
+            break;
         }
     }
     else if($Language == "en-US") //#####################################################################################
     {
-        if($bot->text == "Approve Center")
+        /*if($bot->text == "Approve Center")
         {
             $bot->ApproveCenterEng($bot->replyToken,$bot->userId);
         }
@@ -122,12 +164,6 @@ if (!empty($bot->isEvents)) {
         {
             $bot->TimeAttendanceEng($bot->replyToken,$bot->userId);
         }
-                /*
-                elseif($bot->text == "Leave Information")
-                {
-                    $bot->Leaveinformation($bot->replyToken);
-                }
-                */
         elseif($bot->text == "Leave Remain")
         {
             $Text = LeaveRemainNumEng($bot->userId);
@@ -177,6 +213,48 @@ if (!empty($bot->isEvents)) {
         else
         {
             $bot->BOT_New($bot->replyToken,$bot->text);
+        }*/
+        switch($bot->text){
+            case "Approve Center":
+                $bot->ApproveCenterEng($bot->replyToken,$bot->userId);
+            break;
+            case "Time Attendance":
+                $bot->TimeAttendanceEng($bot->replyToken,$bot->userId);
+            break;
+            case "Leave Remain":
+                $Text = LeaveRemainNumEng($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "Payroll":
+                $bot->PayrollEng($bot->replyToken,$bot->userId);
+            break;
+            case "E-Pay Slip":
+                $Text = EPaySlip($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "Organization":
+                $bot->OrganizationEng($bot->replyToken,$bot->userId);
+            break;
+            case "Organization Calendar":
+                $Text = CalendarEng($bot->userId);
+                $bot->replyMessageNew($bot->replyToken,$Text);
+            break;
+            case "Location of Organization":
+                $Text = LocationOrganization($bot->userId);
+                $bot->LocationOrg($bot->replyToken,$Text);
+            break;
+            case "Setting":
+                $bot->Setting($bot->replyToken,$bot->userId);
+            break;
+            case "Language":
+                $bot->SendLanguage($bot->replyToken,$bot->userId);
+            break;
+            case "AboutUs":
+                $bot->AboutUs($bot->replyToken);
+            break;
+            default:
+                $bot->BOT_New($bot->replyToken,$bot->text);
+            break;
         }
     }
     else
