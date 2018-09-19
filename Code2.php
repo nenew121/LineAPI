@@ -93,7 +93,7 @@ function Leaveinformation($LineID,$Status){
 
 function LeaveRemainNum($LineID){
     
-    $url = "https://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/api/LeaveRemainAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "ข้อมูลจำนวนวันลาคงเหลือ\n------------------------------";
     if($open != null){
