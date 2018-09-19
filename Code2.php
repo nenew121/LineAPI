@@ -122,9 +122,9 @@ function Calendar($LineID){
     if($open != null){
         $sum = "วันหยุดองค์กร\n-----------------------------";
         foreach($open as $text){
-            if($text['headcalender'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
+            if($text['headcalendar'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
                 $sum = $text['headcalendar'];
-            }else if($text['headcalender'] == "ปฎิทินของคุณไม่ได้กำหนดวัน" || $text['headcalendar'] == "Your calendar is not set the holiday."){
+            }else if($text['headcalendar'] == "ปฎิทินของคุณไม่ได้กำหนดวัน" || $text['headcalendar'] == "Your calendar is not set the holiday."){
                 $sum = $text['headcalendar'];
             }else{
                 $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
@@ -150,9 +150,9 @@ function CalendarEng($LineID){
     if($open != null){
         $sum = "Organization Calender\n-----------------------------";
         foreach($open as $text){
-            if($text['headcalender'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
+            if($text['headcalendar'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
                 $sum = $text['headcalendar'];
-            }else if($text['headcalender'] == "ปฎิทินของคุณไม่ได้กำหนดวัน" || $text['headcalendar'] == "Your calendar is not set the holiday."){
+            }else if($text['headcalendar'] == "ปฎิทินของคุณไม่ได้กำหนดวัน" || $text['headcalendar'] == "Your calendar is not set the holiday."){
                 $sum = $text['headcalendar'];
             }else{
                 $sum = $sum."\n".$text['countholiday'].".".$text['Subject'];
