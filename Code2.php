@@ -113,7 +113,7 @@ function LeaveRemainNum($LineID){
 
 function LeaveRemainNumEng($LineID){
     
-    $url = "https://lineservice.prosofthcm.com/api/LeaveNumAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/api/LeaveRemainAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "Leave Information Days Num\n-----------------------------";
     if($open != null){
