@@ -214,7 +214,7 @@ public function ApproveCenter($replyToken = null,$LineID)
     $actions = array(
         New UriTemplateActionBuilder("ขออนุมัติลา", "https://lineservice.prosofthcm.com/LineService/LeaveRequest/LeaveRequestInfo/".$LineID),
         New UriTemplateActionBuilder("ขอยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/AbstainTime/AbstainTimeInfo/".$LineID),
-        New UriTemplateActionBuilder("อนุมัติการขอลา", "https://lineservice.prosofthcm.com/LineService/ApproveLeave/ApproveLeaveInfo/".$LineID),
+        New UriTemplateActionBuilder("อนุมัติเอกสารลา", "https://lineservice.prosofthcm.com/LineService/ApproveLeave/ApproveLeaveInfo/".$LineID),
         New UriTemplateActionBuilder("อนุมัติยกเว้นรูดบัตร", "https://lineservice.prosofthcm.com/LineService/ApproveRequestAbstain/ApproveAbstainlnfo/".$LineID)
         );
 
@@ -252,7 +252,7 @@ public function TimeAttendance($replyToken = null, $LineID)
     $actions = array(
         New UriTemplateActionBuilder("ลงเวลาเข้างาน", "https://lineservice.prosofthcm.com/LineService/TimeStamp/TimeStampInfo/".$LineID),
         New UriTemplateActionBuilder("ข้อมูลเวลาทำงาน", "https://lineservice.prosofthcm.com/LineService/WorkTime/WorkTimeInfo/".$LineID),
-        New MessageTemplateActionBuilder("วันอนุญาตลา", "วันอนุญาตลา"),
+        New MessageTemplateActionBuilder("สิทธิ์การลา/วันลาคงเหลือ", "สิทธิ์การลา/วันลาคงเหลือ"),
         New UriTemplateActionBuilder("ข้อมูลการขอลา", "https://lineservice.prosofthcm.com/LineService/LeaveRequest/LeaveRequestList/".$LineID)
         );
 
@@ -353,25 +353,6 @@ public function Organization($replyToken = null,$LineID)
         'messages'   => $outputText->buildMessage(),
     ]);
     
-    /*
-    $base = new BaseSizeBuilder(1040,710);
-        $arr = array(
-            new ImagemapMessageActionBuilder("Organization Calendar", new AreaBuilder(0,400,1040,130)),
-            new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/LineService/News/News/".$LineID, new AreaBuilder(0,530,1040,130)),
-            new ImagemapMessageActionBuilder("Location of Organization", new AreaBuilder(0,660,1040,130)),
-            new ImagemapMessageActionBuilder("Organization Phone No.", new AreaBuilder(0,790,1040,130))
-            
-            //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
-            //new ImagemapUriActionBuilder("https://cherry-pie-82107.herokuapp.com/HR.php", new AreaBuilder(35,823,965,186)),
-            //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
-            //new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
-        );
-        $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/ZIkjVrH1Mv.png?S=699","test",$base,$arr);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
-    ]);
-    */
 }
 
 public function OrganizationEng($replyToken = null,$LineID)
@@ -392,25 +373,6 @@ public function OrganizationEng($replyToken = null,$LineID)
         'messages'   => $outputText->buildMessage(),
     ]);
     
-    /*
-    $base = new BaseSizeBuilder(1040,710);
-        $arr = array(
-            new ImagemapMessageActionBuilder("Organization Calendar", new AreaBuilder(0,400,1040,130)),
-            new ImagemapUriActionBuilder("https://lineservice.prosofthcm.com/LineService/News/News/".$LineID, new AreaBuilder(0,530,1040,130)),
-            new ImagemapMessageActionBuilder("Location of Organization", new AreaBuilder(0,660,1040,130)),
-            new ImagemapMessageActionBuilder("Organization Phone No.", new AreaBuilder(0,790,1040,130))
-            
-            //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,624,965,199)),
-            //new ImagemapUriActionBuilder("https://cherry-pie-82107.herokuapp.com/HR.php", new AreaBuilder(35,823,965,186)),
-            //new ImagemapUriActionBuilder("https://www.google.co.th", new AreaBuilder(35,1009,965,188)),
-            //new ImagemapMessageActionBuilder("Text", new AreaBuilder(35,1197,965,187))
-        );
-        $replyData = new ImagemapMessageBuilder("https://www.prosofthcm.com/upload/5934/ZIkjVrH1Mv.png?S=699","test",$base,$arr);
-        $this->response = $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
-        'replyToken' => $replyToken,
-        'messages'   => $replyData->buildMessage(),
-    ]);
-    */
 }
 
 public function Setting($replyToken = null, $LineID)
@@ -451,7 +413,7 @@ public function AboutUs($replyToken = null)
 {
     $actions = array(
         New UriTemplateActionBuilder("Redirect", "https://www.prosofthcm.com/")
-        //New UriTemplateActionBuilder("Getlocation", "https://lineservice.prosofthcm.com/LineService/GetLocaltion/GetLocaltion"),
+        //New UriTemplateActionBuilder("TestGetURL", $a),
         //New MessageTemplateActionBuilder("Test", "Test"),
         //New MessageTemplateActionBuilder("Test", "Test")
          );
@@ -690,7 +652,7 @@ public function pho123($replyToken = null)
 
 public function pho1234($replyToken = null)
 {
-    
+
     $temp = new UriTemplateActionBuilder("Uri","https://www.google.co.th");
     $actions = array(
         new ImageCarouselColumnTemplateBuilder("https://www.prosofthcm.com/upload/5934/5d1apZw0Oh.jpg",$temp),
@@ -703,9 +665,6 @@ public function pho1234($replyToken = null)
         'messages'   => $replyData->buildMessage(),
     ]);
 }
-turn $url;
-}
-
-
+    
 }
 ?>
