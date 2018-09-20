@@ -288,7 +288,7 @@ public function TimeAttendanceEng($replyToken = null, $LineID)
 public function Payroll($replyToken = null,$LineID)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("ขอสลิปเงินเดือน", "ขอสลิปเงินเดือน")
+        New MessageTemplateActionBuilder("ขอสลิปเงินเดือน", "ขอสลิปเงินเดือน"),
         New MessageTemplateActionBuilder("ขอเอกสาร 50 ทวิ", "ขอเอกสาร 50 ทวิ"),
         //New MessageTemplateActionBuilder("Works Cer.Request", "Works Cer.Request"),
         //New MessageTemplateActionBuilder("Salary Cer.Request", "Salary Cer.Request")
@@ -313,7 +313,7 @@ public function Payroll($replyToken = null,$LineID)
 public function PayrollEng($replyToken = null,$LineID)
 {
     $actions = array(
-        New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip")
+        New MessageTemplateActionBuilder("E-Pay Slip", "E-Pay Slip"),
         New MessageTemplateActionBuilder("ขอเอกสาร 50 ทวิ", "ขอเอกสาร 50 ทวิ"),
         //New MessageTemplateActionBuilder("Works Cer.Request", "Works Cer.Request"),
         //New MessageTemplateActionBuilder("Salary Cer.Request", "Salary Cer.Request")
