@@ -134,6 +134,11 @@ if (!empty($bot->isEvents)) {
                 $Text = EPaySlip($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
+            case "ขอเอกสาร 50 ทวิ":
+                $Text = Withholdingtaxcertificate($bot->userId);
+                $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+            break;
             case "Organization":
                 $bot->OrganizationEng($bot->replyToken,$bot->userId);
             break;
