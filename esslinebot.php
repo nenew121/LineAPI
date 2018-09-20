@@ -166,6 +166,10 @@ if (!empty($bot->isEvents)) {
             break;
         }
     }
+    else if($Language == "NoDB")
+    { // Check Connect DB
+        $bot->replyMessageNew($bot->replyToken,"ยังไม่ได้เชื่อมต่อกับฐานข้อมูล\nNot connection DB.");
+    }
     else
     {
         if($bot->text == "ภาษาไทย (Thai)" || $bot->text == "ภาษาอังกฤษ (English)"){
