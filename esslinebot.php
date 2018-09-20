@@ -73,7 +73,7 @@ if (!empty($bot->isEvents)) {
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
             case "ขอเอกสาร 50 ทวิ":
-                $Text = Withholdingtaxcertificate($bot->userId);
+                //$Text = Withholdingtaxcertificate($bot->userId);
                 $bot->SendMessageTo("U05a39ae3a619678ef4b1b58111980a79","ขอเอกสาร 50 ทวิ"); // ส่งข้อความหาHR
                 $bot->replyMessageNew("U7fb3dc484426fb164c424df09b7a42ba","ขอเอกสาร 50 ทวิ"); // ส่งข้อความหาผู้ขอ
             break;
