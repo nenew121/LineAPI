@@ -149,7 +149,7 @@ public function SendMessageToEmpRequest($ToLineID = null, $message = null){
                     ),
                     new UriTemplateActionBuilder(
                         'Go to request', // ข้อความสำหรับปุ่มแรก
-                        "https://lineservice.prosofthcm.com/LineService/LeaveRequest/LeaveRequestList/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                        "https://lineservice.prosofthcm.com/LineService/LeaveRequest/LeaveRequestInfo/".$ToLineID // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                     )
                 )
             )
