@@ -3,8 +3,8 @@
 require('Code3.php');
 include('Code2.php');
 
-$channelSecret = '592e8df851742b42aa264f7e9e5fb26c';
-$access_token  = '8YB0v5Ltt9ENVQPRQNExtnowRfWteWwdD13Y7s4+E4pRqNGVjFwVacuauvTYUFFUvhFT8A7JOD0AOTUsYDWqXRGXa5Z1Ta3Qzb38JNSzpmB6CQmllEiHJh0SZSBkgI+EYnR0DSwWJuvwBTXe4PkMeQdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '24b8330e076be1a325adf77ff6d0f555';
+$access_token  = 'mDXYsTvt05NiOjLkB4i0sSBL+u67LR/F0+xsdo4gzX3ApRhwnzZm+OHuMRpU8r/XGtALW0RmQoE7jXdwy3tp1CWw4Hg33idfG3RK1DU0SPL48NKxwfEZC57QdfOPFYxyTvw7qJ9le6IZ3BQWL6to8AdB04t89/1O/w1cDnyilFU=';
 
 $NewsHDID = $_POST['NewsHDID'];
 $News = $_POST['News'];
@@ -24,30 +24,21 @@ if(!empty($NewsHDID)){
     for ($i = 0; $i<$iCount; $i++) {
         $bot->SendMessageTo($arr[$i],$News);
     }
-    //$ArrID = array("U7fb3dc484426fb164c424df09b7a42ba","U05a39ae3a619678ef4b1b58111980a79");
-    //$iCount = count($ArrID);
-    //for ($i = 0; $i<$iCount; $i++) {
-    //    $bot->SendMessageTo($ArrID[$i],$News);
-    //}
-    //$bot->SendMessageTo("U7fb3dc484426fb164c424df09b7a42ba",$News);
 }
 
 // แจ้งเอกสารลาหาผู้อนุมัติ
 if(!empty($LineIDLeaveRecord)){
     $bot->SendMessageApproveTo($LineIDLeaveRecord,$Detail);
-    //$bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$Detail);
 }
 
 // แจ้งเอกสารคนอนุมัติถัดไป
 if(!empty($LineID_NextApprove)){
     $bot->SendMessageApproveTo($LineID_NextApprove ,$WaitApprove);
-    //$bot->SendMessageApproveTo("U7fb3dc484426fb164c424df09b7a42ba",$WaitApprove);
 }
 
 // แจ้งเอกสารหาผู้ขอลา
 if(!empty($LineID_EmpID)){
     $bot->SendMessageToEmpRequest($LineID_EmpID ,$ApproveStatus);
-    //$bot->SendMessageToEmpRequest("U7fb3dc484426fb164c424df09b7a42ba",$ApproveStatus);
 }
 
 if (!empty($bot->isEvents)) {
@@ -56,17 +47,17 @@ if (!empty($bot->isEvents)) {
     {
         switch($bot->text){
             case "Approve Center":
-                $bot->ApproveCenter($bot->replyToken,$bot->userId);
+                $bot->ApproveCenter();
             break;
             case "Time Attendance":
-                $bot->TimeAttendance($bot->replyToken,$bot->userId);
+                $bot->TimeAttendance();
             break;
             case "สิทธิ์การลา/วันลาคงเหลือ":
                 $Text = LeaveRemainNum($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
             case "Payroll":
-                $bot->Payroll($bot->replyToken,$bot->userId);
+                $bot->Payroll();
             break;
             case "ขอสลิปเงินเดือน":
                 $Text = EPaySlip($bot->userId);
@@ -74,11 +65,33 @@ if (!empty($bot->isEvents)) {
             break;
             case "ขอเอกสาร 50 ทวิ":
                 $Text = Withholdingtaxcertificate($bot->userId);
-                $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
-                $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                if(count($Text) > 1){
+                    $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                    $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                }else{
+                    $bot->replyMessageNew($bot->replyToken,$Text[0]); // ส่งข้อความหาผู้ขอ
+                }
+            break;
+            case "ขอใบรับรองการทำงาน":
+                $Text = WorkCert($bot->userId);
+                if(count($Text) > 1){
+                    $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                    $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                }else{
+                    $bot->replyMessageNew($bot->replyToken,$Text[0]); // ส่งข้อความหาผู้ขอ
+                }
+            break;
+            case "ขอเอกสารรับรองเงินเดือน":
+                $Text = SalaryCert($bot->userId);
+                if(count($Text) > 1){
+                    $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                    $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                }else{
+                    $bot->replyMessageNew($bot->replyToken,$Text[0]); // ส่งข้อความหาผู้ขอ
+                }
             break;
             case "Organization":
-                $bot->Organization($bot->replyToken,$bot->userId);
+                $bot->Organization();
             break;
             case "วันหยุดองค์กร":
                 $Text = calendar($bot->userId);
@@ -93,7 +106,7 @@ if (!empty($bot->isEvents)) {
                 }
             break;
             case "Setting":
-                $bot->Setting($bot->replyToken,$bot->userId);
+                $bot->Setting();
             break;
             case "เปลี่ยนภาษา":
                 $bot->SendLanguage($bot->replyToken,$bot->userId);
@@ -106,9 +119,6 @@ if (!empty($bot->isEvents)) {
                 $Text = ChangeLanguage($bot->userId,$bot->text);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
-            case "AboutUs":
-                $bot->AboutUs($bot->replyToken);
-            break;
             default:
                 $bot->BOT_New($bot->replyToken,$bot->text);
             break;
@@ -118,29 +128,51 @@ if (!empty($bot->isEvents)) {
     {
         switch($bot->text){
             case "Approve Center":
-                $bot->ApproveCenterEng($bot->replyToken,$bot->userId);
+                $bot->ApproveCenterEng();
             break;
             case "Time Attendance":
-                $bot->TimeAttendanceEng($bot->replyToken,$bot->userId);
+                $bot->TimeAttendanceEng();
             break;
             case "Leave Remain":
                 $Text = LeaveRemainNumEng($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
             case "Payroll":
-                $bot->PayrollEng($bot->replyToken,$bot->userId);
+                $bot->PayrollEng();
             break;
             case "E-Pay Slip":
                 $Text = EPaySlip($bot->userId);
                 $bot->replyMessageNew($bot->replyToken,$Text);
             break;
-            case "ขอเอกสาร 50 ทวิ":
+            case "50 Bis Request":
                 $Text = Withholdingtaxcertificate($bot->userId);
-                $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
-                $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                if(count($Text) > 1){
+                    $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                    $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                }else{
+                    $bot->replyMessageNew($bot->replyToken,$Text[0]); // ส่งข้อความหาผู้ขอ
+                }
+            break;
+            case "Works Cer. Request":
+                $Text = WorkCert($bot->userId);
+                if(count($Text) > 1){
+                    $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                    $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                }else{
+                    $bot->replyMessageNew($bot->replyToken,$Text[0]); // ส่งข้อความหาผู้ขอ
+                }
+            break;
+            case "Salary Cer. Request":
+                $Text = SalaryCert($bot->userId);
+                if(count($Text) > 1){
+                    $bot->SendMessageTo($Text[1],$Text[0]); // ส่งข้อความหาHR
+                    $bot->replyMessageNew($bot->replyToken,$Text[2]); // ส่งข้อความหาผู้ขอ
+                }else{
+                    $bot->replyMessageNew($bot->replyToken,$Text[0]); // ส่งข้อความหาผู้ขอ
+                }
             break;
             case "Organization":
-                $bot->OrganizationEng($bot->replyToken,$bot->userId);
+                $bot->OrganizationEng();
             break;
             case "Organization Calendar":
                 $Text = CalendarEng($bot->userId);
@@ -155,7 +187,7 @@ if (!empty($bot->isEvents)) {
                 }
             break;
             case "Setting":
-                $bot->SettingEng($bot->replyToken,$bot->userId);
+                $bot->SettingEng();
             break;
             case "Language":
                 $bot->SendLanguage($bot->replyToken,$bot->userId);
@@ -167,9 +199,6 @@ if (!empty($bot->isEvents)) {
             case "ภาษาอังกฤษ (English)":
                 $Text = ChangeLanguage($bot->userId,$bot->text);
                 $bot->replyMessageNew($bot->replyToken,$Text);
-            break;
-            case "AboutUs":
-                $bot->AboutUs($bot->replyToken);
             break;
             default:
                 $bot->BOT_New($bot->replyToken,$bot->text);
@@ -201,4 +230,3 @@ if ($bot->isSuccess())
 echo $bot->response->getHTTPStatus . ' ' . $bot->response->getRawBody();
 exit();
 ?>
-
