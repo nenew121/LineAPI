@@ -22,7 +22,6 @@ function ConnectDatabase()
 }
 
 function GetLanguage($LineID){
-    
     $url = "https://lineservice.prosofthcm.com/api/LanguageAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
@@ -43,7 +42,6 @@ function ChangeLanguage($LineID,$Lang){
 }
 
 function LeaveRemainNum($LineID){
-    
     $url = "https://lineservice.prosofthcm.com/api/LeaveRemainAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "";
@@ -67,7 +65,6 @@ function LeaveRemainNum($LineID){
 }
 
 function LeaveRemainNumEng($LineID){
-    
     $url = "https://lineservice.prosofthcm.com/api/LeaveRemainAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $sum = "";
@@ -91,7 +88,6 @@ function LeaveRemainNumEng($LineID){
 }
 
 function EPaySlip($LineID){
-    
     $url = "https://lineservice.prosofthcm.com/api/EPaySlipAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
@@ -100,7 +96,25 @@ function EPaySlip($LineID){
 
 function Withholdingtaxcertificate($LineID){
     
-    $url = "https://lineservice.prosofthcm.com/api/TaxCertificateRequestAPI/".$LineID;
+    $url = "https://lineservice.prosofthcm.com/api/TaxCert_RequestAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    $textsp = explode(",",$open);
+
+    return $textsp;
+}
+
+function SalaryCert($LineID){
+    
+    $url = "https://lineservice.prosofthcm.com/api/SalaryCert_RequestAPI/".$LineID;
+    $open = json_decode(file_get_contents($url), true);
+    $textsp = explode(",",$open);
+
+    return $textsp;
+}
+
+function WorkCert($LineID){
+    
+    $url = "https://lineservice.prosofthcm.com/api/WorkCert_RequestAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     $textsp = explode(",",$open);
 
@@ -108,7 +122,6 @@ function Withholdingtaxcertificate($LineID){
 }
 
 function SendNewsTo($NewsHDID){
-    
     $url = "https://lineservice.prosofthcm.com/Api/SendNewsToLineAPI/".$NewsHDID;
     $open = json_decode(file_get_contents($url), true);
     
@@ -116,7 +129,6 @@ function SendNewsTo($NewsHDID){
 }
 
 function LocationOrganization($LineID){
-    
     $url = "https://lineservice.prosofthcm.com/Api/LocationOrgAPI/".$LineID;
     $open = json_decode(file_get_contents($url), true);
     
@@ -162,7 +174,7 @@ function CalendarEng($LineID){
     $ischeck = true;
     $i = 0;
     if($open != null){
-        $sum = "Organization Calender\n-----------------------------";
+        $sum = "Organization Calendar\n-----------------------------";
         foreach($open as $text){
             if($text['headcalendar'] == "ชื่อผู้ใช้ของคุณ ยังไม่ได้ลงทะเบียน" || $text['headcalendar'] == "Please register to use system."){
                 $sum = $text['headcalendar'];
@@ -186,5 +198,4 @@ function CalendarEng($LineID){
     }
     return $sum;
 }
-
 ?>
